@@ -93,38 +93,38 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>写在之前：</p>
-<p>本文参考</p>
+        <p>@[toc]</p>
+<h3 id="写在之前："><a href="#写在之前：" class="headerlink" title="写在之前："></a>写在之前：</h3><p>本文参考</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty">手把手教你从0开始搭建自己的个人博客 |无坑版视频教程| hexo</a> </p>
-<p> <a target="_blank" rel="noopener" href="https://plutoacharon.github.io/2019/05/20/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/">hexo搭建个人博客（一）</a></p>
+<p> <a target="_blank" rel="noopener" href="https://plutoacharon.github.io/2019/05/20/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/">hexo搭建个人博客（一）</a><br> <a target="_blank" rel="noopener" href="https://plutoacharon.github.io/2019/05/21/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%BA%8C%EF%BC%89/">hexo搭建个人博客（二）</a></p>
 <p>具体的步骤上面的视频和文章已经写得很详细了，但因为我这里是windows系统，遇到了和上面不一样的问题，包括</p>
 <h3 id="第一个坑"><a href="#第一个坑" class="headerlink" title="第一个坑"></a>第一个坑</h3><blockquote>
 <p>到部署至GitHub这一步时，运行至<code>hexo d</code>时出现如下报错（这里我用的还是cmd）</p>
 </blockquote>
-<p><img src="D:%5CPicture%5CTypro%20Picture%5CPyHecV7TLpjOfib.png" alt="image-20211205164101080"></p>
+<p><img src="D:%5CPicture%5CTypro%20Picture%5C9d1c0c1eb99401a39a8a33d518ed1fcd.png" alt="image-20211205164101080"></p>
 <p>网上查了很久，大概是git没有配置环境变量的问题，可选择重新添加配置，或者直接下载Git，在git bash运行。基于各种因素（bash命令行对我更友好以及开头因为新上手刚好想调整blog文件位置等原因），选择直接下载Git</p>
 <p>可自行前往<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">Git官网</a>下载</p>
-<p>但国内一般贼慢，比如我这里直接进不去，所以找到了这个 Git<a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/git-for-windows/">镜像</a></p>
+<p>但国内一般贼慢，比如我这里直接进不去，所以找到了这个 <a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/git-for-windows/">Git镜像</a></p>
 <p>安装步骤和普通软件一样，可自行参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32786873/article/details/80570783">Windows10下安装Git</a></p>
 <h3 id="第二个坑"><a href="#第二个坑" class="headerlink" title="第二个坑"></a>第二个坑</h3><blockquote>
 <p>在<code>.\blog\_config</code>文件中配置完自己GitHub仓库信息后直接运行<code>hexo d</code>出现</p>
 </blockquote>
-<p><img src="D:%5CPicture%5CTypro%20Picture%5CFfgDbTSpIEz1LO3.png" alt="image-20211205170537606"></p>
+<p><img src="D:%5CPicture%5CTypro%20Picture%5C3b7b36af1fcd70d21d6cf1a95c1815cb.png" alt="image-20211205170537606"></p>
 <p>其实图中已经给提示了，需要先tell it who I am，在<code>hexo d</code>之前敲两行</p>
 <p><code>$ git config --global user.email &quot;你的GitHub注册邮箱&quot;</code></p>
 <p><code>$ git config --global user.name &quot;你的GitHub昵称&quot;</code></p>
-<p><img src="D:%5CPicture%5CTypro%20Picture%5CYBcbZMoCh9rztiv.png" alt="image-20211205170926798"></p>
+<p><img src="D:%5CPicture%5CTypro%20Picture%5C6f9805a9c1edc5200bf0e844daa43852.png" alt="image-20211205170926798"></p>
 <h3 id="第三个坑"><a href="#第三个坑" class="headerlink" title="第三个坑"></a>第三个坑</h3><blockquote>
 <p>敲完上面第二个坑中的<code>git config</code>配置命令后继续<code>hexo d</code>还是出现如下报错</p>
 </blockquote>
-<p><img src="D:%5CPicture%5CTypro%20Picture%5Cimage-20211205194614400.png" alt="image-20211205194614400"></p>
+<p><img src="D:%5CPicture%5CTypro%20Picture%5C0c201f0e9da16676c67778466472f368.png" alt="image-20211205194614400"></p>
 <p>这个时候检查一下网络，比如刷新一下自己的GitHub主页是否正常连接，速度如何，我这里最后发现主要是网络问题，挂梯子重新<code>hexo d</code>直接解决，成功后显示如下</p>
-<img src="D:%5CPicture%5CTypro%20Picture%5Cimage-20211205194427235.png" alt="image-20211205194427235" style="zoom:50%;" />
+<img src="https://s2.loli.net/2021/12/05/LkwHsuPXhZCba6J.png" alt="image-20211205194427235" style="zoom:50%;" />
 
 <p>然后输入<code>hexo s</code>启动</p>
-<p><img src="D:%5CPicture%5CTypro%20Picture%5Cimage-20211205194700060.png" alt="image-20211205194700060"></p>
+<p><img src="D:%5CPicture%5CTypro%20Picture%5Cd8d225f1f8baccd9d783f2b4d7e4c19e.png" alt="image-20211205194700060"></p>
 <p>这个时候进入<code>https://twocanis.github.io/</code>(以我自己id为例)，<strong>稍微等两秒</strong>后刷新界面（这里连接刷新需要反应时间），就能正常显示且可作为外链网址提供给他人访问了</p>
-<p><img src="D:%5CPicture%5CTypro%20Picture%5Cimage-20211205194851712.png" alt="image-20211205194851712"></p>
+<p><img src="D:%5CPicture%5CTypro%20Picture%5C0c4b71a4b4e6ffbec92d5f002f48b7e5.png" alt="image-20211205194851712"></p>
 
       
     </div>
