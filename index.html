@@ -154,6 +154,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-搭建hexo博客修改设置网页图标icon失败的解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/09/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%BF%AE%E6%94%B9%E8%AE%BE%E7%BD%AE%E7%BD%91%E9%A1%B5%E5%9B%BE%E6%A0%87icon%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">搭建hexo博客修改设置网页图标icon失败的解决方法</a>
+    </h1>
+  
+
+        
+        <a href="/2021/12/09/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%BF%AE%E6%94%B9%E8%AE%BE%E7%BD%AE%E7%BD%91%E9%A1%B5%E5%9B%BE%E6%A0%87icon%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2021-12-09T01:26:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>问题描述</strong></p>
+<p>基于hexo新搭建好的个人博客想更换网页图标的icon</p>
+<p><strong>期望达到的效果</strong></p>
+<p>更换前：<img src="https://s2.loli.net/2021/12/09/ZlSpXJsrdio9GnH.png" alt="image-20211209092952422" style="zoom:80%;" /></p>
+<p>更换后：<img src="https://s2.loli.net/2021/12/09/AVCKNpX61nY4aLq.png" alt="image-20211209093034697" style="zoom:80%;" /></p>
+<p><strong>背景</strong></p>
+<p>我用的chrome浏览器，使用的是yilia主题，参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/CYK5201995/article/details/107112784?spm=1001.2101.3001.6650.4&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-4.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-4.no_search_link">前端 | hexo+yilia博客主题设置网页ico小图标</a> 设置后一直不成功</p>
+<p><strong>尝试的的解决途径</strong></p>
+<ul>
+<li>直接去根目录下的<code>/blog/_config.yml</code>添加修改<code>favicon</code>，失败</li>
+<li>更改icon图片存放位置，并在主题<code>/themes/yilia/_config.yml</code>文件中修改对应路径，失败</li>
+<li>去<code>/blog/public/index.hmtl</code>下F12修改页面参数，无法更新，失败</li>
+</ul>
+<p><strong>解决办法</strong></p>
+<p>最后无意间看到这篇帖子 <a target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next/issues/539">试了好久，favicon.ico都设置失败</a> ，推测我的可能也是图片大小问题，去 <a target="_blank" rel="noopener" href="https://www.bitbug.net/">在线制作ico图标</a>  <font color=red><strong>将目的图片改成 16×16 大小</strong></font> ，重新<code>hexo g</code>更新，以及<code>hexo d</code>部署至远端，成功解决问题！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/12/09/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%BF%AE%E6%94%B9%E8%AE%BE%E7%BD%AE%E7%BD%91%E9%A1%B5%E5%9B%BE%E6%A0%87icon%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-代谢组学分析常用网站" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
