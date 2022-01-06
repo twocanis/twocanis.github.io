@@ -3,7 +3,6 @@
     /*background: #fff;*/
     background-color: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
     width: 300px;
-	color:#a8a8a8;font-size:12px;
     position: fixed;
     opacity: 1;
     transition: all .2s ease-in;
