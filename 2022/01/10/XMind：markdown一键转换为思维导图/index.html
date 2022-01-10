@@ -6,22 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://twocanis.github.io">
-  <title>markdown本地编辑器Tyora的优点与初使用 | twocanis&#39;s blog</title>
+  <title>XMind：markdown一键转换为思维导图 | twocanis&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="[toc] 写在前面​    刚搭的这个个人blog站，肯定会要用到markdown，就干脆把之前写的笔记拿上来，因为是刚接触的时候写的，现在看起来还是挺可爱的，没改动直接放上来了，有问题再改 ​        刚开始接触markdown，因为自己是纯科研狗，仅仅只是想找个工具做实验记录方便点，于是先尝试了vscode 中的markdown编辑器，先熟悉了基本的语法，确实这种零排版的格式整洁漂亮，">
+  <meta name="description" content="前言刚入学的时候装机软件一起下载了XMind，后来只是在组会文献精读做大纲的时候用过几次，生疏得很，今天做年终总结的大纲发现能够将做好的导图导出为markdown格式，也能将markdown格式直接导入生成导图，这样给常用md做实验记录和日常笔记的我带来了诸多便利（尽管这点早就写在了官方教程和各大推荐里，是我没有好好了解-_-) 示例 我将总结写成如下md格式  12345678910111213">
 <meta property="og:type" content="article">
-<meta property="og:title" content="markdown本地编辑器Tyora的优点与初使用">
-<meta property="og:url" content="https://twocanis.github.io/2021/12/05/markdown%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%BE%91%E5%99%A8Tyora%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E5%88%9D%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:title" content="XMind：markdown一键转换为思维导图">
+<meta property="og:url" content="https://twocanis.github.io/2022/01/10/XMind%EF%BC%9Amarkdown%E4%B8%80%E9%94%AE%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/index.html">
 <meta property="og:site_name" content="twocanis&#39;s blog">
-<meta property="og:description" content="[toc] 写在前面​    刚搭的这个个人blog站，肯定会要用到markdown，就干脆把之前写的笔记拿上来，因为是刚接触的时候写的，现在看起来还是挺可爱的，没改动直接放上来了，有问题再改 ​        刚开始接触markdown，因为自己是纯科研狗，仅仅只是想找个工具做实验记录方便点，于是先尝试了vscode 中的markdown编辑器，先熟悉了基本的语法，确实这种零排版的格式整洁漂亮，">
+<meta property="og:description" content="前言刚入学的时候装机软件一起下载了XMind，后来只是在组会文献精读做大纲的时候用过几次，生疏得很，今天做年终总结的大纲发现能够将做好的导图导出为markdown格式，也能将markdown格式直接导入生成导图，这样给常用md做实验记录和日常笔记的我带来了诸多便利（尽管这点早就写在了官方教程和各大推荐里，是我没有好好了解-_-) 示例 我将总结写成如下md格式  12345678910111213">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="data:image/png;base64,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">
-<meta property="article:published_time" content="2021-12-05T12:58:40.000Z">
-<meta property="article:modified_time" content="2021-12-09T13:35:03.720Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/508ffc5d73bf4ed5a44ef0c9c7ca1db7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAdHdvY2FuaXM=,size_13,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/bcb2da2822234d2bb627d8944f6aac18.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAdHdvY2FuaXM=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="article:published_time" content="2022-01-10T11:33:02.000Z">
+<meta property="article:modified_time" content="2022-01-10T11:54:16.725Z">
 <meta property="article:author" content="twocanis">
-<meta property="article:tag" content="博客搭建">
+<meta property="article:tag" content="生产力">
+<meta property="article:tag" content="技巧">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="data:image/png;base64,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">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/508ffc5d73bf4ed5a44ef0c9c7ca1db7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAdHdvY2FuaXM=,size_13,color_FFFFFF,t_70,g_se,x_16">
   
     <link rel="alternative" href="/atom.xml" title="twocanis&#39;s blog" type="application/atom+xml">
   
@@ -165,20 +167,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-markdown本地编辑器Tyora的优点与初使用" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-XMind：markdown一键转换为思维导图" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      markdown本地编辑器Tyora的优点与初使用
+      XMind：markdown一键转换为思维导图
     </h1>
   
 
         
-        <a href="/2021/12/05/markdown%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%BE%91%E5%99%A8Tyora%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E5%88%9D%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2021-12-05T12:58:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-05</time>
+        <a href="/2022/01/10/XMind%EF%BC%9Amarkdown%E4%B8%80%E9%94%AE%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" class="archive-article-date">
+  	<time datetime="2022-01-10T11:33:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-10</time>
 </a>
         
     
@@ -192,261 +194,73 @@
 
       </header>
 	  <div align="center" class="post-count">
-    字数：1.5k字 | 预计阅读时长：5分钟
+    字数：737字 | 预计阅读时长：2分钟
 </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>[toc]</p>
-<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>​    刚搭的这个个人blog站，肯定会要用到markdown，就干脆把之前写的笔记拿上来，因为是刚接触的时候写的，现在看起来还是挺可爱的，没改动直接放上来了，有问题再改</p>
-<p>​        刚开始接触markdown，因为自己是纯科研狗，仅仅只是想找个工具做实验记录方便点，于是先尝试了vscode 中的markdown编辑器，先熟悉了基本的语法，确实这种零排版的格式整洁漂亮，但还是有不少问题，比如图片的粘贴（即使下了插件也不太好用），表格的绘制以及文本内容的粘贴和导出等，文本只能保持markdown格式粘贴出去，没法去掉格式。于是我自己就找了一下更方便一点的本地markdown编辑器，意外找到了typora，初步尝试了一下，很惊喜，上手不要太爽，自己也只是个新手，想到可能没人比我还傻需要如此简单的教程，所以就权当给自己列个说明了自己看了，所以用Typora写了这个，如下。</p>
-<span id="more"></span>
-
-<blockquote>
-<p><strong>Markdown</strong>是一种<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%BD%BB%E9%87%8F%E7%BA%A7%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80">轻量级标记语言</a>，创始人为<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%B4%84%E7%BF%B0%C2%B7%E6%A0%BC%E9%AD%AF%E4%BC%AF">约翰·格鲁伯</a>（英语：John Gruber）。它允许人们使用易读易写的纯文本格式编写文档，然后转换成有效的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/XHTML">XHTML</a>（或者<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTML">HTML</a>）文档。这种语言吸收了很多在<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6">电子邮件</a>中已有的纯文本标记的特性。</p>
-<p>由于Markdown的轻量化、易读易写特性，并且对于图片，图表、数学式都有支持，目前许多网站都广泛使用Markdown来撰写帮助文档或是用于<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E8%AE%BA%E5%9D%9B">论坛</a>上发表消息。如<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/GitHub">GitHub</a>、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Reddit">Reddit</a>、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Diaspora">Diaspora</a>、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Stack_Exchange">Stack Exchange</a>、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/OpenStreetMap">OpenStreetMap</a> 、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/SourceForge">SourceForge</a>、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%AE%80%E4%B9%A6">简书</a>等，甚至还能被使用来撰写<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%9B%BB%E5%AD%90%E6%9B%B8">电子书</a>。</p>
-<p>——来自wikipedia</p>
-</blockquote>
-<p>刚打开的感受：</p>
-<blockquote>
-<ul>
-<li><p>所见即所得，干净整洁</p>
-</li>
-<li><p>无序标题的连续性强</p>
-</li>
-<li><p>本地可直接一键粘贴图片，自动生成路径 </p>
-<ul>
-<li><p>例如 ，直接ctrl+v</p>
-<img src="data:image/png;base64,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" alt="我这里为了能正常在网站上显示实际用的url"></li>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>刚入学的时候装机软件一起下载了XMind，后来只是在组会文献精读做大纲的时候用过几次，生疏得很，今天做年终总结的大纲发现能够将做好的导图导出为markdown格式，也能将markdown格式直接导入生成导图，这样给常用md做实验记录和日常笔记的我带来了诸多便利（尽管这点早就写在了官方教程和各大推荐里，是我没有好好了解-_-)</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<li>我将总结写成如下md格式</li>
 </ul>
-</li>
-<li><p>快捷键使用简单方便</p>
-</li>
-<li><p>包含多种导出格式，pdf、HTML、markdown等。优势：可复制为纯文本导出，即主题文字部分。以及完全不带markdown格式的纯内容。</p>
-</li>
-</ul>
-</blockquote>
-<p>==粗略研究之后==发现：</p>
-<blockquote>
-<p>typora简直是最佳本地markdown编辑器，没有之一！！！</p>
-</blockquote>
-<blockquote>
-<p> 下面为自己整理了以后使用中可能遇到的一下小tips：</p>
-</blockquote>
-<hr>
-<h2 id="语法代码显示"><a href="#语法代码显示" class="headerlink" title="语法代码显示"></a>语法代码显示</h2><h3 id="代码块显示"><a href="#代码块显示" class="headerlink" title="代码块显示"></a>代码块显示</h3><ul>
-<li>整行显示（三个```)，用于代码显示语法可选：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">​```回车</span><br><span class="line"><span class="string">&quot;hello word&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 2021年工作总结</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 实验工作</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 1-5月</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 细胞实验-植物提取物筛选</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 肉桂醛/香芹酚/麝香草酚/迷迭香酸刺激细胞实验</span><br><span class="line"><span class="bullet">-</span> CCK8/油红染色/脂滴染色实验</span><br><span class="line"></span><br><span class="line"><span class="section">### 6-9月</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 动物实验</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 内蒙三河牛规律性认识采样</span><br><span class="line"><span class="bullet">-</span> 内蒙奶维康添加饲喂调控实验</span><br><span class="line"></span><br><span class="line"><span class="section">### 10-11月</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 两批动物实验样本测定</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 奶样</span><br><span class="line"></span><br><span class="line"><span class="bullet">  -</span> DHI/水解氨基酸</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 血样</span><br><span class="line"></span><br><span class="line"><span class="bullet">  -</span> 非靶代谢组/水解氨基酸/游离氨基酸/血液生化/免疫与抗氧化</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 瘤胃样</span><br><span class="line"></span><br><span class="line"><span class="bullet">  -</span> 非靶代谢组/宏基因组/VFA/氨氮/MCP</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 粪样/饲料样</span><br><span class="line"></span><br><span class="line"><span class="bullet">  -</span> DM/CP/ADF/NDF/EE/GE/Ash</span><br><span class="line"></span><br><span class="line"><span class="section">### 12月</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 细胞实验-迷迭香酸</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 不同浓度迷迭香酸对BMEC的影响</span><br><span class="line"><span class="bullet">-</span> 新筛选出齐墩果酸这一提取物</span><br><span class="line"></span><br><span class="line"><span class="section">## 文献/文章</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 文献精读</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> Met对BMECs的乳脂合成调节</span><br><span class="line"><span class="bullet">-</span> NCG恢复NO合成并减轻高海拔引起的高海拔荷斯坦牛的肺动脉高压</span><br><span class="line"><span class="bullet">-</span> 褪黑素通过抑制牛奶脂肪的合成通路</span><br><span class="line"></span><br><span class="line"><span class="section">### 文章撰写</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> NCG作用于高海拔地区娟姗牛</span><br></pre></td></tr></table></figure>
 
-<p>效果如上</p>
 <ul>
-<li>行内显示(两个``之间）：</li>
+<li>正常在typro里显示成这样子</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们一般用命令``&lt;font color=red&gt;红字&lt;/font&gt;``来改变字体颜色</span><br></pre></td></tr></table></figure>
-
-<p>我们一般用命令<code>&lt;font color=red&gt;红字&lt;/font&gt;</code>来改变字体颜色</p>
-<p>我们一般用命令<font color=red>红字</font>来改变字体颜色</p>
-<h3 id="颜色与字号"><a href="#颜色与字号" class="headerlink" title="颜色与字号"></a>颜色与字号</h3><p><code>&lt;font color=#483D8B size=4&gt;text&lt;/font&gt;</code> </p>
-<p><font color=#483D8B size=40>text</font></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42662955/article/details/91156180">Markdown编辑器语法之代码高亮、标记和文字颜色</a> <strong>包含十六进制颜色值（即代码 font color=的输入值）和rgb值</strong></p>
-<ul>
-<li><strong>引用块</strong>：直接一个大于号</li>
+<blockquote>
+<h1 id="2021年工作总结"><a href="#2021年工作总结" class="headerlink" title="2021年工作总结"></a>2021年工作总结</h1><h2 id="实验工作"><a href="#实验工作" class="headerlink" title="实验工作"></a>实验工作</h2><h3 id="1-5月"><a href="#1-5月" class="headerlink" title="1-5月"></a>1-5月</h3><h4 id="细胞实验-植物提取物筛选"><a href="#细胞实验-植物提取物筛选" class="headerlink" title="细胞实验-植物提取物筛选"></a>细胞实验-植物提取物筛选</h4><ul>
+<li>肉桂醛/香芹酚/麝香草酚/迷迭香酸刺激细胞实验</li>
+<li>CCK8/油红染色/脂滴染色实验</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; 黑夜给了我黑色的眼睛，我却用它来寻找光明</span><br></pre></td></tr></table></figure>
-
-<p>效果</p>
-<blockquote>
-<p>黑夜给了我黑色的眼睛，我却用它来寻找光明</p>
-</blockquote>
-<hr>
-<h2 id="标题演示"><a href="#标题演示" class="headerlink" title="标题演示"></a>标题演示</h2><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + 1</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + 2 </span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + 3 </span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + 4 </span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl + 5 </span><br></pre></td></tr></table></figure>
-
-
-
-<h6 id="六级标题-都不算标题了算正文了吧哈哈哈哈哈"><a href="#六级标题-都不算标题了算正文了吧哈哈哈哈哈" class="headerlink" title="六级标题-都不算标题了算正文了吧哈哈哈哈哈"></a>六级标题-都不算标题了算正文了吧哈哈哈哈哈</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl + 6</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h2 id="常用字体变化演示"><a href="#常用字体变化演示" class="headerlink" title="常用字体变化演示"></a>常用字体变化演示</h2><h3 id="加粗、斜体、下划线、删除线"><a href="#加粗、斜体、下划线、删除线" class="headerlink" title="加粗、斜体、下划线、删除线"></a>加粗、斜体、下划线、删除线</h3><p>ctrl + B：<strong>加粗</strong></p>
-<p>ctrl + I ：<em>斜体</em></p>
-<p>ctrl + U ：<u>下划线</u></p>
-<blockquote>
-<ul>
-<li>沿用了word的语法容易记忆，快捷键的设置比其他markerdown编辑器的纯手打语法字符的设置方式更方便</li>
+<h3 id="6-9月"><a href="#6-9月" class="headerlink" title="6-9月"></a>6-9月</h3><h4 id="动物实验"><a href="#动物实验" class="headerlink" title="动物实验"></a>动物实验</h4><ul>
+<li>内蒙三河牛规律性认识采样</li>
+<li>内蒙奶维康添加饲喂调控实验</li>
 </ul>
-</blockquote>
-<p>shift + Alt + 5：<del>删除线</del></p>
-<hr>
-<h2 id="链接表格分割线演示"><a href="#链接表格分割线演示" class="headerlink" title="链接表格分割线演示"></a>链接表格分割线演示</h2><h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>快捷键：ctrl + K</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[超链接](www.baidu.com)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>效果</p>
+<h3 id="10-11月"><a href="#10-11月" class="headerlink" title="10-11月"></a>10-11月</h3><h4 id="两批动物实验样本测定"><a href="#两批动物实验样本测定" class="headerlink" title="两批动物实验样本测定"></a>两批动物实验样本测定</h4><ul>
+<li><p>奶样</p>
 <ul>
-<li>外链接效果：<a href="www.baidu.com">超链接</a></li>
-<li>本地链接效果：<a href="E:\实验室\实验室论文\实验室论文">实验室毕业论文</a></li>
-</ul>
-</blockquote>
-<h3 id="锚点效果"><a href="#锚点效果" class="headerlink" title="锚点效果"></a>锚点效果</h3><p>锚点效果（即跳转至本文内某一章节）：<a href="#%E7%9B%AE%E5%BD%95%E7%9A%84%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90">to 目录</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[to 目录](#目录的一键生成)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<ul>
-<li><em><strong>特别注意：跳转时需==按住ctrl键再点击跳转内容==才能跳转成功，且文档内跳转只支持标题锚点，锚点地址前要加 #</strong></em></li>
-</ul>
-</blockquote>
-<blockquote>
-<p>极其适用于写实验记录时某不连续实验：即一个实验分好几天做的但实验记录【按天写的】希望连续时</p>
-</blockquote>
-<hr>
-<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><h4 id="自建表格"><a href="#自建表格" class="headerlink" title="自建表格"></a>自建表格</h4><p>快捷键：ctrl + T</p>
-<table>
-<thead>
-<tr>
-<th>项目</th>
-<th>价格</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>苹果</td>
-<td>5</td>
-</tr>
-<tr>
-<td>香蕉</td>
-<td>7</td>
-</tr>
-<tr>
-<td>梨</td>
-<td>4</td>
-</tr>
-</tbody></table>
-<blockquote>
-<ul>
-<li>一键设置插入所需表格规格，行或列之间可以随意拖拽调换位置，左上角的按键可以一键设置左右居中对齐、调整表格规格等。  右上角可执行更多表格操作</li>
-</ul>
-</blockquote>
-<h4 id="复制粘贴表格"><a href="#复制粘贴表格" class="headerlink" title="复制粘贴表格"></a>复制粘贴表格</h4><table>
-<thead>
-<tr>
-<th>L protein</th>
-<th>ADB93794.1</th>
-<th>P1</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>L protein</td>
-<td>ADB93794.1</td>
-<td>P2</td>
-</tr>
-<tr>
-<td>N protein</td>
-<td>ADB93795.1</td>
-<td>P3</td>
-</tr>
-</tbody></table>
-<blockquote>
-<ul>
-<li>如上表，直接从Excel内复制后ctrl + v如上述，自动转换成markdown匹配的表格格式</li>
-</ul>
-</blockquote>
-<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><p>单线分割代码：<code>---</code></p>
-<blockquote>
-<p>效果如下：</p>
-<hr>
-</blockquote>
-<h2 id="待办清单设置演示"><a href="#待办清单设置演示" class="headerlink" title="待办清单设置演示"></a>待办清单设置演示</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- [] 文字</span><br></pre></td></tr></table></figure>
-
-<p> 注意<em><strong>空格</strong></em></p>
-<p>示例：</p>
-<p>今天要做的事</p>
-<ul>
-<li><input disabled="" type="checkbox"> 吃饭<ul>
-<li><input checked="" disabled="" type="checkbox"> 早饭</li>
-<li><input checked="" disabled="" type="checkbox"> 午饭</li>
-<li><input disabled="" type="checkbox"> 晚饭</li>
+<li>DHI/水解氨基酸</li>
 </ul>
 </li>
-<li><input disabled="" type="checkbox"> 睡觉</li>
-<li><input disabled="" type="checkbox"> 打豆豆</li>
-</ul>
-<blockquote>
-<p>特别适用于日记或日常工作文件中列待办清单，可勾选</p>
-</blockquote>
-<hr>
-<h2 id="偶尔会用到的一些写法"><a href="#偶尔会用到的一些写法" class="headerlink" title="偶尔会用到的一些写法"></a>偶尔会用到的一些写法</h2><h3 id="上下角标演示"><a href="#上下角标演示" class="headerlink" title="上下角标演示"></a>上下角标演示</h3><h4 id="上标"><a href="#上标" class="headerlink" title="上标"></a>上标</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X^2^</span><br></pre></td></tr></table></figure>
-
-<p> 效果：X^2^</p>
-<h4 id="下标"><a href="#下标" class="headerlink" title="下标"></a>下标</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">H~2~O</span><br></pre></td></tr></table></figure>
-
-<p>效果： H<del>2</del>O</p>
-<h3 id="高亮"><a href="#高亮" class="headerlink" title="高亮"></a>高亮</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">==高亮==</span><br></pre></td></tr></table></figure>
-
-<p>效果：==高亮==</p>
-<hr>
-<h2 id="目录的一键生成"><a href="#目录的一键生成" class="headerlink" title="目录的一键生成"></a>目录的一键生成</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[toc]</span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<p>[toc]</p>
-<blockquote>
+<li><p>血样</p>
 <ul>
-<li>根据本文档的内容变化实时更新，可直接点击条目跳转</li>
-</ul>
-</blockquote>
-<hr>
-<h2 id="关于列表的一些设置"><a href="#关于列表的一些设置" class="headerlink" title="关于列表的一些设置"></a>关于列表的一些设置</h2><h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>基础生物化学</li>
-<li>动物分子免疫学</li>
-<li>微生物学</li>
-</ol>
-<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>蛋白质<ul>
-<li>一级结构</li>
-<li>二级结构</li>
-<li>三级结构<ul>
-<li>α螺旋</li>
-<li>β折叠</li>
-<li>loop区</li>
+<li>非靶代谢组/水解氨基酸/游离氨基酸/血液生化/免疫与抗氧化</li>
 </ul>
 </li>
-<li>四级结构</li>
+<li><p>瘤胃样</p>
+<ul>
+<li>非靶代谢组/宏基因组/VFA/氨氮/MCP</li>
 </ul>
 </li>
-<li>糖</li>
-<li>脂肪</li>
+<li><p>粪样/饲料样</p>
+<ul>
+<li>DM/CP/ADF/NDF/EE/GE/Ash</li>
 </ul>
-<blockquote>
-<p>按==一次回车==可自动延续标号</p>
-<p>按==两次回车==可退回上一级</p>
-<p>按==Tab键==可生成次级列表</p>
+</li>
+</ul>
+<h3 id="12月"><a href="#12月" class="headerlink" title="12月"></a>12月</h3><h4 id="细胞实验-迷迭香酸"><a href="#细胞实验-迷迭香酸" class="headerlink" title="细胞实验-迷迭香酸"></a>细胞实验-迷迭香酸</h4><ul>
+<li>不同浓度迷迭香酸对BMEC的影响</li>
+<li>新筛选出齐墩果酸这一提取物</li>
+</ul>
+<h2 id="文献-文章"><a href="#文献-文章" class="headerlink" title="文献/文章"></a>文献/文章</h2><h3 id="文献精读"><a href="#文献精读" class="headerlink" title="文献精读"></a>文献精读</h3><ul>
+<li>Met对BMECs的乳脂合成调节</li>
+<li>NCG恢复NO合成并减轻高海拔引起的高海拔荷斯坦牛的肺动脉高压</li>
+<li>褪黑素通过抑制牛奶脂肪的合成通路</li>
+</ul>
+<h3 id="文章撰写"><a href="#文章撰写" class="headerlink" title="文章撰写"></a>文章撰写</h3><ul>
+<li>NCG作用于高海拔地区娟姗牛</li>
+</ul>
 </blockquote>
-<hr>
-<h3 id="分界线"><a href="#分界线" class="headerlink" title="分界线"></a>分界线</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">---</span><br></pre></td></tr></table></figure>
+<ul>
+<li>打开XMind-<code>文件</code>-<code>导入</code>-<code>Markdown</code>-将刚刚保存的文件导入即可</li>
+</ul>
+<img src="https://img-blog.csdnimg.cn/508ffc5d73bf4ed5a44ef0c9c7ca1db7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAdHdvY2FuaXM=,size_13,color_FFFFFF,t_70,g_se,x_16" alt="image-20220110194113196" style="zoom:80%;" />
 
-<hr>
-<h3 id="分页符"><a href="#分页符" class="headerlink" title="分页符"></a>分页符</h3><p>将这段代码插入<code>&lt;div STYLE=&quot;page-break-after: always;&quot;&gt;&lt;/div&gt;</code>需分页的位置</p>
-
+<ul>
+<li>XMind中的显示效果</li>
+</ul>
+<img src="https://img-blog.csdnimg.cn/bcb2da2822234d2bb627d8944f6aac18.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAdHdvY2FuaXM=,size_20,color_FFFFFF,t_70,g_se,x_16" style="zoom: 150%;" />
       
 
 
@@ -458,7 +272,7 @@
     
     <br>
     <strong>本文链接：</strong>
-    https://twocanis.github.io/2021/12/05/markdown%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%BE%91%E5%99%A8Tyora%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E5%88%9D%E4%BD%BF%E7%94%A8/
+    https://twocanis.github.io/2022/01/10/XMind%EF%BC%9Amarkdown%E4%B8%80%E9%94%AE%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -512,7 +326,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">博客搭建</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">生产力</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技巧</a>
         		</li>
       		
 		</ul>
@@ -568,7 +386,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://twocanis.github.io/2021/12/05/markdown%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%BE%91%E5%99%A8Tyora%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E5%88%9D%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://twocanis.github.io/2022/01/10/XMind%EF%BC%9Amarkdown%E4%B8%80%E9%94%AE%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -582,18 +400,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/12/05/hexo%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          hexo更换主题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/12/05/hexo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo常用指令</div>
+    <a href="/2021/12/22/%E7%BB%98%E5%88%B6%E5%B7%AE%E5%BC%82%E4%BB%A3%E8%B0%A2%E4%BA%A7%E7%89%A9%E5%88%86%E7%B1%BB%E4%B8%8EKEGG%E4%BB%A3%E8%B0%A2%E9%80%9A%E8%B7%AF%E5%88%86%E7%B1%BB%E7%9A%84%E6%97%AD%E6%97%A5%E5%9B%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">绘制差异代谢产物分类与HMDB代谢通路分类的旭日图</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -620,7 +429,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E4%BB%A3%E7%A0%81%E6%98%BE%E7%A4%BA"><span class="toc-number"></span> <span class="toc-text">语法代码显示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97%E6%98%BE%E7%A4%BA"><span class="toc-number">1.</span> <span class="toc-text">代码块显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2%E4%B8%8E%E5%AD%97%E5%8F%B7"><span class="toc-number">2.</span> <span class="toc-text">颜色与字号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E9%A2%98%E6%BC%94%E7%A4%BA"><span class="toc-number"></span> <span class="toc-text">标题演示</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number"></span> <span class="toc-text">一级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number"></span> <span class="toc-text">二级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">三级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">四级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%94%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">1.1.1.</span> <span class="toc-text">五级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%85%AD%E7%BA%A7%E6%A0%87%E9%A2%98-%E9%83%BD%E4%B8%8D%E7%AE%97%E6%A0%87%E9%A2%98%E4%BA%86%E7%AE%97%E6%AD%A3%E6%96%87%E4%BA%86%E5%90%A7%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">六级标题-都不算标题了算正文了吧哈哈哈哈哈</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%AD%97%E4%BD%93%E5%8F%98%E5%8C%96%E6%BC%94%E7%A4%BA"><span class="toc-number"></span> <span class="toc-text">常用字体变化演示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E7%B2%97%E3%80%81%E6%96%9C%E4%BD%93%E3%80%81%E4%B8%8B%E5%88%92%E7%BA%BF%E3%80%81%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="toc-number">1.</span> <span class="toc-text">加粗、斜体、下划线、删除线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5%E8%A1%A8%E6%A0%BC%E5%88%86%E5%89%B2%E7%BA%BF%E6%BC%94%E7%A4%BA"><span class="toc-number"></span> <span class="toc-text">链接表格分割线演示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5"><span class="toc-number">1.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%9A%E7%82%B9%E6%95%88%E6%9E%9C"><span class="toc-number">2.</span> <span class="toc-text">锚点效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC"><span class="toc-number">3.</span> <span class="toc-text">表格</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%BB%BA%E8%A1%A8%E6%A0%BC"><span class="toc-number">3.1.</span> <span class="toc-text">自建表格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4%E8%A1%A8%E6%A0%BC"><span class="toc-number">3.2.</span> <span class="toc-text">复制粘贴表格</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%89%B2%E7%BA%BF"><span class="toc-number">4.</span> <span class="toc-text">分割线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%85%E5%8A%9E%E6%B8%85%E5%8D%95%E8%AE%BE%E7%BD%AE%E6%BC%94%E7%A4%BA"><span class="toc-number"></span> <span class="toc-text">待办清单设置演示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%81%B6%E5%B0%94%E4%BC%9A%E7%94%A8%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%86%99%E6%B3%95"><span class="toc-number"></span> <span class="toc-text">偶尔会用到的一些写法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E4%B8%8B%E8%A7%92%E6%A0%87%E6%BC%94%E7%A4%BA"><span class="toc-number">1.</span> <span class="toc-text">上下角标演示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E6%A0%87"><span class="toc-number">1.1.</span> <span class="toc-text">上标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E6%A0%87"><span class="toc-number">1.2.</span> <span class="toc-text">下标</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E4%BA%AE"><span class="toc-number">2.</span> <span class="toc-text">高亮</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%9A%84%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90"><span class="toc-number"></span> <span class="toc-text">目录的一键生成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%88%97%E8%A1%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%BE%E7%BD%AE"><span class="toc-number"></span> <span class="toc-text">关于列表的一些设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-number">1.</span> <span class="toc-text">有序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-number">2.</span> <span class="toc-text">无序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%95%8C%E7%BA%BF"><span class="toc-number">3.</span> <span class="toc-text">分界线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%A1%B5%E7%AC%A6"><span class="toc-number">4.</span> <span class="toc-text">分页符</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">示例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2021%E5%B9%B4%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">2021年工作总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%B7%A5%E4%BD%9C"><span class="toc-number"></span> <span class="toc-text">实验工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5%E6%9C%88"><span class="toc-number">1.</span> <span class="toc-text">1-5月</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%86%E8%83%9E%E5%AE%9E%E9%AA%8C-%E6%A4%8D%E7%89%A9%E6%8F%90%E5%8F%96%E7%89%A9%E7%AD%9B%E9%80%89"><span class="toc-number">1.1.</span> <span class="toc-text">细胞实验-植物提取物筛选</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-9%E6%9C%88"><span class="toc-number">2.</span> <span class="toc-text">6-9月</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E7%89%A9%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.1.</span> <span class="toc-text">动物实验</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-11%E6%9C%88"><span class="toc-number">3.</span> <span class="toc-text">10-11月</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%A4%E6%89%B9%E5%8A%A8%E7%89%A9%E5%AE%9E%E9%AA%8C%E6%A0%B7%E6%9C%AC%E6%B5%8B%E5%AE%9A"><span class="toc-number">3.1.</span> <span class="toc-text">两批动物实验样本测定</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12%E6%9C%88"><span class="toc-number">4.</span> <span class="toc-text">12月</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%86%E8%83%9E%E5%AE%9E%E9%AA%8C-%E8%BF%B7%E8%BF%AD%E9%A6%99%E9%85%B8"><span class="toc-number">4.1.</span> <span class="toc-text">细胞实验-迷迭香酸</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%8C%AE-%E6%96%87%E7%AB%A0"><span class="toc-number"></span> <span class="toc-text">文献&#x2F;文章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%8C%AE%E7%B2%BE%E8%AF%BB"><span class="toc-number">1.</span> <span class="toc-text">文献精读</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E6%92%B0%E5%86%99"><span class="toc-number">2.</span> <span class="toc-text">文章撰写</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -636,7 +445,7 @@
   
 
   
-  <div id="SOHUCS" sid="markdown本地编辑器Tyora的优点与初使用" ></div> 
+  <div id="SOHUCS" sid="XMind：markdown一键转换为思维导图" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
