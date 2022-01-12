@@ -53,8 +53,6 @@
 		  <h1 class="header-author"><a href="/">twocanis</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">Congratulations on discovering this secret paradise!</p>
-		
 
 		<nav class="header-menu">
 			<ul>
@@ -63,15 +61,13 @@
 	        
 				<li><a href="/archives/index.html">归档</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
-	        
 			</ul>
 		</nav>
 		<nav>
-    总文章数 10
+    总文章数 11
 </nav>
 <nav>
-    总字数 <span class="post-count">6.5k</span>
+    总字数 <span class="post-count">7.1k</span>
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -121,11 +117,7 @@
 			  <h1 class="header-author js-header-author">twocanis</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Congratulations on discovering this secret paradise!<i class="icon icon-quo-right"></i></p>
 			
-			
-			
-				
 			
 				
 			
@@ -148,14 +140,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives/index.html">归档</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 50%"><a href="/archives/index.html">归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -171,6 +161,154 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-绘制差异代谢产物HMDB分类图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/12/%E7%BB%98%E5%88%B6%E5%B7%AE%E5%BC%82%E4%BB%A3%E8%B0%A2%E4%BA%A7%E7%89%A9HMDB%E5%88%86%E7%B1%BB%E5%9B%BE/">绘制差异代谢产物HMDB分类图</a>
+    </h1>
+  
+
+        
+        <a href="/2022/01/12/%E7%BB%98%E5%88%B6%E5%B7%AE%E5%BC%82%E4%BB%A3%E8%B0%A2%E4%BA%A7%E7%89%A9HMDB%E5%88%86%E7%B1%BB%E5%9B%BE/" class="archive-article-date">
+  	<time datetime="2022-01-12T11:40:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-12</time>
+</a>
+        
+    
+    
+        
+
+
+      </header>
+	  <div align="center" class="post-count">
+    字数：639字 | 预计阅读时长：2分钟
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前两天画KEGG的分类图师兄路过看到了让帮也画一个，一问是两个分组，于是建议参考这篇 <a target="_blank" rel="noopener" href="https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-020-00819-8">Multi-omics reveals that the rumen microbiome and its metabolome together with the host metabolome contribute to individualized dairy cow performance</a> 画差异代谢物的HMDB图就行，还能标出fold change值，简洁明了</p>
+<h2 id="数据准备工作"><a href="#数据准备工作" class="headerlink" title="数据准备工作"></a>数据准备工作</h2><ul>
+<li>找到包含差异代谢产物信息的公司结果对应的如<code>Con vs Exp.pos.annotation.csv</code>文件，用 <strong>Excel</strong> 打开</li>
+</ul>
+<img src="https://s2.loli.net/2022/01/12/YRFD3LaOhCTKEzb.png" alt="image-20220112195302841" style="zoom:150%;" />
+
+<ul>
+<li>利用数据透视表，把差异代谢物根据HMDB的SuperClass进行分类，并标出log2FC值，整理成如下（为了之后出图美观，这一步可对每一组的产物根据log2FC值进行排序，选择up值在前还是down值在前；或者把文章中要讨论的关注的点放在前面等）</li>
+</ul>
+<img src="https://s2.loli.net/2022/01/12/dayLu8ADQWwrKf2.png" alt="image-20220112195434325" style="zoom:80%;" />
+
+
+
+<h2 id="图片的初步绘制"><a href="#图片的初步绘制" class="headerlink" title="图片的初步绘制"></a>图片的初步绘制</h2><h3 id="graphpad-prism绘制柱状图"><a href="#graphpad-prism绘制柱状图" class="headerlink" title="graphpad prism绘制柱状图"></a>graphpad prism绘制柱状图</h3><ul>
+<li><p>打开 <strong>graphpad prism</strong> ，选择默认的 <strong>Column</strong> 模板</p>
+<p>​                         <img src="https://s2.loli.net/2022/01/12/R3skG6cBLUE9rKW.png" alt="image-20220112200056925" style="zoom: 50%;" /></p>
+</li>
+<li><p>录入数据（可将上面数据透视表的数据在excel中用转置粘贴功能变成横向的，方便graphpad录入）</p>
+</li>
+</ul>
+<img src="https://s2.loli.net/2022/01/12/PEYOXS2pkGziJho.png" alt="image-20220112200337510" style="zoom:50%;" />
+
+<ul>
+<li>根据数据集创建<code>Graphs</code>，如下图选择横向柱状图，plot选择均值mean就行，因为每个差异代谢物只对应一个log2FC值</li>
+</ul>
+<img src="https://s2.loli.net/2022/01/12/JM9LB6WdZoucGFR.png" alt="image-20220112200557497" style="zoom:50%;" />
+
+<ul>
+<li>生成后如下图</li>
+</ul>
+<img src="https://s2.loli.net/2022/01/12/5RcGbFslH1Nw7gB.png" alt="image-20220112200926731" style="zoom:80%;" />
+
+
+
+<h2 id="图片的粗加工"><a href="#图片的粗加工" class="headerlink" title="图片的粗加工"></a>图片的粗加工</h2><ul>
+<li><p>这时graphpad直接生成的图y轴纵坐标连差异代谢物的名字条目都没显示全，我录入了26种差异代谢物，这里只显示了十来个，缺失是因为限制了显示高度</p>
+<ul>
+<li>双击y轴差异代谢物的名字，在弹出的对话框中，红框处调整合适的高度大小，绿框是给每个代谢物间加间隔虚线（美观）</li>
+</ul>
+<img src="https://s2.loli.net/2022/01/12/Etlzkn7cgwsUAhW.png" alt="image-20220112201342175" style="zoom:50%;" />
+
+<ul>
+<li>调整之后</li>
+</ul>
+<img src="https://s2.loli.net/2022/01/12/hvmpOrfCUgRuFN8.png" alt="image-20220112201742765" style="zoom: 50%;" /></li>
+<li><p>针对x轴和y轴，以及bar的粗细颜色等细节，可以直接导进AI里调整，也可以在graphpad里修，这里举例去掉y轴刻度：双击y轴，在弹出的对话框选择如下</p>
+</li>
+</ul>
+<img src="https://s2.loli.net/2022/01/12/IbcfjZmYLpNBvtK.png" alt="image-20220112202040654" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2022/01/12/Iy46N5sK7do8iMn.png" alt="image-20220112202156874" style="zoom:50%;" />
+
+<h2 id="Adobe-Illustrator精加工"><a href="#Adobe-Illustrator精加工" class="headerlink" title="Adobe Illustrator精加工"></a>Adobe Illustrator精加工</h2><ul>
+<li>将graphpad中的图片导出为pdf格式，打开 <strong>Adobe Illustrator</strong>，从右上角<code>文件</code>-<code>打开</code>处导入刚刚存的pdf图（pdf格式方便修改，这样导入才能编辑，直接拖入无法编辑）</li>
+<li>双击选中y轴和x轴0刻度的分界线按键盘<code>Del</code>键删除，鼠标左键配合shift键多选bar/name调整颜色</li>
+<li>选择<code>直线段工具</code>，根据前面数据透视表画竖线，并选择<code>文字工具</code>编辑对应HMDB分类</li>
+<li>调整间距，对齐等细节，最终图如下</li>
+</ul>
+<img src="https://s2.loli.net/2022/01/12/WsDtd8S9iarjbZU.png" alt="image-20220112202855478" style="zoom:80%;" />
+      
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">代谢组</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">绘图</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/01/12/%E7%BB%98%E5%88%B6%E5%B7%AE%E5%BC%82%E4%BB%A3%E8%B0%A2%E4%BA%A7%E7%89%A9HMDB%E5%88%86%E7%B1%BB%E5%9B%BE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-XMind：markdown一键转换为思维导图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1004,94 +1142,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/05/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2021/12/05/hello-world/" class="archive-article-date">
-  	<time datetime="2021-12-05T08:48:49.744Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-05</time>
-</a>
-        
-    
-    
-        
-
-
-      </header>
-	  <div align="center" class="post-count">
-    字数：75字 | 预计阅读时长：1分钟
-</div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/12/05/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
