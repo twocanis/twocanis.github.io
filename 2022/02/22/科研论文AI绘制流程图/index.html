@@ -6,33 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://twocanis.github.io">
-  <title>绘制差异代谢产物HMDB分类图 | twocanis&#39;s blog</title>
+  <title>科研论文AI绘制流程图 | twocanis&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言前两天画KEGG的分类图师兄路过看到了让帮也画一个，一问是两个分组，于是建议参考这篇 Multi-omics reveals that the rumen microbiome and its metabolome together with the host metabolome contribute to individualized dairy cow performance 画差异代谢">
+  <meta name="description" content="a 经常看文献发现，好一点的文章都会在fig 1或者最后一张figure放一张整篇文章的流程思路图（或者总结图），可视化的方式让无论是审稿人还是读者都能更清楚明了的快速了解这篇文章做了些什么，系统化的同时也能让“故事”讲得更加生动。相比于设计等专业出身，天天做实验自然对绘图等技能没那么在行，以下纪录自己摸索绘流程图的过程以供回顾。 准备工作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="绘制差异代谢产物HMDB分类图">
-<meta property="og:url" content="https://twocanis.github.io/2022/01/12/%E7%BB%98%E5%88%B6%E5%B7%AE%E5%BC%82%E4%BB%A3%E8%B0%A2%E4%BA%A7%E7%89%A9HMDB%E5%88%86%E7%B1%BB%E5%9B%BE/index.html">
+<meta property="og:title" content="科研论文AI绘制流程图">
+<meta property="og:url" content="https://twocanis.github.io/2022/02/22/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87AI%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE/index.html">
 <meta property="og:site_name" content="twocanis&#39;s blog">
-<meta property="og:description" content="前言前两天画KEGG的分类图师兄路过看到了让帮也画一个，一问是两个分组，于是建议参考这篇 Multi-omics reveals that the rumen microbiome and its metabolome together with the host metabolome contribute to individualized dairy cow performance 画差异代谢">
+<meta property="og:description" content="a 经常看文献发现，好一点的文章都会在fig 1或者最后一张figure放一张整篇文章的流程思路图（或者总结图），可视化的方式让无论是审稿人还是读者都能更清楚明了的快速了解这篇文章做了些什么，系统化的同时也能让“故事”讲得更加生动。相比于设计等专业出身，天天做实验自然对绘图等技能没那么在行，以下纪录自己摸索绘流程图的过程以供回顾。 准备工作">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/01/12/YRFD3LaOhCTKEzb.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/12/dayLu8ADQWwrKf2.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/12/R3skG6cBLUE9rKW.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/12/PEYOXS2pkGziJho.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/12/JM9LB6WdZoucGFR.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/12/5RcGbFslH1Nw7gB.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/12/Etlzkn7cgwsUAhW.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/12/hvmpOrfCUgRuFN8.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/12/IbcfjZmYLpNBvtK.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/12/Iy46N5sK7do8iMn.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/12/WsDtd8S9iarjbZU.png">
-<meta property="article:published_time" content="2022-01-12T11:40:09.000Z">
-<meta property="article:modified_time" content="2022-01-12T12:33:19.615Z">
+<meta property="og:image" content="https://s2.loli.net/2022/02/22/nm4cd3U6DR8NuFY.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/02/22/1GLmIN46QnJcalM.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/22/VkCIcWthE6XNFQp.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/22/6cCr13jKkPtNhVW.png">
+<meta property="og:image" content="d:%5CPicture%5CTypro%20Picture%5Cimage-20220222151911126.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/22/yg5NpCE3leULvjd.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/22/A8O24joneuIrPUt.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/22/BiWKaTMoNjEydgz.png">
+<meta property="article:published_time" content="2022-02-22T06:52:21.000Z">
+<meta property="article:modified_time" content="2022-02-22T07:49:28.029Z">
 <meta property="article:author" content="twocanis">
-<meta property="article:tag" content="代谢组">
 <meta property="article:tag" content="绘图">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/01/12/YRFD3LaOhCTKEzb.png">
+<meta name="twitter:image" content="https://s2.loli.net/2022/02/22/nm4cd3U6DR8NuFY.jpg">
   
     <link rel="alternative" href="/atom.xml" title="twocanis&#39;s blog" type="application/atom+xml">
   
@@ -176,20 +172,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-绘制差异代谢产物HMDB分类图" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-科研论文AI绘制流程图" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      绘制差异代谢产物HMDB分类图
+      科研论文AI绘制流程图
     </h1>
   
 
         
-        <a href="/2022/01/12/%E7%BB%98%E5%88%B6%E5%B7%AE%E5%BC%82%E4%BB%A3%E8%B0%A2%E4%BA%A7%E7%89%A9HMDB%E5%88%86%E7%B1%BB%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2022-01-12T11:40:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-12</time>
+        <a href="/2022/02/22/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87AI%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE/" class="archive-article-date">
+  	<time datetime="2022-02-22T06:52:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-22</time>
 </a>
         
     
@@ -203,74 +199,61 @@
 
       </header>
 	  <div align="center" class="post-count">
-    字数：640字 | 预计阅读时长：2分钟
+    字数：568字 | 预计阅读时长：1分钟
 </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前两天画KEGG的分类图师兄路过看到了让帮也画一个，一问是两个分组，于是建议参考这篇 <a target="_blank" rel="noopener" href="https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-020-00819-8">Multi-omics reveals that the rumen microbiome and its metabolome together with the host metabolome contribute to individualized dairy cow performance</a> 画差异代谢物的HMDB图就行，还能标出fold change值，简洁明了</p>
-<span id="more"></span>
+        <p>a</p>
+<p>经常看文献发现，好一点的文章都会在fig 1或者最后一张figure放一张整篇文章的流程思路图（或者总结图），可视化的方式让无论是审稿人还是读者都能更清楚明了的快速了解这篇文章做了些什么，系统化的同时也能让“故事”讲得更加生动。相比于设计等专业出身，天天做实验自然对绘图等技能没那么在行，以下纪录自己摸索绘流程图的过程以供回顾。</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><span id="more"></span>
 
-
-
-<h2 id="数据准备工作"><a href="#数据准备工作" class="headerlink" title="数据准备工作"></a>数据准备工作</h2><ul>
-<li>找到包含差异代谢产物信息的公司结果对应的如<code>Con vs Exp.pos.annotation.csv</code>文件，用 <strong>Excel</strong> 打开</li>
+<h4 id="找素材"><a href="#找素材" class="headerlink" title="找素材"></a>找素材</h4><ul>
+<li>收集会用到的图片素材，尽量保持风格一致，足够清晰</li>
+<li>这里推荐 <a target="_blank" rel="noopener" href="https://www.pinterest.com/">pinterest图库</a> （需要翻墙)，相当于一个图片引擎，集合了很多素材库的结果，很方便</li>
 </ul>
-<img src="https://s2.loli.net/2022/01/12/YRFD3LaOhCTKEzb.png" alt="image-20220112195302841" style="zoom:150%;" />
+<h4 id="抠图"><a href="#抠图" class="headerlink" title="抠图"></a>抠图</h4><p>素材尽量是矢量图（位图不能无限放大，尽管更多时候用到的是.jpg或者.png），能在免费的图库里找到直接用最好，找不到就利用AI抠图，比如我要扣下面这头牛</p>
+<img src="https://s2.loli.net/2022/02/22/nm4cd3U6DR8NuFY.jpg" alt="牛" style="zoom:50%;" />
 
 <ul>
-<li>利用数据透视表，把差异代谢物根据HMDB的SuperClass进行分类，并标出log2FC值，整理成如下（为了之后出图美观，这一步可对每一组的产物根据log2FC值进行排序，选择up值在前还是down值在前；或者把文章中要讨论的关注的点放在前面等）</li>
+<li>打开AI，新建匹配大小的画布，导入要抠的图片</li>
+<li>左边菜单栏，选择<code>钢笔工具</code></li>
 </ul>
-<img src="https://s2.loli.net/2022/01/12/dayLu8ADQWwrKf2.png" alt="image-20220112195434325" style="zoom:80%;" />
-
-
-
-<h2 id="图片的初步绘制"><a href="#图片的初步绘制" class="headerlink" title="图片的初步绘制"></a>图片的初步绘制</h2><h3 id="graphpad-prism绘制柱状图"><a href="#graphpad-prism绘制柱状图" class="headerlink" title="graphpad prism绘制柱状图"></a>graphpad prism绘制柱状图</h3><ul>
-<li><p>打开 <strong>graphpad prism</strong> ，选择默认的 <strong>Column</strong> 模板</p>
-<p>​                         <img src="https://s2.loli.net/2022/01/12/R3skG6cBLUE9rKW.png" alt="image-20220112200056925" style="zoom: 50%;" /></p>
-</li>
-<li><p>录入数据（可将上面数据透视表的数据在excel中用转置粘贴功能变成横向的，方便graphpad录入）</p>
-</li>
-</ul>
-<img src="https://s2.loli.net/2022/01/12/PEYOXS2pkGziJho.png" alt="image-20220112200337510" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/22/1GLmIN46QnJcalM.png" alt="image-20220222151125249" style="zoom: 67%;" />
 
 <ul>
-<li>根据数据集创建<code>Graphs</code>，如下图选择横向柱状图，plot选择均值mean就行，因为每个差异代谢物只对应一个log2FC值</li>
+<li>Alt + 鼠标滚轮放大图片，沿着目标边缘开始抠，直至抠完形成 <strong>闭合回路</strong> （如果抠的时候每抠一点里面就被白色或者黑色覆盖，记得把左边菜单栏最下面的<code>填色</code>调成无色填充</li>
 </ul>
-<img src="https://s2.loli.net/2022/01/12/JM9LB6WdZoucGFR.png" alt="image-20220112200557497" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/22/VkCIcWthE6XNFQp.png" alt="image-20220222151320546" style="zoom: 50%;" />
+
+
+
+<img src="https://s2.loli.net/2022/02/22/6cCr13jKkPtNhVW.png" alt="image-20220222151453847" style="zoom: 50%;" />
 
 <ul>
-<li>生成后如下图</li>
+<li>抠完之后在要抠出的部分鼠标右键，<code>排列</code>-<code>置于顶层</code> （这个操作一定要有，不然无法建立蒙版）</li>
 </ul>
-<img src="https://s2.loli.net/2022/01/12/5RcGbFslH1Nw7gB.png" alt="image-20220112200926731" style="zoom:80%;" />
-
-
-
-<h2 id="图片的粗加工"><a href="#图片的粗加工" class="headerlink" title="图片的粗加工"></a>图片的粗加工</h2><ul>
-<li><p>这时graphpad直接生成的图y轴纵坐标连差异代谢物的名字条目都没显示全，我录入了26种差异代谢物，这里只显示了十来个，缺失是因为限制了显示高度</p>
-<ul>
-<li>双击y轴差异代谢物的名字，在弹出的对话框中，红框处调整合适的高度大小，绿框是给每个代谢物间加间隔虚线（美观）</li>
-</ul>
-<img src="https://s2.loli.net/2022/01/12/Etlzkn7cgwsUAhW.png" alt="image-20220112201342175" style="zoom:50%;" />
+<img src="D:%5CPicture%5CTypro%20Picture%5Cimage-20220222151911126.png" alt="image-20220222151911126" style="zoom: 50%;" />
 
 <ul>
-<li>调整之后</li>
+<li>由钢笔工具切换到左边菜单栏的第一个选择工具，<strong>同时选中抠出和未抠的原图部分</strong> （一定满足抠出的部分在顶层以及同时选中这两个条件）， 然后建立蒙版，上方菜单栏，<code>对象</code>-<code>剪切蒙版</code>-<code>建立</code>，或者直接Ctrl + 7，这时就只剩抠出的部分了</li>
 </ul>
-<img src="https://s2.loli.net/2022/01/12/hvmpOrfCUgRuFN8.png" alt="image-20220112201742765" style="zoom: 50%;" /></li>
-<li><p>针对x轴和y轴，以及bar的粗细颜色等细节，可以直接导进AI里调整，也可以在graphpad里修，这里举例去掉y轴刻度线：双击y轴，在弹出的对话框选择如下</p>
-</li>
-</ul>
-<img src="https://s2.loli.net/2022/01/12/IbcfjZmYLpNBvtK.png" alt="image-20220112202040654" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/22/yg5NpCE3leULvjd.png" alt="image-20220222153432481" style="zoom: 67%;" />
 
-<img src="https://s2.loli.net/2022/01/12/Iy46N5sK7do8iMn.png" alt="image-20220112202156874" style="zoom:50%;" />
-
-<h2 id="Adobe-Illustrator精加工"><a href="#Adobe-Illustrator精加工" class="headerlink" title="Adobe Illustrator精加工"></a>Adobe Illustrator精加工</h2><ul>
-<li>将graphpad中的图片导出为pdf格式，打开 <strong>Adobe Illustrator</strong>，从右上角<code>文件</code>-<code>打开</code>处导入刚刚存的pdf图（pdf格式方便修改，这样导入才能编辑，直接拖入无法编辑）</li>
-<li>双击选中y轴和x轴0刻度的分界线按键盘<code>Del</code>键删除，鼠标左键配合shift键多选bar/name调整颜色</li>
-<li>选择<code>直线段工具</code>，根据前面数据透视表画竖线，并选择<code>文字工具</code>编辑对应HMDB分类</li>
-<li>调整间距，对齐等细节，最终图如下</li>
+<ul>
+<li>将抠出保存：左上角<code>文件</code>-<code>导出</code>-<code>导出为…</code>，保存为.png格式，分辨率按需调整，背景选择<strong>透明</strong></li>
 </ul>
-<img src="https://s2.loli.net/2022/01/12/WsDtd8S9iarjbZU.png" alt="image-20220112202855478" style="zoom:80%;" />
+<img src="https://s2.loli.net/2022/02/22/A8O24joneuIrPUt.png" alt="image-20220222154522749" style="zoom:50%;" />
+
+<ul>
+<li>因为原图本来就是白底，可能看不出来，换成灰底做个对比</li>
+</ul>
+<img src="https://s2.loli.net/2022/02/22/BiWKaTMoNjEydgz.png" alt="image-20220222154242369" style="zoom: 33%;" />
+
+
+
+<p>未完，待更新</p>
+
       
 
 
@@ -282,7 +265,7 @@
     
     <br>
     <strong>本文链接：</strong>
-    https://twocanis.github.io/2022/01/12/%E7%BB%98%E5%88%B6%E5%B7%AE%E5%BC%82%E4%BB%A3%E8%B0%A2%E4%BA%A7%E7%89%A9HMDB%E5%88%86%E7%B1%BB%E5%9B%BE/
+    https://twocanis.github.io/2022/02/22/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87AI%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE/
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -335,10 +318,6 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">代谢组</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">绘图</a>
         		</li>
@@ -396,7 +375,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://twocanis.github.io/2022/01/12/%E7%BB%98%E5%88%B6%E5%B7%AE%E5%BC%82%E4%BB%A3%E8%B0%A2%E4%BA%A7%E7%89%A9HMDB%E5%88%86%E7%B1%BB%E5%9B%BE/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://twocanis.github.io/2022/02/22/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87AI%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -410,18 +389,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/01/22/%E4%B9%B3%E8%85%BA%E4%B8%8A%E7%9A%AE%E7%BB%86%E8%83%9E%E8%84%82%E6%BB%B4%E6%9F%93%E8%89%B2%E6%B5%81%E5%BC%8F%E6%A3%80%E6%B5%8B/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          乳腺上皮细胞脂滴染色流式检测
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/01/10/XMind%EF%BC%9Amarkdown%E4%B8%80%E9%94%AE%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">XMind：markdown一键转换为思维导图</div>
+    <a href="/2022/01/22/%E4%B9%B3%E8%85%BA%E4%B8%8A%E7%9A%AE%E7%BB%86%E8%83%9E%E8%84%82%E6%BB%B4%E6%9F%93%E8%89%B2%E6%B5%81%E5%BC%8F%E6%A3%80%E6%B5%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">乳腺上皮细胞脂滴染色流式检测</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -448,7 +418,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">数据准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E7%9A%84%E5%88%9D%E6%AD%A5%E7%BB%98%E5%88%B6"><span class="toc-number">3.</span> <span class="toc-text">图片的初步绘制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#graphpad-prism%E7%BB%98%E5%88%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE"><span class="toc-number">3.1.</span> <span class="toc-text">graphpad prism绘制柱状图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E7%9A%84%E7%B2%97%E5%8A%A0%E5%B7%A5"><span class="toc-number">4.</span> <span class="toc-text">图片的粗加工</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adobe-Illustrator%E7%B2%BE%E5%8A%A0%E5%B7%A5"><span class="toc-number">5.</span> <span class="toc-text">Adobe Illustrator精加工</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%BE%E7%B4%A0%E6%9D%90"><span class="toc-number">1.1.</span> <span class="toc-text">找素材</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%A0%E5%9B%BE"><span class="toc-number">1.2.</span> <span class="toc-text">抠图</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -464,7 +434,7 @@
   
 
   
-  <div id="SOHUCS" sid="绘制差异代谢产物HMDB分类图" ></div> 
+  <div id="SOHUCS" sid="科研论文AI绘制流程图" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
