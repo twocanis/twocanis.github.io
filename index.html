@@ -64,10 +64,10 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 13
+    总文章数 15
 </nav>
 <nav>
-    总字数 <span class="post-count">8.4k</span>
+    总字数 <span class="post-count">11.8k</span>
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -162,6 +162,280 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-绘制差异代谢物impact-pathway富集气泡图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/20/%E7%BB%98%E5%88%B6%E5%B7%AE%E5%BC%82%E4%BB%A3%E8%B0%A2%E7%89%A9impact-pathway%E5%AF%8C%E9%9B%86%E6%B0%94%E6%B3%A1%E5%9B%BE/">绘制差异代谢物impact pathway富集气泡图与Venn图</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/20/%E7%BB%98%E5%88%B6%E5%B7%AE%E5%BC%82%E4%BB%A3%E8%B0%A2%E7%89%A9impact-pathway%E5%AF%8C%E9%9B%86%E6%B0%94%E6%B3%A1%E5%9B%BE/" class="archive-article-date">
+  	<time datetime="2022-03-20T07:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-20</time>
+</a>
+        
+    
+    
+        
+
+
+      </header>
+	  <div align="center" class="post-count">
+    字数：1.2k字 | 预计阅读时长：4分钟
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>基于已有的代谢组数据进行impact pathway富集气泡图与Venn图的绘制，用到的原始数据仅包括实验组和对照组的差异代谢物对应的KEGG号即可（或者差异代谢物名称也可），绘制成如下面这种效果图</p>
+<img src="https://s2.loli.net/2022/03/20/6L4bWtwnE572ZCr.png" alt="image-20220320221057563" style="zoom:80%;" />
+
+<h2 id="Impact-pathway富集气泡图的生成"><a href="#Impact-pathway富集气泡图的生成" class="headerlink" title="Impact pathway富集气泡图的生成"></a>Impact pathway富集气泡图的生成</h2><h3 id="代谢组数据分析"><a href="#代谢组数据分析" class="headerlink" title="代谢组数据分析"></a>代谢组数据分析</h3><h4 id="使用MetaboAnalyst5-0分析"><a href="#使用MetaboAnalyst5-0分析" class="headerlink" title="使用MetaboAnalyst5.0分析"></a>使用MetaboAnalyst5.0分析</h4><ul>
+<li>进入 <a target="_blank" rel="noopener" href="https://dev.metaboanalyst.ca/MetaboAnalyst/home.xhtml">MetaboAnalyst5.0</a> 点击主页中间的start直接开始</li>
+</ul>
+<img src="https://s2.loli.net/2022/03/20/sf6VIwPnRmLKid1.png" alt="image-20220320153445485" style="zoom:80%;" />
+
+<ul>
+<li>在内容选择界面选择<code>Pathway Analysis</code></li>
+</ul>
+<img src="https://s2.loli.net/2022/03/20/TAYbJCvPr1M6OFp.png" alt="image-20220320153935489" style="zoom:80%;" />
+
+<ul>
+<li>进入之后选择<code>Compound List</code>，在输入框中粘贴差异代谢产物的KEGG号，并在<code>Input type</code>部分选择<code>KEGG ID</code>，这一步尽量直接用KEGG号，用差异代谢产物名称（相应选择<code>Compound Name</code>）话因为有别名的存在，即你手里的产物名（公司库的名字）和KEGG库里的不一致，导致在下一步可能还需要核对更换，而KEGG号则是唯一的</li>
+</ul>
+<img src="https://s2.loli.net/2022/03/20/vtu861LkqO7sjKI.png" alt="image-20220320154057709" style="zoom:50%;" />
+
+<ul>
+<li>等待录入匹配完成后会出现如下界面，可以看到都能匹配上则直接拉到最下面继续<code>Procced</code>（如果前一步被迫只能输产物名的话这一步还可以导出这个表格，得到对应的KEGG号，点击页面左下角的<code>Download result</code>）</li>
+</ul>
+<img src="https://s2.loli.net/2022/03/20/3l4b2UK7FeJqoHs.png" alt="image-20220320154733923" style="zoom:80%;" />
+
+<ul>
+<li>分析参数设置如果没有特别需求则选择默认设置就好，但是注意选择下面的<code>Pathway library</code>，根据实验涉及的物种进行选择，这里包含了常见的哺乳动物/鸟/与/昆虫/真菌/植物等，如果做的比较小众没有对应的则选择最相近的即可。比如我这里因为做的是奶牛则选择的<code>Bos taurus(cow)</code>。</li>
+</ul>
+<img src="https://s2.loli.net/2022/03/20/NkKtyhsoMUxQHmd.png" alt="image-20220320155021160" style="zoom:80%;" />
+
+<ul>
+<li>上一步继续后会生成如下结果，即我们需要的Impact pathway富集气泡图<ul>
+<li>点击左边<code>Show gridline</code>之后<code>Update</code>可在图中显示网格线，便于更好的观察和认识结果</li>
+<li>左边气泡图的具体含义：横坐标轴是表示影响大小，圆圈越大代表对这条通路的影响越大；纵轴是-log10(p)，也就是p值可信度，圆圈越红代表可信度越高。每个圆圈对应的具体信息可查看下方表格</li>
+<li>点击图片下方的<code>Pathway Name</code>这一系列的超链接，回载页面有图出现这一堆差异代谢物具体hit到了该pathway那些部分，已经简化的代谢通路图</li>
+</ul>
+</li>
+</ul>
+<img src="https://s2.loli.net/2022/03/20/9dQgJO4WqDscVIf.png" alt="image-20220320155546317" style="zoom:80%;" />
+
+
+
+<ul>
+<li>点击<code>Submit</code>之后会出现结果导出界面，建议直接选择打包下载也就是<code>Download.zip</code>到本地，方便调看查阅</li>
+</ul>
+<img src="https://s2.loli.net/2022/03/20/7WbkevEaZL5wyrg.png" alt="image-20220320160618757" style="zoom:80%;" />
+
+
+
+<h2 id="Impact-pathway富集气泡图的加工"><a href="#Impact-pathway富集气泡图的加工" class="headerlink" title="Impact pathway富集气泡图的加工"></a>Impact pathway富集气泡图的加工</h2><p>这里使用到的图片加工软件为Adobe Illustrator也就是AI</p>
+<ul>
+<li>解压在MetaboAnalyst5.0得到的结果，选择<code>pathway_results.csv</code>文件打开</li>
+</ul>
+<img src="https://s2.loli.net/2022/03/20/Kjrt1oYyQnVmJPz.png" alt="image-20220320162904239" style="zoom:50%;" />
+
+<ul>
+<li>按<code>Raw p</code>升序排列，选取小于0.05的，K列的<code>Impact</code>也可以作为参考值，一般大于0.1认为有影响（如果富集到的代谢通路少可以不考虑），按p值大小插入A列拉动排序，记得B列留空</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/03/20/gqiKtyrFpP5aVRB.png" alt="image-20220320163352977"></p>
+<ul>
+<li>打开AI后新建大小合适的画布，将文件<code>path_view_1_dpi72</code>导入AI，在上面的表格中复制A-C列，粘贴至图片右边，并对应表格中的p值和impact值确定圆圈含义，标记序号一一匹配即可（下图的示例图用的另一个表格的）</li>
+</ul>
+<img src="https://s2.loli.net/2022/03/20/YwM8T1kU64ILmge.png" alt="image-20220320173415759" style="zoom:80%;" />
+
+<ul>
+<li>当impact pathway数量不多的时候也可以选择下面这种展示方式，更加直观</li>
+</ul>
+<img src="https://s2.loli.net/2022/03/20/ibvnSo87UejRlKW.png" alt="image-20220320210829028" style="zoom: 50%;" />
+
+
+
+<h2 id="Venn图的绘制"><a href="#Venn图的绘制" class="headerlink" title="Venn图的绘制"></a>Venn图的绘制</h2><h3 id="Venn图数据整理"><a href="#Venn图数据整理" class="headerlink" title="Venn图数据整理"></a>Venn图数据整理</h3><h4 id="Excel初加工"><a href="#Excel初加工" class="headerlink" title="Excel初加工"></a>Excel初加工</h4><ul>
+<li>将上面得到的每个比较组的impact pathway粘贴至新建的excel表格中，保存</li>
+</ul>
+<img src="https://s2.loli.net/2022/03/20/wBDjiyzl4OgaduP.png" alt="image-20220320215826572" style="zoom:67%;" />
+
+<h3 id="使用在线Venn图工具分析"><a href="#使用在线Venn图工具分析" class="headerlink" title="使用在线Venn图工具分析"></a>使用在线Venn图工具分析</h3><ul>
+<li>这里我用的是 <a target="_blank" rel="noopener" href="https://www.omicstudio.cn/tool">联川生物云平台</a>，进入主页注册账号后直接使用，目前免费。搜索Venn，选择如下普通的Venn图即可</li>
+</ul>
+<img src="https://s2.loli.net/2022/03/20/PTM3DB5KFYfGXlk.png" alt="image-20220320220126783" style="zoom: 33%;" />
+
+<ul>
+<li>进入页面后上传刚刚整理的excel表格，则会在右侧自动生成Venn图，对应的图片粗略细节调整可以参照下面箭头，比如调整圆圈颜色/标题位置/字体型号和大小等等</li>
+</ul>
+<img src="https://s2.loli.net/2022/03/20/eYt5EWGrZy8D3BL.png" alt="image-20220320220502646" style="zoom:67%;" />
+
+<ul>
+<li>点击右侧保存数据注意，选择对应的文件类型后，图片和表格是<strong>分开保存</strong>的，一定记得都要下载</li>
+<li>保存到本地的图片可以利用AI进行细化加工</li>
+</ul>
+<h3 id="效果图展示"><a href="#效果图展示" class="headerlink" title="效果图展示"></a>效果图展示</h3><p>对比开头我之前画的版本，这次写教程演示如下，再补充图例等细节就是完整的figure了。选用哪种按需即可，毕竟美化加工方面因人而异且各有所长。</p>
+<img src="https://s2.loli.net/2022/03/20/j6aYR8N4BioKgzq.png" alt="image-20220320220859444" style="zoom:80%;" />
+      
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">代谢组</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">绘图</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/20/%E7%BB%98%E5%88%B6%E5%B7%AE%E5%BC%82%E4%BB%A3%E8%B0%A2%E7%89%A9impact-pathway%E5%AF%8C%E9%9B%86%E6%B0%94%E6%B3%A1%E5%9B%BE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-科研论文投稿" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/19/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E6%8A%95%E7%A8%BF/">科研论文投稿</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/19/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E6%8A%95%E7%A8%BF/" class="archive-article-date">
+  	<time datetime="2022-03-19T05:26:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-19</time>
+</a>
+        
+    
+    
+        
+
+
+      </header>
+	  <div align="center" class="post-count">
+    字数：1.6k字 | 预计阅读时长：5分钟
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="将NCG文章投至Frontiers-inVeterinary-Science"><a href="#将NCG文章投至Frontiers-inVeterinary-Science" class="headerlink" title="将NCG文章投至Frontiers inVeterinary Science"></a>将NCG文章投至Frontiers inVeterinary Science</h2><p>博士期间第一篇，拖了快一年半，尽管初投只是二区，但也有一些流程相关遇到的一些问题和小tips值得以后借鉴</p>
+<h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><ul>
+<li>手稿的准备<del>（废话）</del>，图表的准备</li>
+</ul>
+<h4 id="手稿"><a href="#手稿" class="headerlink" title="手稿"></a>手稿</h4><ul>
+<li><p>选定目标杂志，查看并善用官网的<code>author guideline</code>，主要调整以下几点</p>
+<ul>
+<li>字体字号标题段落格式（比如TimesNewRome，10号），善用菜单栏<code>样式</code>（建议直接设置这个，万一改投方便一见调整）和<code>格式刷</code></li>
+</ul>
+        
+      
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">科研</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/19/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E6%8A%95%E7%A8%BF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-科研论文AI绘制流程图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -169,7 +443,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/22/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87AI%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE/">科研论文AI绘制流程图</a>
+      <a class="article-title" href="/2022/02/22/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87AI%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE/">科研论文AI绘制文章流程图</a>
     </h1>
   
 
@@ -185,14 +459,14 @@
 
       </header>
 	  <div align="center" class="post-count">
-    字数：568字 | 预计阅读时长：1分钟
+    字数：1.2k字 | 预计阅读时长：4分钟
 </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>a</p>
-<p>经常看文献发现，好一点的文章都会在fig 1或者最后一张figure放一张整篇文章的流程思路图（或者总结图），可视化的方式让无论是审稿人还是读者都能更清楚明了的快速了解这篇文章做了些什么，系统化的同时也能让“故事”讲得更加生动。相比于设计等专业出身，天天做实验自然对绘图等技能没那么在行，以下纪录自己摸索绘流程图的过程以供回顾。</p>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3>
+<p>经常看文献发现，好一点的文章都会在fig 1或者最后一张figure放一张整篇文章的流程思路图（或者总结图），可视化的方式让无论是审稿人还是读者都能更清楚明了的快速了解这篇文章做了些什么，系统化的同时也能让“故事”讲得更加生动。相比于设计等专业出身，天天做实验自然对绘图等技能没那么在行，以下记录自己摸索绘流程图的过程以供回顾。</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>流程图主要是为了展示文章逻辑，所以本身的内在逻辑以及你想要传达的信息才是最重要的，画出来只是更容易让大家理解，是基于科研工作本身，而并不是越花里胡哨越好看，简洁明了传达明白意思才是核心。</p>
         
       
 
@@ -901,183 +1175,6 @@
 
 
   
-    <article id="post-hexo更换主题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/05/hexo%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/">hexo更换主题</a>
-    </h1>
-  
-
-        
-        <a href="/2021/12/05/hexo%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2021-12-05T13:12:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-05</time>
-</a>
-        
-    
-    
-        
-
-
-      </header>
-	  <div align="center" class="post-count">
-    字数：475字 | 预计阅读时长：2分钟
-</div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文参考<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty">手把手教你从0开始搭建自己的个人博客 |无坑版视频教程| hexo</a><br>相当于是自己的实操练习</p>
-<h3 id="推荐主题"><a href="#推荐主题" class="headerlink" title="推荐主题"></a>推荐主题</h3><p><a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia">yilia</a></p>
-        
-      
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">博客搭建</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/12/05/hexo%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-markdown本地编辑器Tyora的优点与初使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/05/markdown%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%BE%91%E5%99%A8Tyora%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E5%88%9D%E4%BD%BF%E7%94%A8/">markdown本地编辑器Tyora的优点与初使用</a>
-    </h1>
-  
-
-        
-        <a href="/2021/12/05/markdown%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%BE%91%E5%99%A8Tyora%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E5%88%9D%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2021-12-05T12:58:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-05</time>
-</a>
-        
-    
-    
-        
-
-
-      </header>
-	  <div align="center" class="post-count">
-    字数：1.5k字 | 预计阅读时长：5分钟
-</div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[toc]</p>
-<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>​    刚搭的这个个人blog站，肯定会要用到markdown，就干脆把之前写的笔记拿上来，因为是刚接触的时候写的，现在看起来还是挺可爱的，没改动直接放上来了，有问题再改</p>
-<p>​        刚开始接触markdown，因为自己是纯科研狗，仅仅只是想找个工具做实验记录方便点，于是先尝试了vscode 中的markdown编辑器，先熟悉了基本的语法，确实这种零排版的格式整洁漂亮，但还是有不少问题，比如图片的粘贴（即使下了插件也不太好用），表格的绘制以及文本内容的粘贴和导出等，文本只能保持markdown格式粘贴出去，没法去掉格式。于是我自己就找了一下更方便一点的本地markdown编辑器，意外找到了typora，初步尝试了一下，很惊喜，上手不要太爽，自己也只是个新手，想到可能没人比我还傻需要如此简单的教程，所以就权当给自己列个说明了自己看了，所以用Typora写了这个，如下。</p>
-        
-      
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">博客搭建</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/12/05/markdown%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%BE%91%E5%99%A8Tyora%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E5%88%9D%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1217,6 +1314,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">实验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">科研</a>
               </li>
             
             <div class="clearfix"></div>
