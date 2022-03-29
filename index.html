@@ -67,7 +67,7 @@
     总文章数 15
 </nav>
 <nav>
-    总字数 <span class="post-count">11.8k</span>
+    总字数 <span class="post-count">12.4k</span>
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -192,94 +192,7 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>基于已有的代谢组数据进行impact pathway富集气泡图与Venn图的绘制，用到的原始数据仅包括实验组和对照组的差异代谢物对应的KEGG号即可（或者差异代谢物名称也可），绘制成如下面这种效果图</p>
 <img src="https://s2.loli.net/2022/03/20/6L4bWtwnE572ZCr.png" alt="image-20220320221057563" style="zoom:80%;" />
-
-<h2 id="Impact-pathway富集气泡图的生成"><a href="#Impact-pathway富集气泡图的生成" class="headerlink" title="Impact pathway富集气泡图的生成"></a>Impact pathway富集气泡图的生成</h2><h3 id="代谢组数据分析"><a href="#代谢组数据分析" class="headerlink" title="代谢组数据分析"></a>代谢组数据分析</h3><h4 id="使用MetaboAnalyst5-0分析"><a href="#使用MetaboAnalyst5-0分析" class="headerlink" title="使用MetaboAnalyst5.0分析"></a>使用MetaboAnalyst5.0分析</h4><ul>
-<li>进入 <a target="_blank" rel="noopener" href="https://dev.metaboanalyst.ca/MetaboAnalyst/home.xhtml">MetaboAnalyst5.0</a> 点击主页中间的start直接开始</li>
-</ul>
-<img src="https://s2.loli.net/2022/03/20/sf6VIwPnRmLKid1.png" alt="image-20220320153445485" style="zoom:80%;" />
-
-<ul>
-<li>在内容选择界面选择<code>Pathway Analysis</code></li>
-</ul>
-<img src="https://s2.loli.net/2022/03/20/TAYbJCvPr1M6OFp.png" alt="image-20220320153935489" style="zoom:80%;" />
-
-<ul>
-<li>进入之后选择<code>Compound List</code>，在输入框中粘贴差异代谢产物的KEGG号，并在<code>Input type</code>部分选择<code>KEGG ID</code>，这一步尽量直接用KEGG号，用差异代谢产物名称（相应选择<code>Compound Name</code>）话因为有别名的存在，即你手里的产物名（公司库的名字）和KEGG库里的不一致，导致在下一步可能还需要核对更换，而KEGG号则是唯一的</li>
-</ul>
-<img src="https://s2.loli.net/2022/03/20/vtu861LkqO7sjKI.png" alt="image-20220320154057709" style="zoom:50%;" />
-
-<ul>
-<li>等待录入匹配完成后会出现如下界面，可以看到都能匹配上则直接拉到最下面继续<code>Procced</code>（如果前一步被迫只能输产物名的话这一步还可以导出这个表格，得到对应的KEGG号，点击页面左下角的<code>Download result</code>）</li>
-</ul>
-<img src="https://s2.loli.net/2022/03/20/3l4b2UK7FeJqoHs.png" alt="image-20220320154733923" style="zoom:80%;" />
-
-<ul>
-<li>分析参数设置如果没有特别需求则选择默认设置就好，但是注意选择下面的<code>Pathway library</code>，根据实验涉及的物种进行选择，这里包含了常见的哺乳动物/鸟/与/昆虫/真菌/植物等，如果做的比较小众没有对应的则选择最相近的即可。比如我这里因为做的是奶牛则选择的<code>Bos taurus(cow)</code>。</li>
-</ul>
-<img src="https://s2.loli.net/2022/03/20/NkKtyhsoMUxQHmd.png" alt="image-20220320155021160" style="zoom:80%;" />
-
-<ul>
-<li>上一步继续后会生成如下结果，即我们需要的Impact pathway富集气泡图<ul>
-<li>点击左边<code>Show gridline</code>之后<code>Update</code>可在图中显示网格线，便于更好的观察和认识结果</li>
-<li>左边气泡图的具体含义：横坐标轴是表示影响大小，圆圈越大代表对这条通路的影响越大；纵轴是-log10(p)，也就是p值可信度，圆圈越红代表可信度越高。每个圆圈对应的具体信息可查看下方表格</li>
-<li>点击图片下方的<code>Pathway Name</code>这一系列的超链接，回载页面有图出现这一堆差异代谢物具体hit到了该pathway那些部分，已经简化的代谢通路图</li>
-</ul>
-</li>
-</ul>
-<img src="https://s2.loli.net/2022/03/20/9dQgJO4WqDscVIf.png" alt="image-20220320155546317" style="zoom:80%;" />
-
-
-
-<ul>
-<li>点击<code>Submit</code>之后会出现结果导出界面，建议直接选择打包下载也就是<code>Download.zip</code>到本地，方便调看查阅</li>
-</ul>
-<img src="https://s2.loli.net/2022/03/20/7WbkevEaZL5wyrg.png" alt="image-20220320160618757" style="zoom:80%;" />
-
-
-
-<h2 id="Impact-pathway富集气泡图的加工"><a href="#Impact-pathway富集气泡图的加工" class="headerlink" title="Impact pathway富集气泡图的加工"></a>Impact pathway富集气泡图的加工</h2><p>这里使用到的图片加工软件为Adobe Illustrator也就是AI</p>
-<ul>
-<li>解压在MetaboAnalyst5.0得到的结果，选择<code>pathway_results.csv</code>文件打开</li>
-</ul>
-<img src="https://s2.loli.net/2022/03/20/Kjrt1oYyQnVmJPz.png" alt="image-20220320162904239" style="zoom:50%;" />
-
-<ul>
-<li>按<code>Raw p</code>升序排列，选取小于0.05的，K列的<code>Impact</code>也可以作为参考值，一般大于0.1认为有影响（如果富集到的代谢通路少可以不考虑），按p值大小插入A列拉动排序，记得B列留空</li>
-</ul>
-<p><img src="https://s2.loli.net/2022/03/20/gqiKtyrFpP5aVRB.png" alt="image-20220320163352977"></p>
-<ul>
-<li>打开AI后新建大小合适的画布，将文件<code>path_view_1_dpi72</code>导入AI，在上面的表格中复制A-C列，粘贴至图片右边，并对应表格中的p值和impact值确定圆圈含义，标记序号一一匹配即可（下图的示例图用的另一个表格的）</li>
-</ul>
-<img src="https://s2.loli.net/2022/03/20/YwM8T1kU64ILmge.png" alt="image-20220320173415759" style="zoom:80%;" />
-
-<ul>
-<li>当impact pathway数量不多的时候也可以选择下面这种展示方式，更加直观</li>
-</ul>
-<img src="https://s2.loli.net/2022/03/20/ibvnSo87UejRlKW.png" alt="image-20220320210829028" style="zoom: 50%;" />
-
-
-
-<h2 id="Venn图的绘制"><a href="#Venn图的绘制" class="headerlink" title="Venn图的绘制"></a>Venn图的绘制</h2><h3 id="Venn图数据整理"><a href="#Venn图数据整理" class="headerlink" title="Venn图数据整理"></a>Venn图数据整理</h3><h4 id="Excel初加工"><a href="#Excel初加工" class="headerlink" title="Excel初加工"></a>Excel初加工</h4><ul>
-<li>将上面得到的每个比较组的impact pathway粘贴至新建的excel表格中，保存</li>
-</ul>
-<img src="https://s2.loli.net/2022/03/20/wBDjiyzl4OgaduP.png" alt="image-20220320215826572" style="zoom:67%;" />
-
-<h3 id="使用在线Venn图工具分析"><a href="#使用在线Venn图工具分析" class="headerlink" title="使用在线Venn图工具分析"></a>使用在线Venn图工具分析</h3><ul>
-<li>这里我用的是 <a target="_blank" rel="noopener" href="https://www.omicstudio.cn/tool">联川生物云平台</a>，进入主页注册账号后直接使用，目前免费。搜索Venn，选择如下普通的Venn图即可</li>
-</ul>
-<img src="https://s2.loli.net/2022/03/20/PTM3DB5KFYfGXlk.png" alt="image-20220320220126783" style="zoom: 33%;" />
-
-<ul>
-<li>进入页面后上传刚刚整理的excel表格，则会在右侧自动生成Venn图，对应的图片粗略细节调整可以参照下面箭头，比如调整圆圈颜色/标题位置/字体型号和大小等等</li>
-</ul>
-<img src="https://s2.loli.net/2022/03/20/eYt5EWGrZy8D3BL.png" alt="image-20220320220502646" style="zoom:67%;" />
-
-<ul>
-<li>点击右侧保存数据注意，选择对应的文件类型后，图片和表格是<strong>分开保存</strong>的，一定记得都要下载</li>
-<li>保存到本地的图片可以利用AI进行细化加工</li>
-</ul>
-<h3 id="效果图展示"><a href="#效果图展示" class="headerlink" title="效果图展示"></a>效果图展示</h3><p>对比开头我之前画的版本，这次写教程演示如下，再补充图例等细节就是完整的figure了。选用哪种按需即可，毕竟美化加工方面因人而异且各有所长。</p>
-<img src="https://s2.loli.net/2022/03/20/j6aYR8N4BioKgzq.png" alt="image-20220320220859444" style="zoom:80%;" />
+        
       
 
 
@@ -532,7 +445,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/22/%E4%B9%B3%E8%85%BA%E4%B8%8A%E7%9A%AE%E7%BB%86%E8%83%9E%E8%84%82%E6%BB%B4%E6%9F%93%E8%89%B2%E6%B5%81%E5%BC%8F%E6%A3%80%E6%B5%8B/">乳腺上皮细胞脂滴染色流式检测</a>
+      <a class="article-title" href="/2022/01/22/%E4%B9%B3%E8%85%BA%E4%B8%8A%E7%9A%AE%E7%BB%86%E8%83%9E%E8%84%82%E6%BB%B4%E6%9F%93%E8%89%B2%E6%B5%81%E5%BC%8F%E6%A3%80%E6%B5%8B/">乳腺上皮细胞脂滴BODIPY染色流式荧光检测</a>
     </h1>
   
 
@@ -548,12 +461,12 @@
 
       </header>
 	  <div align="center" class="post-count">
-    字数：725字 | 预计阅读时长：3分钟
+    字数：1.3k字 | 预计阅读时长：5分钟
 </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="RA和OA脂滴染色流式检测"><a href="#RA和OA脂滴染色流式检测" class="headerlink" title="RA和OA脂滴染色流式检测"></a>RA和OA脂滴染色流式检测</h4><p>探究在RA和OA的刺激下BMEC脂滴分泌的变化情况，之前因为共聚焦在区域选择方面认为影响因素较大，所以此次选用流式直接查看整体的分泌情况</p>
+        <h4 id="BODIPY脂滴染色流式荧光检测"><a href="#BODIPY脂滴染色流式荧光检测" class="headerlink" title="BODIPY脂滴染色流式荧光检测"></a>BODIPY脂滴染色流式荧光检测</h4><p>探究在RA和OA的刺激下BMEC脂滴分泌的变化情况，之前因为共聚焦在区域选择方面认为影响因素较大，所以此次选用流式直接查看整体的分泌情况</p>
         
       
 
@@ -571,6 +484,10 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">绘图</a>
+        		</li>
+      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">实验</a>
         		</li>
@@ -635,12 +552,12 @@
 
       </header>
 	  <div align="center" class="post-count">
-    字数：640字 | 预计阅读时长：2分钟
+    字数：641字 | 预计阅读时长：2分钟
 </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前两天画KEGG的分类图师兄路过看到了让帮也画一个，一问是两个分组，于是建议参考这篇 <a target="_blank" rel="noopener" href="https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-020-00819-8">Multi-omics reveals that the rumen microbiome and its metabolome together with the host metabolome contribute to individualized dairy cow performance</a> 画差异代谢物的HMDB图就行，还能标出fold change值，简洁明了</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前两天画KEGG的分类图师兄路过看到了让帮也画一个，一问是两个分组，于是建议参考这篇 <a target="_blank" rel="noopener" href="https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-020-00819-8">Multi-omics reveals that the rumen microbiome and its metabolome together with the host metabolome contribute to individualized dairy cow performance</a> 画差异代谢物的HMDB（KEGG）图就行，还能标出fold change值，简洁明了</p>
         
       
 
