@@ -6,25 +6,46 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://twocanis.github.io">
-  <title>基于R的ggplot2包画KEGG富集通路气泡图_KEGGdot | twocanis&#39;s blog</title>
+  <title>twocanis的跑步日记 | twocanis&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景 基于公司已给出的结果上做出调整（公司只给出了top10），画KEGG富集通路的气泡图，初始文件如下图">
+  <meta name="description" content="写在前面今年26岁了，自从青春期停止发育后身材就保持得相对稳定，162cm的身高以及52kg-55kg之间波动的体重几乎没变过。本科期间因为加入羽协有定期打球的习惯，硕士期间偶尔会和院里老师维持一个月3-4次的约球频率（几乎可以说是没打了），而读博以来因为课程&#x2F;实验&#x2F;杂活等原因几乎完全没有了运动习惯，尽管身体BMI指数告诉我并不肥胖，但腹部赘肉让我感觉是一百斤出头的体重肚子占了50斤，真的，看起来">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于R的ggplot2包画KEGG富集通路气泡图_KEGGdot">
-<meta property="og:url" content="https://twocanis.github.io/2021/12/09/%E5%9F%BA%E4%BA%8ER%E7%9A%84ggplot2%E5%8C%85%E7%94%BBKEGG%E5%AF%8C%E9%9B%86%E9%80%9A%E8%B7%AF%E6%B0%94%E6%B3%A1%E5%9B%BE-KEGGdot/index.html">
+<meta property="og:title" content="twocanis的跑步日记">
+<meta property="og:url" content="https://twocanis.github.io/2022/05/14/twocanis%E7%9A%84%E8%B7%91%E6%AD%A5%E6%97%A5%E8%AE%B0/index.html">
 <meta property="og:site_name" content="twocanis&#39;s blog">
-<meta property="og:description" content="背景 基于公司已给出的结果上做出调整（公司只给出了top10），画KEGG富集通路的气泡图，初始文件如下图">
+<meta property="og:description" content="写在前面今年26岁了，自从青春期停止发育后身材就保持得相对稳定，162cm的身高以及52kg-55kg之间波动的体重几乎没变过。本科期间因为加入羽协有定期打球的习惯，硕士期间偶尔会和院里老师维持一个月3-4次的约球频率（几乎可以说是没打了），而读博以来因为课程&#x2F;实验&#x2F;杂活等原因几乎完全没有了运动习惯，尽管身体BMI指数告诉我并不肥胖，但腹部赘肉让我感觉是一百斤出头的体重肚子占了50斤，真的，看起来">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2021/12/09/kFEyAw3ZnWvKiVf.png">
-<meta property="og:image" content="https://s2.loli.net/2021/12/09/m3G5pFoeRI9J2ay.png">
-<meta property="article:published_time" content="2021-12-09T09:21:01.000Z">
-<meta property="article:modified_time" content="2021-12-22T12:43:44.855Z">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/Dl8GQVPKXcojEnH.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/GvTmIwdZaCilQfM.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/KJbs73rdNMEY9LI.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/7UGeZCoI3Sntpuy.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/G94wXp3jn7dctUQ.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/JFo1XlEpSTrmN9V.png">
+<meta property="og:image" content="d:%5CPicture%5CTypro%20Picture%5Cimage-20220514111845239.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/W9roSpxGXR4M6fq.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/56e8uOIhGMLr3bf.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/pTO6fI3WXZjSsdH.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/tbBFyUwA31iGzJ2.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/WZpnPCsHmE1iB4t.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/QOKutcegRBoyabw.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/Dg95SZ6XGNyuKLk.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/BYa1q8sbn7gzXmp.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/rWMu2yZPwGTk8Rd.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/QJis1hMlnySBpjo.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/AMcSRnlywvP3qsd.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/i5Rp1AIXWnTuHj3.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/RJzhM7bxjq8EXd6.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/KW7PVtsvQho1jnc.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/urwUyZV5NtPMHOs.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/KMr7Hcufqnmhd1E.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/I5WS9wNXgthGCb3.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/uNFMJZxvCQVfljE.png">
+<meta property="article:published_time" content="2022-05-14T02:05:06.000Z">
+<meta property="article:modified_time" content="2022-05-15T12:40:10.806Z">
 <meta property="article:author" content="twocanis">
-<meta property="article:tag" content="生物信息">
-<meta property="article:tag" content="代谢组">
-<meta property="article:tag" content="绘图">
+<meta property="article:tag" content="日常">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2021/12/09/kFEyAw3ZnWvKiVf.png">
+<meta name="twitter:image" content="https://s2.loli.net/2022/05/15/Dl8GQVPKXcojEnH.png">
   
     <link rel="alternative" href="/atom.xml" title="twocanis&#39;s blog" type="application/atom+xml">
   
@@ -168,20 +189,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-基于R的ggplot2包画KEGG富集通路气泡图-KEGGdot" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-twocanis的跑步日记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      基于R的ggplot2包画KEGG富集通路气泡图_KEGGdot
+      twocanis的跑步日记
     </h1>
   
 
         
-        <a href="/2021/12/09/%E5%9F%BA%E4%BA%8ER%E7%9A%84ggplot2%E5%8C%85%E7%94%BBKEGG%E5%AF%8C%E9%9B%86%E9%80%9A%E8%B7%AF%E6%B0%94%E6%B3%A1%E5%9B%BE-KEGGdot/" class="archive-article-date">
-  	<time datetime="2021-12-09T09:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-09</time>
+        <a href="/2022/05/14/twocanis%E7%9A%84%E8%B7%91%E6%AD%A5%E6%97%A5%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2022-05-14T02:05:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-14</time>
 </a>
         
     
@@ -195,30 +216,74 @@
 
       </header>
 	  <div align="center" class="post-count">
-    字数：499字 | 预计阅读时长：2分钟
+    字数：3.9k字 | 预计阅读时长：13分钟
 </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>背景</strong></p>
-<p>基于公司已给出的结果上做出调整（公司只给出了top10），画KEGG富集通路的气泡图，初始文件如下图</p>
-<img src="https://s2.loli.net/2021/12/09/kFEyAw3ZnWvKiVf.png" alt="公司出的excel结果文件" style="zoom:80%;" />
+        <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>今年26岁了，自从青春期停止发育后身材就保持得相对稳定，162cm的身高以及52kg-55kg之间波动的体重几乎没变过。本科期间因为加入羽协有定期打球的习惯，硕士期间偶尔会和院里老师维持一个月3-4次的约球频率（几乎可以说是没打了），而读博以来因为课程/实验/杂活等原因几乎完全没有了运动习惯，尽管身体BMI指数告诉我并不肥胖，但腹部赘肉让我感觉是一百斤出头的体重肚子占了50斤，真的，看起来匀称的背后是duang~duang的柔软触感，我甚至自我嘲解这层腹部脂肪是我作为女性最温柔软糯的地方了。且长期坐办公室或者持续低头维持固定姿势的实验使我的颈椎腰椎都开始有了强烈的不适感（期间做了工学椅/键盘手托/工学鼠标等努力效果不大），因此萌生了强烈的减脂+运动调节身体状态的想法。</p>
+<p>刚好今年自我支配的时间相对充裕，有更多的闲心关注自我的身体状态，我是一个很没有意志力的人，但每天摸着肚子总觉得还是得挣扎一下，我一直自诩运动天赋不错，之前体育考试立定跳远/仰卧起坐/体前屈我都是满分，唯独跑步我不行，跑步800m能跑六分多钟都是拼了老命的结果，永远在不及格的边缘苦苦挣扎磨叽老师让我过&gt;_&lt;。但是，刚好碰上麦当劳活动，于是跑步的契机就从这里开始了！</p>
+<h3 id="跑步，从麦当劳开始"><a href="#跑步，从麦当劳开始" class="headerlink" title="跑步，从麦当劳开始"></a>跑步，从麦当劳开始</h3><p>去年12月恰逢麦当劳做活动，5块的板烧鸡腿堡真的很爽，线下兑换这一点让我挠了挠头，最近的麦当劳离我3.4km，心想着那就试试每天跑步去买个晚餐吃个堡吧！</p>
+<img src="https://s2.loli.net/2022/05/15/Dl8GQVPKXcojEnH.png" alt="image-20220514102957075" style="zoom: 25%;" />
 
 
 
-<span id="more"></span>
+<p>时值寒冬，没有什么装备可言，一件杂牌冲锋衣及加一条夏天的卫裤配一双nike swift揣着手机就开始跑了，12.6第一次断断续续跑完（碰见斑马线红绿灯会停）感觉还行，就是毕竟气温低第二天耳朵疼。此时什么时间配速的概念都没有，只是一看诶，我完成了3km，人生里程碑了，买个汉堡开开心心的坐公交车回去了……接下来在麦当劳的诱惑下，又断断续续跑了半个月直到把活动券消耗完。自此，填补了我过去二十多年连续跑步未超过1km的空白！</p>
+<p><img src="https://s2.loli.net/2022/05/15/GvTmIwdZaCilQfM.png" alt="image-20220514103511792" style="zoom:25%;" /> <img src="https://s2.loli.net/2022/05/15/KJbs73rdNMEY9LI.png" alt="image-20220514104007004" style="zoom:25%;" /></p>
+<h3 id="人生第一个5km"><a href="#人生第一个5km" class="headerlink" title="人生第一个5km"></a>人生第一个5km</h3><p>是的，对于大多数开始接触跑步的人而言5km一定是必定目标，经过了去年的麦当劳引子事件，我觉得我兴许还是能在跑步这件事上努努力的，尽管中间过年放假我又在床上瘫痪了一个月……于是，拿起手机情绪兴奋的冲到没有人的操场外放着歌单准备开始2022虎年第一跑：3.7号，妇女节前一天</p>
+<p>1km：还行，呼吸上来了但我能冲</p>
+<p>2km：有点累了，腿和脚步没什么感觉，呼吸开始吃力，还没过半我得坚持</p>
+<p>3km：怎么才3啊，时间都不流动的吗，这歌能不能快点到下一首</p>
+<p>4km：我已经横跨了整个中国吧，呼吸的喘促让我感受到了祖国从漠河到曾母暗沙的辽阔，从上海到挨着吉尔吉斯斯坦那一撮土的广博。中华儿女脚踩华夏大地我再坚持一下吧，马上就完成穿越中国的壮举了</p>
+<p>5km：我现在已经跑到了非洲站到了乞力马扎罗的顶峰，我成功了，阿波罗登月就我这心情了，我俩肯定都苦于身边没个实体能立的里程碑！</p>
+<p>就这样，完成了人生第一个5km，让我信心大增，我是可以跑步的！我没有那么废！</p>
+<p><img src="https://s2.loli.net/2022/05/15/7UGeZCoI3Sntpuy.png" alt="image-20220514104631923" style="zoom:25%;" />       <img src="https://s2.loli.net/2022/05/15/G94wXp3jn7dctUQ.png" alt="image-20220514105518571" style="zoom: 67%;" /> </p>
+<p>3.7号后中间经历了半个月的健身房阶段，被师妹拉着去的，属于鼓励全民健身的社区公益性质，25块钱一个月虽然设备简陋但是完全满足我的需求这个价格要啥自行车，跑步机上基本每天3-5km这么跑了十来天，遇到疫情，封店。</p>
+<p>我寻思不能断啊，我好不容易下定决心坚持跑步了，又准备跑回原来的操场（在我们研究所隔壁的一个培训学校），但同样因为疫情原因，门卫管得很严格，不让进，尽管操场平时和现在都是一个人没有。正丧气的想着算了吧准备回去，走到路口停了一下，哪里跑不是跑，操场不就是塑胶地软一点吗，我跑的这几公里对身体压力根本还没到甄选场地材质的阶段呢！打开手机看了看地图，那就往河边上跑吧！</p>
+<p><img src="https://s2.loli.net/2022/05/15/JFo1XlEpSTrmN9V.png" alt="image-20220514111816195" style="zoom: 67%;" /> <img src="D:%5CPicture%5CTypro%20Picture%5Cimage-20220514111845239.png" alt="image-20220514111845239" style="zoom: 25%;" /></p>
+<p>跑到河边刚好夜幕落下，掏出手机发现糊着很好看，就留下了这一张。于是就跑了第一个keep记录的路跑6km，代价是我大拇指本身这么厚的茧子还是出了血泡。</p>
+<img src="https://s2.loli.net/2022/05/15/W9roSpxGXR4M6fq.png" alt="image-20220514112046505" style="zoom:25%;" />
 
 
 
-<p><strong>代码演示</strong></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; getwd() <span class="comment">#显示工作目录</span></span><br><span class="line">&gt; setwd() <span class="comment">#如果上述显示不是想要的路径，可以新建一个文件夹然后设置成工作目录，方便一些原始文件以及结果图片的存放</span></span><br><span class="line">&gt; install.packages(<span class="string">&quot;ggplot2&quot;</span>,destdir=<span class="string">&quot;D:/RData/R-win-4.0.2/R-4.0.2/R-packages&quot;</span>,lib=<span class="string">&quot;D:/RData/R-win-4.0.2/R-4.0.2/R-packages&quot;</span>) <span class="comment">#安装ggplot2包并设置工作路径，已安装的话忽略这步</span></span><br><span class="line">&gt; x &lt;- read.csv(<span class="string">&quot;RA_25vsRA_0.csv&quot;</span>) <span class="comment">#导入刚刚存在设置工作目录中的初始结果文件，格式如果是其他可以自行转换成csv格式，或者txt用read.table()，xlsx用read.xlsx()</span></span><br><span class="line">  GeneRatio  BgRatio       pvalue        padj</span><br><span class="line"><span class="number">1</span>     <span class="number">50</span>/<span class="number">964</span> <span class="number">164</span>/<span class="number">6826</span> <span class="number">0.0000000388</span> <span class="number">0.000007160</span></span><br><span class="line"><span class="number">2</span>     <span class="number">44</span>/<span class="number">964</span> <span class="number">137</span>/<span class="number">6826</span> <span class="number">0.0000000473</span> <span class="number">0.000007160</span></span><br><span class="line"><span class="number">3</span>     <span class="number">37</span>/<span class="number">964</span> <span class="number">119</span>/<span class="number">6826</span> <span class="number">0.0000013600</span> <span class="number">0.000137378</span></span><br><span class="line"><span class="number">4</span>     <span class="number">41</span>/<span class="number">964</span> <span class="number">143</span>/<span class="number">6826</span> <span class="number">0.0000038100</span> <span class="number">0.000288781</span></span><br><span class="line"><span class="number">5</span>     <span class="number">28</span>/<span class="number">964</span>  <span class="number">87</span>/<span class="number">6826</span> <span class="number">0.0000126000</span> <span class="number">0.000766196</span></span><br><span class="line"><span class="number">6</span>     <span class="number">35</span>/<span class="number">964</span> <span class="number">123</span>/<span class="number">6826</span> <span class="number">0.0000232000</span> <span class="number">0.001031538</span></span><br><span class="line"><span class="number">7</span>     <span class="number">44</span>/<span class="number">964</span> <span class="number">169</span>/<span class="number">6826</span> <span class="number">0.0000257000</span> <span class="number">0.001031538</span></span><br><span class="line">&gt; library(ggplot2) <span class="comment">#加载ggplot2</span></span><br><span class="line">&gt; y &lt;- ggplot(x, aes(x=padj, y=Description,  size=Count, color=padj)) + geom_point()  + scale_colour_gradient(low=<span class="string">&quot;green&quot;</span>,high=<span class="string">&quot;red&quot;</span>) + labs(color=<span class="built_in">expression</span>(padj),size=<span class="string">&quot;Gene number&quot;</span>, x=<span class="string">&quot;GeneRatio&quot;</span>,y=<span class="string">&quot;Pathway name&quot;</span>,title=<span class="string">&quot;KEGG Pathway enrichment&quot;</span>)</span><br><span class="line"><span class="comment">#确定x轴参数，y轴参数，圆圈大小根据基因数改变，色卡的深浅依据padj+自定义色卡变换颜色+设置色卡名称+设置圆圈名称+x轴名称+y轴名称+图标题名称</span></span><br><span class="line">&gt; y <span class="comment">#显示气泡图，Rstudio会弹出一个新的对话框显示图片，图片可右键存为位图/图元文件等</span></span><br><span class="line">&gt; ggsave(<span class="string">&quot;RA_25vsRA_0_KEGGdot.png&quot;</span>,width = <span class="number">8</span>,height = <span class="number">8</span>) <span class="comment">#保存到目录下为png格式，大小据需调整</span></span><br></pre></td></tr></table></figure>
+<h3 id="开始选跑鞋"><a href="#开始选跑鞋" class="headerlink" title="开始选跑鞋"></a>开始选跑鞋</h3><p>研究了一会儿意识到宽楦鞋头的重要性，同时了解了一下零落差和赤足的概念，vibram不可能穿出门，vivobarefoot和xeroshoes哪怕渠道价我也觉得小贵，最后无意看到一双符合我鞋码的topo（一家比较低调的跑鞋品牌，可以自行了解），如下图：我日常就是黑白灰主打色，这双朴素的黑色用来运动通勤两不误，宽楦的鞋头穿厚袜子都能感受前脚掌的绰绰有余，3mm的前后落差配合自家招牌中底，软度我觉得比我穿过的亚瑟士lyte v即gel中底这一休闲系列还要软，回弹很舒适，ortholite抗菌鞋垫加织网鞋面透气性ok，对于我跑的这个量和地面这个大底应付已经绰绰有余了，且鞋带有一定摩擦力不会很容易散开。重点是，只要150块，卖家肯定不会亏，但我也觉得我血赚！</p>
+<p><img src="https://s2.loli.net/2022/05/15/56e8uOIhGMLr3bf.png" alt="image-20220514154248537" style="zoom:25%;" /> <img src="https://s2.loli.net/2022/05/15/pTO6fI3WXZjSsdH.png" alt="image-20220514154300564" style="zoom:25%;" /></p>
+<p><img src="https://s2.loli.net/2022/05/15/tbBFyUwA31iGzJ2.png" alt="image-20220514154314411" style="zoom:25%;" /> <img src="https://s2.loli.net/2022/05/15/WZpnPCsHmE1iB4t.png" alt="image-20220514154330260" style="zoom:25%;" /></p>
+<p>入手这双topo后受大数据推送影响，发现了麦乐Merrell glove 6，淘宝渠道58包邮收了双sample，穿完就爱上了，甚至在办公室都不愿意穿拖鞋了，vibram黄金大底防滑耐磨，零落差真正的赤足脚感，且足弓部分给了很好的支撑，唯一的毛病就是鞋带太容易散了。后来店家上了一双墨绿又果断囤了双，真心好穿。</p>
+<img src="https://s2.loli.net/2022/05/15/QOKutcegRBoyabw.png" alt="image-20220514155629814" style="zoom:25%;" />
 
 
 
-<p><strong>效果图</strong></p>
-<img src="https://s2.loli.net/2021/12/09/m3G5pFoeRI9J2ay.png" alt="上述代码的最终呈现效果" style="zoom:80%;" />
+<h3 id="第一个10km"><a href="#第一个10km" class="headerlink" title="第一个10km"></a>第一个10km</h3><p>随着疫情严格管理了将近一个月，时间来到了2022年4月份，办公室楼上一间杂物室被工会改造成了一个简易健身房，或者说是活动室，摆着几台跑步机/划船机/动感单车等，近就是很方便，于是可以开始在这里规律的跑了。基本都是固定5km左右，一周会休1-2天，跑了两周开始尝试往上加，强化练习。</p>
+<p><img src="https://s2.loli.net/2022/05/15/Dg95SZ6XGNyuKLk.png" alt="image-20220514212049801" style="zoom:25%;" />  <img src="https://s2.loli.net/2022/05/15/BYa1q8sbn7gzXmp.png" alt="image-20220514212105912" style="zoom: 33%;" />  </p>
+<p>这个时候边跑边看相关知识意识到控制心率的重要性，于是入了块智能手表华米GTR 3 Pro，考虑到使用场景兼具休闲和运动的特点，这个大小女生手也勉强能驾驭（主要是我觉得这块好看，佳明是专业但大且我还没到那个水准，华为这折扣力度不合我意，所以归根到底是贫穷限制了我）</p>
+<p><img src="https://s2.loli.net/2022/05/15/rWMu2yZPwGTk8Rd.png" alt="image-20220514213109773" style="zoom:25%;" /> <img src="https://s2.loli.net/2022/05/15/QJis1hMlnySBpjo.png" alt="image-20220514213125465" style="zoom: 33%;" /> <img src="https://s2.loli.net/2022/05/15/AMcSRnlywvP3qsd.png" alt="image-20220514213539024" style="zoom:25%;" /></p>
+<p>表的准确度方面，都到2022了智能手表再差劲也是相对前几年刚火的时候比较准的，所以这里不予置评选择可参考表给出的数据。有表之后发现我很难像大佬们说的控制在什么150左右，我基本只要开始跑心率就是160左右起步，哪怕是跑步机上6/7这种配速，但是没有丝毫的不适感，跑完之后也很快平静仿佛什么都没发生，于是没有太在意，165-170这么跑着。之后会慢慢控制。</p>
+<p>4.28的时候中午吃的比较多，晚上就想着多跑一点。刚热完身就接到师妹电话问去不去吃火锅，我这都一只脚踏上来准备跑了边拒绝不去了。跑到日常距离5km的时候想着再坚持一下，慢慢到了6km，这个时候突然想起刚刚他们去吃火锅的事，脑子里的想法是：我都放弃火锅了，那我跑的要对得起这个牺牲，我得跑，冲个10km！然后继续跑，后来到8/9km的时候远没有当时第一次跑5km那么吃力，只是需要不断提示自己再跑一点的激励，最后甚至冲刺了一下，明显感觉心率很吃力了，但就几百米到了10km界线，就这么完成了人生第一个10km并收获脚底磨出的一个泡。</p>
+<p>停下来之后感觉肺呼吸有点吃力，可能是最后那个冲刺变成了无氧需要迫切的吸入更多氧气来缓和，跑后的几个小时内感觉不到累，只是没有了食欲，一点都不想吃东西，哪怕他们几个带着一身火锅味回来都让我无动于衷。第二天起来有酸痛感，但内心很爽，极大的成就感。</p>
+<p><img src="https://s2.loli.net/2022/05/15/i5Rp1AIXWnTuHj3.png" alt="image-20220514212130695" style="zoom:25%;" /> <img src="https://s2.loli.net/2022/05/15/RJzhM7bxjq8EXd6.png" alt="image-20220515203935313" style="zoom: 25%;" /></p>
+<p>跟男朋友分享我完成10km这个目标后，他表示跑步机比户外跑容易，10km显得没有那么有难度了。一下给我激起来了，五一劳动节放假回家（回家的时候我那个已经坚持跑步多年的老父亲也一直问我：“你能跑10km？这是你自己跑的？”，哈哈哈哈哈我就当这是肯定的夸赞了）假期第一天就大姨妈，瘫痪了两天之后，3号晚上溜进隔壁中学操场决定户外跑给他证明！结果最后只跑了7km因为被保安赶出来了……但是自我评估应该是能跑完的，尽管数据不那么好看</p>
+<img src="https://s2.loli.net/2022/05/15/KW7PVtsvQho1jnc.png" alt="image-20220514215116679" style="zoom:25%;" />
 
-<p>可直接右键保存成位图（ps编辑即可），矢量图可以方便的转换成位图，但位图转换成矢量图比较麻烦</p>
+
+
+<h3 id="把跑步变成习惯"><a href="#把跑步变成习惯" class="headerlink" title="把跑步变成习惯"></a>把跑步变成习惯</h3><p>有了5km和10km的经历后，我开始对跑步这件事变得自信起来，从4.18入手这块表到今天5.14总共跑了140km左右，日均5km，觉得疲倦就休息，状态好就多跑一点。尝试多跑了几次10km后回过头来跑5km发现和之前一样的配速但是心率能压的低一些了，所以现在会尽量在耐受的情况下提高阈值，然后回过头做简单的恢复训练，就还挺舒服的，又有成就感。<br>我自己关于频率的话不固定，有时间就早5晚5，但每天保持至少5，一周至少一次10。为了健康以及可持续，会密切关注膝盖和身体状态，一周会休1-2天，觉得有不适感立马适当调整，因为初跑者都会很猛而忽略到此时对身体尤其膝盖造成的压力，从而为以后长期跑埋下隐患。每个人体质不一样，所以一定要多渠道（免得信息茧房，鱼龙混杂学会甄别）边学习边不断比对自己状态，选择合适自己的运动计划。运动很重要，合理的运动更重要，劳逸结合感觉良好才能长久。</p>
+<p><img src="https://s2.loli.net/2022/05/15/urwUyZV5NtPMHOs.png" alt="image-20220514215347725" style="zoom:25%;" /> <img src="https://s2.loli.net/2022/05/15/KMr7Hcufqnmhd1E.png" alt="image-20220514215401437" style="zoom:25%;" /></p>
+<p>当规律的跑了一个月后，终于体会到大家说的跑步上瘾，一天不跑就不舒服的感觉。虽然跑的时候暂时依然没能体验到那种跑过了某个极值点达到特别兴奋可以一直跑的状态，现在跑长一点的距离是跑到最后几公里还是咬牙坚持并感到脚步更沉重一些的状态，但跑完之后是真的很清爽，由内到外的舒服。</p>
+<p>身心变化方面，首先是身体，跑一个月体重瘦了1kg不到，因为没有严格控制饮食（我是真的属于食欲特别旺盛那种人，饭量比正常女性大得多得多呜呜呜），但是腰的赘肉视觉上少了那么一点（会偶尔做卷腹等腹部强化），尽管不明显但能看出维度变化，<strong>跑的开心吃的开心对于我而言都是纯粹的快乐</strong><del>（虽然也想减脂但架不住世间真的太好吃）</del>。平时低强度日期走路带风甚至在楼道里走着走着动不动就想跑两步，跑的多一点时候从椅子上坐久了起身会有明显的肌肉微酸和疲惫感，但是一种微妙的略爽的酸痛。<br>心理方面自然是变得很<del>得瑟</del>自信的啦，不断的完成自己之前觉得不可能的目标，成就感参与的正反馈调节机制让每一步都跑的更加开心，并且跑完之后那种被激活的状态让工作状态能更加专注。</p>
+<p><img src="https://s2.loli.net/2022/05/15/I5WS9wNXgthGCb3.png" alt="image-20220515111325208" style="zoom: 33%;" /> <img src="https://s2.loli.net/2022/05/15/uNFMJZxvCQVfljE.png" alt="image-20220515111453053" style="zoom:33%;" /></p>
+<p>​                             跑步前                                                                一个月后</p>
+<h3 id="关于跑步的一些Tips"><a href="#关于跑步的一些Tips" class="headerlink" title="关于跑步的一些Tips"></a>关于跑步的一些Tips</h3><p>显然我几乎都还没入跑步的门无法像专业人士一样给出普适性建议，这个所谓的tips至是我自己的一些感受分享交流一下。从上个月2022.04正式开始跑步以来收获以及感触颇多，我曾觉得跑步这件事是一个长线投资才能见到收益的事情，但短期内的效果才让我产生了写下这篇记录的想法，分享一下自己的经历和心得，我觉得我这种当年跑两步就要命的人可以那么这真的是一件也可以让你enjoy的事了</p>
+<ul>
+<li>早上空腹跑的话喝杯黑咖啡跑状态会好一点，晚上少吃一点跑状态也会好一点</li>
+<li>为了保护膝盖以及提升成绩一定要配合力量训练，有条件话肯定是系统训练，没条件的话动作不需要复杂，<strong>深蹲/卷腹/俯卧撑</strong>这类随时随地都能做的就行，锻炼核心肌群强化肌肉提供更好的保护力，耐力更持久也更灵活</li>
+<li>不要妄想光靠跑步减肥，不控制饮食的减肥都是白搭，减肥的唯一有效途径是<strong>摄入&lt;消耗</strong>。每天辛辛苦苦跑5km但却可以轻轻松松吃10km的热量，那对于减肥的效果等于没跑</li>
+<li>女生跑步一定要穿<strong>运动内衣</strong>，且穿支撑和固定性强一点的运动内衣</li>
+<li>我自己跑到9km往上会磨裆，紧身裤能缓解这个问题</li>
+<li>跑前一定<strong>热身</strong>，避免肌肉关节损伤，告诉身体要进入活动状态了，良好的热身有助于心率控制，不至于上来就狂飙</li>
+<li><strong>鞋子的选择、跑步的姿势和呼吸的方式</strong>真的很重要，多查多看多辨别</li>
+</ul>
+<p>最后，just run and to be better！</p>
 
       
 
@@ -231,7 +296,7 @@
     
     <br>
     <strong>本文链接：</strong>
-    https://twocanis.github.io/2021/12/09/%E5%9F%BA%E4%BA%8ER%E7%9A%84ggplot2%E5%8C%85%E7%94%BBKEGG%E5%AF%8C%E9%9B%86%E9%80%9A%E8%B7%AF%E6%B0%94%E6%B3%A1%E5%9B%BE-KEGGdot/
+    https://twocanis.github.io/2022/05/14/twocanis%E7%9A%84%E8%B7%91%E6%AD%A5%E6%97%A5%E8%AE%B0/
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -285,15 +350,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">生物信息</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">代谢组</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">绘图</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
         		</li>
       		
 		</ul>
@@ -349,7 +406,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://twocanis.github.io/2021/12/09/%E5%9F%BA%E4%BA%8ER%E7%9A%84ggplot2%E5%8C%85%E7%94%BBKEGG%E5%AF%8C%E9%9B%86%E9%80%9A%E8%B7%AF%E6%B0%94%E6%B3%A1%E5%9B%BE-KEGGdot/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://twocanis.github.io/2022/05/14/twocanis%E7%9A%84%E8%B7%91%E6%AD%A5%E6%97%A5%E8%AE%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -363,18 +420,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/12/22/%E7%BB%98%E5%88%B6%E5%B7%AE%E5%BC%82%E4%BB%A3%E8%B0%A2%E4%BA%A7%E7%89%A9%E5%88%86%E7%B1%BB%E4%B8%8EKEGG%E4%BB%A3%E8%B0%A2%E9%80%9A%E8%B7%AF%E5%88%86%E7%B1%BB%E7%9A%84%E6%97%AD%E6%97%A5%E5%9B%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/05/15/%E5%87%8F%E8%84%82%E6%9C%9F%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%8C%A3%E6%89%8E/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          绘制差异代谢产物分类与HMDB代谢通路分类的旭日图
+          减脂期的饮食挣扎
         
       </div>
     </a>
   
   
-    <a href="/2021/12/09/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%BF%AE%E6%94%B9%E8%AE%BE%E7%BD%AE%E7%BD%91%E9%A1%B5%E5%9B%BE%E6%A0%87icon%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">搭建hexo博客修改设置网页图标icon失败的解决方法</div>
+    <a href="/2022/04/28/U%E7%9B%98-%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E6%8B%94%E5%87%BA%E6%8F%90%E7%A4%BA%E8%A2%AB%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5%E7%9A%84%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">U盘/移动硬盘拔出提示被占用情况的处理办法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -401,7 +458,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%91%E6%AD%A5%EF%BC%8C%E4%BB%8E%E9%BA%A6%E5%BD%93%E5%8A%B3%E5%BC%80%E5%A7%8B"><span class="toc-number">2.</span> <span class="toc-text">跑步，从麦当劳开始</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%BA%E7%94%9F%E7%AC%AC%E4%B8%80%E4%B8%AA5km"><span class="toc-number">3.</span> <span class="toc-text">人生第一个5km</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E9%80%89%E8%B7%91%E9%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">开始选跑鞋</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA10km"><span class="toc-number">5.</span> <span class="toc-text">第一个10km</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%8A%E8%B7%91%E6%AD%A5%E5%8F%98%E6%88%90%E4%B9%A0%E6%83%AF"><span class="toc-number">6.</span> <span class="toc-text">把跑步变成习惯</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E8%B7%91%E6%AD%A5%E7%9A%84%E4%B8%80%E4%BA%9BTips"><span class="toc-number">7.</span> <span class="toc-text">关于跑步的一些Tips</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -417,7 +474,7 @@
   
 
   
-  <div id="SOHUCS" sid="基于R的ggplot2包画KEGG富集通路气泡图-KEGGdot" ></div> 
+  <div id="SOHUCS" sid="twocanis的跑步日记" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({

@@ -6,25 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://twocanis.github.io">
-  <title>基于R的ggplot2包画KEGG富集通路气泡图_KEGGdot | twocanis&#39;s blog</title>
+  <title>减脂期的饮食挣扎 | twocanis&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景 基于公司已给出的结果上做出调整（公司只给出了top10），画KEGG富集通路的气泡图，初始文件如下图">
+  <meta name="description" content="前言不控制饮食的减脂是无效的我知道，但食欲太旺盛真的很无解，记录一下这段时间的饮食挣扎 减脂自制餐我不仅食欲旺盛，还对食物能保持持久的专一性，一样的食物可以不换花样持续吃，之前在食堂早上可以一直只吃面，中午晚上可以一直只吃一样的菜。所以像下面一样，连着半个月每天晚上白水煮鸡胸肉配蔬菜我也能一直吃，放点生抽或者胡椒孜然啥的并不会太介意那股鸡味，可是连这我都感觉自己会吃多       减脂速食餐吃了半">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于R的ggplot2包画KEGG富集通路气泡图_KEGGdot">
-<meta property="og:url" content="https://twocanis.github.io/2021/12/09/%E5%9F%BA%E4%BA%8ER%E7%9A%84ggplot2%E5%8C%85%E7%94%BBKEGG%E5%AF%8C%E9%9B%86%E9%80%9A%E8%B7%AF%E6%B0%94%E6%B3%A1%E5%9B%BE-KEGGdot/index.html">
+<meta property="og:title" content="减脂期的饮食挣扎">
+<meta property="og:url" content="https://twocanis.github.io/2022/05/15/%E5%87%8F%E8%84%82%E6%9C%9F%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%8C%A3%E6%89%8E/index.html">
 <meta property="og:site_name" content="twocanis&#39;s blog">
-<meta property="og:description" content="背景 基于公司已给出的结果上做出调整（公司只给出了top10），画KEGG富集通路的气泡图，初始文件如下图">
+<meta property="og:description" content="前言不控制饮食的减脂是无效的我知道，但食欲太旺盛真的很无解，记录一下这段时间的饮食挣扎 减脂自制餐我不仅食欲旺盛，还对食物能保持持久的专一性，一样的食物可以不换花样持续吃，之前在食堂早上可以一直只吃面，中午晚上可以一直只吃一样的菜。所以像下面一样，连着半个月每天晚上白水煮鸡胸肉配蔬菜我也能一直吃，放点生抽或者胡椒孜然啥的并不会太介意那股鸡味，可是连这我都感觉自己会吃多       减脂速食餐吃了半">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2021/12/09/kFEyAw3ZnWvKiVf.png">
-<meta property="og:image" content="https://s2.loli.net/2021/12/09/m3G5pFoeRI9J2ay.png">
-<meta property="article:published_time" content="2021-12-09T09:21:01.000Z">
-<meta property="article:modified_time" content="2021-12-22T12:43:44.855Z">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/YI3iu9xH7EteKcM.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/jGcRs8vMqC3tFd1.png">
+<meta property="og:image" content="d:%5CPicture%5CTypro%20Picture%5Cimage-20220515204300799.png">
+<meta property="og:image" content="d:%5CPicture%5CTypro%20Picture%5Cimage-20220515205000578.png">
+<meta property="og:image" content="d:%5CPicture%5CTypro%20Picture%5Cimage-20220515205023765.png">
+<meta property="og:image" content="d:%5CPicture%5CTypro%20Picture%5Cimage-20220515205040614.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/Wg6IEafq2KloSYF.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/rHzuFMimb2QwvZg.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/GwHhvQYe3rxbcgj.png">
+<meta property="article:published_time" content="2022-05-15T11:14:17.000Z">
+<meta property="article:modified_time" content="2022-05-15T13:11:38.228Z">
 <meta property="article:author" content="twocanis">
-<meta property="article:tag" content="生物信息">
-<meta property="article:tag" content="代谢组">
-<meta property="article:tag" content="绘图">
+<meta property="article:tag" content="日常">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2021/12/09/kFEyAw3ZnWvKiVf.png">
+<meta name="twitter:image" content="https://s2.loli.net/2022/05/15/YI3iu9xH7EteKcM.png">
   
     <link rel="alternative" href="/atom.xml" title="twocanis&#39;s blog" type="application/atom+xml">
   
@@ -168,20 +173,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-基于R的ggplot2包画KEGG富集通路气泡图-KEGGdot" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-减脂期的饮食挣扎" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      基于R的ggplot2包画KEGG富集通路气泡图_KEGGdot
+      减脂期的饮食挣扎
     </h1>
   
 
         
-        <a href="/2021/12/09/%E5%9F%BA%E4%BA%8ER%E7%9A%84ggplot2%E5%8C%85%E7%94%BBKEGG%E5%AF%8C%E9%9B%86%E9%80%9A%E8%B7%AF%E6%B0%94%E6%B3%A1%E5%9B%BE-KEGGdot/" class="archive-article-date">
-  	<time datetime="2021-12-09T09:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-09</time>
+        <a href="/2022/05/15/%E5%87%8F%E8%84%82%E6%9C%9F%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%8C%A3%E6%89%8E/" class="archive-article-date">
+  	<time datetime="2022-05-15T11:14:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-15</time>
 </a>
         
     
@@ -195,30 +200,34 @@
 
       </header>
 	  <div align="center" class="post-count">
-    字数：499字 | 预计阅读时长：2分钟
+    字数：698字 | 预计阅读时长：2分钟
 </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>背景</strong></p>
-<p>基于公司已给出的结果上做出调整（公司只给出了top10），画KEGG富集通路的气泡图，初始文件如下图</p>
-<img src="https://s2.loli.net/2021/12/09/kFEyAw3ZnWvKiVf.png" alt="公司出的excel结果文件" style="zoom:80%;" />
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>不控制饮食的减脂是无效的我知道，但食欲太旺盛真的很无解，记录一下这段时间的饮食挣扎</p>
+<h3 id="减脂自制餐"><a href="#减脂自制餐" class="headerlink" title="减脂自制餐"></a>减脂自制餐</h3><p>我不仅食欲旺盛，还对食物能保持持久的专一性，一样的食物可以不换花样持续吃，之前在食堂早上可以一直只吃面，中午晚上可以一直只吃一样的菜。所以像下面一样，连着半个月每天晚上白水煮鸡胸肉配蔬菜我也能一直吃，放点生抽或者胡椒孜然啥的并不会太介意那股鸡味，可是连这我都感觉自己会吃多</p>
+<p><img src="https://s2.loli.net/2022/05/15/YI3iu9xH7EteKcM.png" alt="image-20220515204213561" style="zoom:25%;" /> <img src="https://s2.loli.net/2022/05/15/jGcRs8vMqC3tFd1.png" alt="image-20220515204232571" style="zoom:25%;" /> <img src="D:%5CPicture%5CTypro%20Picture%5Cimage-20220515204300799.png" alt="image-20220515204300799" style="zoom:25%;" /> <img src="D:%5CPicture%5CTypro%20Picture%5Cimage-20220515205000578.png" alt="image-20220515205000578" style="zoom:25%;" /> <img src="D:%5CPicture%5CTypro%20Picture%5Cimage-20220515205023765.png" alt="image-20220515205023765" style="zoom:25%;" /> <img src="D:%5CPicture%5CTypro%20Picture%5Cimage-20220515205040614.png" alt="image-20220515205040614" style="zoom:25%;" /></p>
+<h3 id="减脂速食餐"><a href="#减脂速食餐" class="headerlink" title="减脂速食餐"></a>减脂速食餐</h3><p>吃了半个月白水煮鸡胸拌菜没有再吃的原因并不是吃不下去了，而是我觉得做起来有点麻烦，是的我太懒了哈哈哈哈，因为我发现牛奶+燕麦片+蛋白粉的组合简直太方便！于是现在早晚的餐食都变成了：</p>
+<ul>
+<li>30g即食燕麦（我会拼更有嚼劲的完整黑麦和桂格即食燕麦+一点点麦麸）+120ml左右（没过多一点）热水冲开</li>
+<li>泡的过程我会去运动，回来温度降下来加15g奶茶味的熊猫蛋白粉搅匀（这里一定先搅匀）</li>
+<li>最后加200mL牛奶搅匀，奶昔开喝！</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/05/15/Wg6IEafq2KloSYF.png" alt="image-20220515205522666" style="zoom:25%;" /> <img src="https://s2.loli.net/2022/05/15/rHzuFMimb2QwvZg.png" alt="image-20220515205533449" style="zoom:25%;" /></p>
+<p>像上面左图最后加蛋白粉就很难全溶解，像右边加奶之前将蛋白粉先和燕麦糊糊混匀就溶解得很完整</p>
+<p>这个对于我方便快捷了，一个月了反正我喝不腻</p>
+<h3 id="减脂期自制小零食"><a href="#减脂期自制小零食" class="headerlink" title="减脂期自制小零食"></a>减脂期自制小零食</h3><p>往上找了一圈无糖无油，发现都不靠谱，抬头看到了还没装到罐子里燕麦想到：我为什么不自己做？</p>
+<p>于是，将下面食材混匀，空气炸锅200℃正面8min，反面5min就ok</p>
+<ul>
+<li>完整麦片的即食黑麦燕麦+桂格即食燕麦+坚果碎（捣蒜的那个弄碎就行）+鸡蛋+适量奶</li>
+<li>完整麦片的即食黑麦燕麦+桂格即食燕麦+红薯（多）+奶</li>
+<li>完整麦片的即食黑麦燕麦+桂格即食燕麦+红薯（少）+奶</li>
+</ul>
+<p>上面没有什么比例可言，想混啥混啥，我还加了几粒葡萄干，自己看心情，能成团捏成形状就行，对应下面由上至下三个效果（第一个黑一点是因为第一次摸索正面烤了10min）</p>
+<img src="https://s2.loli.net/2022/05/15/GwHhvQYe3rxbcgj.png" alt="image-20220515210822633" style="zoom: 50%;" />
 
-
-
-<span id="more"></span>
-
-
-
-<p><strong>代码演示</strong></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; getwd() <span class="comment">#显示工作目录</span></span><br><span class="line">&gt; setwd() <span class="comment">#如果上述显示不是想要的路径，可以新建一个文件夹然后设置成工作目录，方便一些原始文件以及结果图片的存放</span></span><br><span class="line">&gt; install.packages(<span class="string">&quot;ggplot2&quot;</span>,destdir=<span class="string">&quot;D:/RData/R-win-4.0.2/R-4.0.2/R-packages&quot;</span>,lib=<span class="string">&quot;D:/RData/R-win-4.0.2/R-4.0.2/R-packages&quot;</span>) <span class="comment">#安装ggplot2包并设置工作路径，已安装的话忽略这步</span></span><br><span class="line">&gt; x &lt;- read.csv(<span class="string">&quot;RA_25vsRA_0.csv&quot;</span>) <span class="comment">#导入刚刚存在设置工作目录中的初始结果文件，格式如果是其他可以自行转换成csv格式，或者txt用read.table()，xlsx用read.xlsx()</span></span><br><span class="line">  GeneRatio  BgRatio       pvalue        padj</span><br><span class="line"><span class="number">1</span>     <span class="number">50</span>/<span class="number">964</span> <span class="number">164</span>/<span class="number">6826</span> <span class="number">0.0000000388</span> <span class="number">0.000007160</span></span><br><span class="line"><span class="number">2</span>     <span class="number">44</span>/<span class="number">964</span> <span class="number">137</span>/<span class="number">6826</span> <span class="number">0.0000000473</span> <span class="number">0.000007160</span></span><br><span class="line"><span class="number">3</span>     <span class="number">37</span>/<span class="number">964</span> <span class="number">119</span>/<span class="number">6826</span> <span class="number">0.0000013600</span> <span class="number">0.000137378</span></span><br><span class="line"><span class="number">4</span>     <span class="number">41</span>/<span class="number">964</span> <span class="number">143</span>/<span class="number">6826</span> <span class="number">0.0000038100</span> <span class="number">0.000288781</span></span><br><span class="line"><span class="number">5</span>     <span class="number">28</span>/<span class="number">964</span>  <span class="number">87</span>/<span class="number">6826</span> <span class="number">0.0000126000</span> <span class="number">0.000766196</span></span><br><span class="line"><span class="number">6</span>     <span class="number">35</span>/<span class="number">964</span> <span class="number">123</span>/<span class="number">6826</span> <span class="number">0.0000232000</span> <span class="number">0.001031538</span></span><br><span class="line"><span class="number">7</span>     <span class="number">44</span>/<span class="number">964</span> <span class="number">169</span>/<span class="number">6826</span> <span class="number">0.0000257000</span> <span class="number">0.001031538</span></span><br><span class="line">&gt; library(ggplot2) <span class="comment">#加载ggplot2</span></span><br><span class="line">&gt; y &lt;- ggplot(x, aes(x=padj, y=Description,  size=Count, color=padj)) + geom_point()  + scale_colour_gradient(low=<span class="string">&quot;green&quot;</span>,high=<span class="string">&quot;red&quot;</span>) + labs(color=<span class="built_in">expression</span>(padj),size=<span class="string">&quot;Gene number&quot;</span>, x=<span class="string">&quot;GeneRatio&quot;</span>,y=<span class="string">&quot;Pathway name&quot;</span>,title=<span class="string">&quot;KEGG Pathway enrichment&quot;</span>)</span><br><span class="line"><span class="comment">#确定x轴参数，y轴参数，圆圈大小根据基因数改变，色卡的深浅依据padj+自定义色卡变换颜色+设置色卡名称+设置圆圈名称+x轴名称+y轴名称+图标题名称</span></span><br><span class="line">&gt; y <span class="comment">#显示气泡图，Rstudio会弹出一个新的对话框显示图片，图片可右键存为位图/图元文件等</span></span><br><span class="line">&gt; ggsave(<span class="string">&quot;RA_25vsRA_0_KEGGdot.png&quot;</span>,width = <span class="number">8</span>,height = <span class="number">8</span>) <span class="comment">#保存到目录下为png格式，大小据需调整</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>效果图</strong></p>
-<img src="https://s2.loli.net/2021/12/09/m3G5pFoeRI9J2ay.png" alt="上述代码的最终呈现效果" style="zoom:80%;" />
-
-<p>可直接右键保存成位图（ps编辑即可），矢量图可以方便的转换成位图，但位图转换成矢量图比较麻烦</p>
+<p>闻着是真的香，以至于把睡觉的室友香醒，但口感反正是健康食品，真的没有乱七八糟的添加，越嚼越香，我不喜欢甜的所以代糖都没加，但有红薯本身的那种需要品味的甜</p>
 
       
 
@@ -231,7 +240,7 @@
     
     <br>
     <strong>本文链接：</strong>
-    https://twocanis.github.io/2021/12/09/%E5%9F%BA%E4%BA%8ER%E7%9A%84ggplot2%E5%8C%85%E7%94%BBKEGG%E5%AF%8C%E9%9B%86%E9%80%9A%E8%B7%AF%E6%B0%94%E6%B3%A1%E5%9B%BE-KEGGdot/
+    https://twocanis.github.io/2022/05/15/%E5%87%8F%E8%84%82%E6%9C%9F%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%8C%A3%E6%89%8E/
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -285,15 +294,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">生物信息</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">代谢组</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">绘图</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
         		</li>
       		
 		</ul>
@@ -349,7 +350,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://twocanis.github.io/2021/12/09/%E5%9F%BA%E4%BA%8ER%E7%9A%84ggplot2%E5%8C%85%E7%94%BBKEGG%E5%AF%8C%E9%9B%86%E9%80%9A%E8%B7%AF%E6%B0%94%E6%B3%A1%E5%9B%BE-KEGGdot/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://twocanis.github.io/2022/05/15/%E5%87%8F%E8%84%82%E6%9C%9F%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%8C%A3%E6%89%8E/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -363,18 +364,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/12/22/%E7%BB%98%E5%88%B6%E5%B7%AE%E5%BC%82%E4%BB%A3%E8%B0%A2%E4%BA%A7%E7%89%A9%E5%88%86%E7%B1%BB%E4%B8%8EKEGG%E4%BB%A3%E8%B0%A2%E9%80%9A%E8%B7%AF%E5%88%86%E7%B1%BB%E7%9A%84%E6%97%AD%E6%97%A5%E5%9B%BE/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          绘制差异代谢产物分类与HMDB代谢通路分类的旭日图
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/12/09/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%BF%AE%E6%94%B9%E8%AE%BE%E7%BD%AE%E7%BD%91%E9%A1%B5%E5%9B%BE%E6%A0%87icon%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">搭建hexo博客修改设置网页图标icon失败的解决方法</div>
+    <a href="/2022/05/14/twocanis%E7%9A%84%E8%B7%91%E6%AD%A5%E6%97%A5%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">twocanis的跑步日记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -401,7 +393,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%8F%E8%84%82%E8%87%AA%E5%88%B6%E9%A4%90"><span class="toc-number">2.</span> <span class="toc-text">减脂自制餐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%8F%E8%84%82%E9%80%9F%E9%A3%9F%E9%A4%90"><span class="toc-number">3.</span> <span class="toc-text">减脂速食餐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%8F%E8%84%82%E6%9C%9F%E8%87%AA%E5%88%B6%E5%B0%8F%E9%9B%B6%E9%A3%9F"><span class="toc-number">4.</span> <span class="toc-text">减脂期自制小零食</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -417,7 +409,7 @@
   
 
   
-  <div id="SOHUCS" sid="基于R的ggplot2包画KEGG富集通路气泡图-KEGGdot" ></div> 
+  <div id="SOHUCS" sid="减脂期的饮食挣扎" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
