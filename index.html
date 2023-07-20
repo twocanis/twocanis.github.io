@@ -64,10 +64,10 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 33
+    总文章数 35
 </nav>
 <nav>
-    总字数 <span class="post-count">43.8k</span>
+    总字数 <span class="post-count">44.9k</span>
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -162,6 +162,207 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-基于R做宏基因组的进化树ClusterTree分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/07/20/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%9A%84%E8%BF%9B%E5%8C%96%E6%A0%91ClusterTree%E5%88%86%E6%9E%90/">基于R做宏基因组的进化树ClusterTree分析</a>
+    </h1>
+  
+
+        
+        <a href="/2023/07/20/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%9A%84%E8%BF%9B%E5%8C%96%E6%A0%91ClusterTree%E5%88%86%E6%9E%90/" class="archive-article-date">
+  	<time datetime="2023-07-20T01:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-20</time>
+</a>
+        
+    
+    
+        
+
+
+      </header>
+	  <div align="center" class="post-count">
+    字数：497字 | 预计阅读时长：2分钟
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>同上一篇的PCoA分析，这个也是基于公司结果基础上的再次分析，重新挑选样本，在公司结果提供的csv结果表上进行删减，本地重新分析作图</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="表格预处理"><a href="#表格预处理" class="headerlink" title="表格预处理"></a>表格预处理</h3><ul>
+<li>在公司给的ClusterTree的原始表格数据里选取要保留的样本，同样保存为逗号分隔的csv文件</li>
+</ul>
+<h3 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h3><h4 id="无色版"><a href="#无色版" class="headerlink" title="无色版"></a>无色版</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">&#x27;vegan&#x27;</span>)</span><br><span class="line">install.packages(<span class="string">&#x27;dendextend&#x27;</span>)</span><br><span class="line">install.packages(<span class="string">&#x27;circlize&#x27;</span>)</span><br><span class="line"></span><br><span class="line">data &lt;- read.table(<span class="string">&#x27;F:\\Analysis\\RA_Sanhe cow\\Microgenome\\Cluster_Tree\\table.g10.cluster.csv&#x27;</span>, header=<span class="built_in">T</span>, sep = <span class="string">&#x27;,&#x27;</span>, check.names=<span class="literal">FALSE</span>)</span><br><span class="line">rownames(data)=data[,<span class="number">1</span>]</span><br><span class="line">data=data[,-<span class="number">1</span>]</span><br><span class="line">library(vegan)</span><br><span class="line">data=decostand(data, MARGIN=<span class="number">2</span>, <span class="string">&quot;total&quot;</span>)</span><br><span class="line">otu=t(data)</span><br><span class="line">otu_dist=vegdist(otu, method=<span class="string">&quot;bray&quot;</span>, diag=<span class="literal">TRUE</span>, upper=<span class="literal">TRUE</span>, p=<span class="number">2</span>)</span><br><span class="line"><span class="comment">#进行聚类分析并作图</span></span><br><span class="line">hclust=hclust(otu_dist, method=<span class="string">&quot;average&quot;</span>)</span><br><span class="line">plot(hclust)</span><br><span class="line"></span><br><span class="line">library(dendextend)</span><br><span class="line">library(circlize)</span><br><span class="line">tree=as.dendrogram(hclust)</span><br><span class="line">par(mfrow=<span class="built_in">c</span>(<span class="number">2</span>,<span class="number">2</span>), mar=<span class="built_in">c</span>(<span class="number">3</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">5</span>), cex=<span class="number">0.7</span>)</span><br><span class="line">plot(tree, horiz=<span class="literal">TRUE</span>, main=<span class="string">&quot;UPGMA Tree&quot;</span>)</span><br><span class="line"><span class="comment">#隐藏平均距离小于0.5的对象（类群）</span></span><br><span class="line">plot(cut(tree, h=<span class="number">0.5</span>)$upper, horiz=<span class="literal">TRUE</span>, main=<span class="string">&quot;Samples with distance higher than 0.5&quot;</span>)</span><br><span class="line"><span class="comment">#在上一步基础上筛选第二个分类簇</span></span><br><span class="line">plot(cut(tree, h=<span class="number">0.5</span>)$upper[[<span class="number">2</span>]], horiz=<span class="literal">TRUE</span>, main=<span class="string">&quot;Second branch samples with distance higher than 0.5&quot;</span>)</span><br><span class="line">circlize_dendrogram(tree)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230720153252828.png" alt="image-20230720153252828"></p>
+<h4 id="上色版"><a href="#上色版" class="headerlink" title="上色版"></a>上色版</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">##完整代码</span></span><br><span class="line">data &lt;- read.table(<span class="string">&#x27;F:\\Analysis\\RA_Sanhe cow\\Microgenome\\Cluster_Tree\\Demo_ClusterTree.csv&#x27;</span>, header=<span class="built_in">T</span>, sep = <span class="string">&#x27;,&#x27;</span>, check.names=<span class="literal">FALSE</span>)</span><br><span class="line">rownames(data)=data[,<span class="number">1</span>]</span><br><span class="line">data=data[,-<span class="number">1</span>]</span><br><span class="line">library(vegan)</span><br><span class="line">data=decostand(data, MARGIN=<span class="number">2</span>, <span class="string">&quot;total&quot;</span>)</span><br><span class="line">otu=t(data)</span><br><span class="line">otu_dist=vegdist(otu, method=<span class="string">&quot;bray&quot;</span>, diag=<span class="literal">TRUE</span>, upper=<span class="literal">TRUE</span>, p=<span class="number">2</span>)</span><br><span class="line"><span class="comment">#进行聚类分析并作图</span></span><br><span class="line">hclust=hclust(otu_dist, method=<span class="string">&quot;average&quot;</span>)</span><br><span class="line">library(dendextend)</span><br><span class="line">library(RColorBrewer)</span><br><span class="line">hcd=as.dendrogram(hclust)</span><br><span class="line">labelColors=brewer.pal(n=<span class="number">4</span>, name=<span class="string">&quot;Set1&quot;</span>)</span><br><span class="line"><span class="comment">#聚类分组，预设聚类簇数目为4</span></span><br><span class="line">clusMember=cutree(hcd, <span class="number">4</span>)</span><br><span class="line"><span class="comment">#自定义函数，根据聚类结果进行着色,4 种颜色</span></span><br><span class="line">colLab=<span class="keyword">function</span>(n) &#123;</span><br><span class="line">  <span class="keyword">if</span> (is.leaf(n)) &#123;</span><br><span class="line">    a=<span class="built_in">attributes</span>(n)</span><br><span class="line">    labCol=labelColors[clusMember[which(<span class="built_in">names</span>(clusMember)==a$label)]]</span><br><span class="line">    <span class="built_in">attr</span>(n, <span class="string">&quot;nodePar&quot;</span>)=<span class="built_in">c</span>(a$nodePar, lab.col=labCol)</span><br><span class="line">  &#125;</span><br><span class="line">  n</span><br><span class="line">&#125;</span><br><span class="line">clusDendro=dendrapply(hcd, colLab)</span><br><span class="line">plot(clusDendro, main =<span class="string">&quot;UPGMA Tree&quot;</span>, type=<span class="string">&quot;rectangle&quot;</span>, horiz=<span class="literal">TRUE</span>)</span><br><span class="line">plot(clusDendro, main =<span class="string">&quot;UPGMA Tree&quot;</span>, type=<span class="string">&quot;triangle&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230720153338972.png" alt="image-20230720153338972"></p>
+
+      
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">绘图</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">组学</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/07/20/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%9A%84%E8%BF%9B%E5%8C%96%E6%A0%91ClusterTree%E5%88%86%E6%9E%90/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基于R做宏基因组结果的PCoA分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/07/19/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%BB%93%E6%9E%9C%E7%9A%84PCoA%E5%88%86%E6%9E%90/">基于R做宏基因组结果的PCoA分析</a>
+    </h1>
+  
+
+        
+        <a href="/2023/07/19/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%BB%93%E6%9E%9C%E7%9A%84PCoA%E5%88%86%E6%9E%90/" class="archive-article-date">
+  	<time datetime="2023-07-19T12:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-19</time>
+</a>
+        
+    
+    
+        
+
+
+      </header>
+	  <div align="center" class="post-count">
+    字数：522字 | 预计阅读时长：2分钟
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>因为公司给的PCA结果效果不佳，决定从中重新挑选部分样本进行再分析</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="表格结果预处理"><a href="#表格结果预处理" class="headerlink" title="表格结果预处理"></a>表格结果预处理</h3><ul>
+<li>在属水平genus参考原本结果已有的PCA图，尽可能挑选距离较远且聚团的样本</li>
+</ul>
+<img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230720091328563.png" alt="image-20230720091328563" style="zoom: 25%;" />
+
+<ul>
+<li>整理成逗号分隔的csv文件<br><img src="F:%5CPicture%5CTypora%5Cimage-20230720091449998.png" alt="image-20230720091449998"></li>
+</ul>
+<h3 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">library(vegan) <span class="comment"># 计算bray距离</span></span><br><span class="line">library(ggplot2)</span><br><span class="line">library(tidyverse)</span><br><span class="line">library(ape) <span class="comment"># pcoa分析</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 如果没装先install.packages(&quot;vegan&quot;)等</span></span><br><span class="line"></span><br><span class="line">genus_num &lt;- read.table(<span class="string">&#x27;F:/Analysis/RA_Sanhe cow/Microgenome/PCA/Demo_PCA.csv&#x27;</span>,row.names = <span class="number">1</span>,header = <span class="built_in">T</span>, sep = <span class="string">&#x27;,&#x27;</span>) <span class="comment">#地址注意反斜线，或者使用‘\\’反义</span></span><br><span class="line">bray.dist = vegdist(t(genus_num), method=<span class="string">&quot;bray&quot;</span>)</span><br><span class="line"></span><br><span class="line">jay.h.pc &lt;- pcoa(bray.dist)</span><br><span class="line"><span class="comment">#str(spe.h.pc)#记录一二轴解释率“Eigenvalues”</span></span><br><span class="line">jay.h.pcoa &lt;- jay.h.pc$vectors</span><br><span class="line"></span><br><span class="line">jay.pcoa &lt;- data.frame(jay.h.pcoa[,<span class="number">1</span>:<span class="number">2</span>]) %&gt;%</span><br><span class="line">  mutate(Treatments = <span class="built_in">rep</span>(<span class="built_in">c</span>(<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>), each = <span class="number">8</span>)) <span class="comment">#根据列数分组，此处意思是前八列为A组，后八列为B组</span></span><br><span class="line"><span class="comment"># PERMANOVA置换多元方差分析</span></span><br><span class="line">jay &lt;- bray.dist</span><br><span class="line">env &lt;- select(jay.pcoa, Treatments)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#获取单因素的数据（方式一）</span></span><br><span class="line">permanova &lt;- adonis(jay ~ Treatments, data = env, permutations = <span class="number">999</span>,method=<span class="string">&quot;bray&quot;</span>)</span><br><span class="line">fcnames &lt;- row.names(permanova$aov.tab)</span><br><span class="line">lab &lt;- paste(<span class="string">&#x27;PERMANOVA\n&#x27;</span>,fcnames[<span class="number">1</span>],<span class="string">&#x27;:R^2=&#x27;</span>,<span class="built_in">round</span>(permanova$aov.tab[<span class="number">1</span>,<span class="number">5</span>],<span class="number">4</span>),<span class="string">&#x27; p=&#x27;</span>, </span><br><span class="line">             <span class="built_in">round</span>(permanova$aov.tab[<span class="number">1</span>,<span class="number">6</span>],<span class="number">4</span>), sep = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="comment">#获取单因素的数据（方式二）</span></span><br><span class="line">permanova2 &lt;- adonis2(jay ~ Treatments, data = env, permutations = <span class="number">999</span>,method=<span class="string">&quot;bray&quot;</span>)</span><br><span class="line">fcnames2 &lt;- row.names(permanova2)</span><br><span class="line">lab2 &lt;- paste(<span class="string">&#x27;PERMANOVA2\n&#x27;</span>,fcnames2[<span class="number">1</span>],<span class="string">&#x27;:R^2=&#x27;</span>,<span class="built_in">round</span>(permanova2[<span class="number">1</span>,<span class="number">3</span>],<span class="number">4</span>),<span class="string">&#x27; p=&#x27;</span>, </span><br><span class="line">              <span class="built_in">round</span>(permanova2[<span class="number">1</span>,<span class="number">5</span>],<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ggplot(jay.pcoa, aes(x=Axis.1, y=Axis.2, colour=Treatments)) + </span><br><span class="line">  geom_point(size=<span class="number">5</span>) +  stat_ellipse(level = <span class="number">0.9</span>) +</span><br><span class="line">  theme_bw()+theme(panel.grid.major=element_line(colour=<span class="literal">NA</span>), panel.background = element_rect(fill = <span class="string">&quot;transparent&quot;</span>,colour = <span class="literal">NA</span>), plot.background = element_rect(fill = <span class="string">&quot;transparent&quot;</span>,colour = <span class="literal">NA</span>), panel.grid.minor = element_blank())+</span><br><span class="line">  <span class="comment"># 把两个轴的贡献度写出来</span></span><br><span class="line">  xlab(paste(<span class="string">&#x27;Axis.1: &#x27;</span>, <span class="built_in">round</span>(jay.h.pc$values$Relative_eig[<span class="number">1</span>],<span class="number">3</span>)*<span class="number">100</span>, <span class="string">&#x27;%&#x27;</span>, sep = <span class="string">&#x27;&#x27;</span>)) +</span><br><span class="line">  ylab(paste(<span class="string">&#x27;Axis.2: &#x27;</span>, <span class="built_in">round</span>(jay.h.pc$values$Relative_eig[<span class="number">2</span>],<span class="number">3</span>)*<span class="number">100</span>, <span class="string">&#x27;%&#x27;</span>, sep = <span class="string">&#x27;&#x27;</span>)) +</span><br><span class="line">  theme(panel.background = element_rect(fill = <span class="string">&quot;transparent&quot;</span>,colour = <span class="literal">NA</span>),</span><br><span class="line">        aspect.ratio = <span class="number">1</span>) +</span><br><span class="line">  <span class="comment"># 用annotate把双因素结果写在左上角</span></span><br><span class="line">  annotate(geom = <span class="string">&#x27;text&#x27;</span>,label = lab, size =<span class="number">4</span>,</span><br><span class="line">           x = <span class="built_in">min</span>(jay.pcoa$Axis.1), y = <span class="built_in">max</span>(jay.pcoa$Axis.2),</span><br><span class="line">           hjust = <span class="number">0</span>,</span><br><span class="line">           vjust =<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="结果展示"><a href="#结果展示" class="headerlink" title="结果展示"></a>结果展示</h3><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230720091632805.png" alt="image-20230720091632805" style="zoom:50%;" />
+      
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">绘图</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">组学</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/07/19/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%BB%93%E6%9E%9C%E7%9A%84PCoA%E5%88%86%E6%9E%90/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-代谢组学结果在线分析：不同组差异代谢物高级韦恩图Venn的绘制——UpSet图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -185,7 +386,7 @@
 
       </header>
 	  <div align="center" class="post-count">
-    字数：504字 | 预计阅读时长：1分钟
+    字数：539字 | 预计阅读时长：1分钟
 </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -890,186 +1091,6 @@
 
 
   
-    <article id="post-2022内蒙-长春出差旅程感想" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/12/2022%E5%86%85%E8%92%99-%E9%95%BF%E6%98%A5%E5%87%BA%E5%B7%AE%E6%97%85%E7%A8%8B%E6%84%9F%E6%83%B3/">2022内蒙-长春出差旅程感想</a>
-    </h1>
-  
-
-        
-        <a href="/2022/07/12/2022%E5%86%85%E8%92%99-%E9%95%BF%E6%98%A5%E5%87%BA%E5%B7%AE%E6%97%85%E7%A8%8B%E6%84%9F%E6%83%B3/" class="archive-article-date">
-  	<time datetime="2022-07-12T08:35:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
-</a>
-        
-    
-    
-        
-
-
-      </header>
-	  <div align="center" class="post-count">
-    字数：1.8k字 | 预计阅读时长：6分钟
-</div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="出差日记"><a href="#出差日记" class="headerlink" title="出差日记"></a>出差日记</h2><p>观摩，学习</p>
-<h4 id="正装"><a href="#正装" class="headerlink" title="正装"></a>正装</h4><p>​    临时受邀和农垦董事长等领导层吃午饭，在牧场干活的我驱车和小老板几乎是踩点赶到了现场，呼伦贝尔大酒店的仿蒙古包厅里，一进去发现大家都是清一色正装，男性短袖衬衫配西裤，女性职业装配小高跟，个个别着党徽端着盛有蓝莓汁的高脚杯谈笑风生。我头戴白色鸭舌帽，小老板戴一顶黑的配polo衫牛仔裤，而内蒙强大的紫外线让我的防晒衣帽子在进门的那一刻都还没来得及摘下来。我自然是排位坐在最末端，没想到的是一个替老师过来赴宴的硕士生风尘仆仆发赶来在我身旁落座竟然穿的也是正装，难道大家出野外试验都备正装的吗，或是很重视的现买的？还是只而只有我和小老板因为临时受邀完全没意识到？此刻我心里只想着：看来农业口不是动物实验就是实验室搬砖的也免不了要<strong>正装</strong>出席的局，哪怕是我这种在读无名辈。</p>
-        
-      
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/12/2022%E5%86%85%E8%92%99-%E9%95%BF%E6%98%A5%E5%87%BA%E5%B7%AE%E6%97%85%E7%A8%8B%E6%84%9F%E6%83%B3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-微信更新至3-7-0版文件保存至MsgAttach文件夹乱码问题解决" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/14/%E5%BE%AE%E4%BF%A1%E6%9B%B4%E6%96%B0%E8%87%B33-7-0%E7%89%88%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E8%87%B3MsgAttach%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">微信PC端更新至3.7.0版文件保存至MsgAttach文件夹乱码问题解决</a>
-    </h1>
-  
-
-        
-        <a href="/2022/06/14/%E5%BE%AE%E4%BF%A1%E6%9B%B4%E6%96%B0%E8%87%B33-7-0%E7%89%88%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E8%87%B3MsgAttach%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="archive-article-date">
-  	<time datetime="2022-06-14T01:12:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-14</time>
-</a>
-        
-    
-    
-        
-
-
-      </header>
-	  <div align="center" class="post-count">
-    字数：421字 | 预计阅读时长：1分钟
-</div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>因为PC端微信升级到3.7.0，发现了一个文件接收到本地储存地址乱码的bug，具体如下：</p>
-<img src="https://s2.loli.net/2022/06/14/apc1rSUq5zldYZ4.png" alt="img" style="zoom:50%;" />
-
-<ul>
-<li>使用过程中面临一个问题是，在PC端接收到新文件不能像以前一样按月份排布在一个文件夹内，而是像下面这样，每出现一个新文件都会自动在<code>MsgAttach</code>下生成一个随机乱码文件夹</li>
-</ul>
-        
-      
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技巧</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/14/%E5%BE%AE%E4%BF%A1%E6%9B%B4%E6%96%B0%E8%87%B33-7-0%E7%89%88%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E8%87%B3MsgAttach%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1221,6 +1242,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">办公</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">组学</a>
               </li>
             
             <div class="clearfix"></div>
