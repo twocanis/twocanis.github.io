@@ -6,25 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://twocanis.github.io">
-  <title>视频剪辑语音转文字添加字幕 | twocanis&#39;s blog</title>
+  <title>关于双持苹果安卓手机设备的验证码短信转发tips.md | twocanis&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="适用场景​        这里介绍的是如何利用软件直接识别视频中的语音，转换成文字后生成srt字幕文件（前提是比较标准的普通话），避免了逐帧手动添加字幕的繁琐，很大程度上提升视频剪辑制作的效率  日常vlog剪辑  短片制作  其他所有需要加字幕的场景">
+  <meta name="description" content="写在前面我的情况是现在手持两台设备，一台安卓（双卡），一台苹果（单卡），其中安卓机上的一个手机号开通保号套餐用于注册绑定账号以及接收短信，另外两张主要是流量卡功能。现在出于某些需要我有时只带苹果机出门，现在有个需求是需要用安卓机接收短信，然后安卓机不在身边的时候也可以及时转发到苹果机上。 短信转发器这里就可以用到一个APP：SmsForwarder-短信转发器  短信转发器的使用 亲测免费，可包设">
 <meta property="og:type" content="article">
-<meta property="og:title" content="视频剪辑语音转文字添加字幕">
-<meta property="og:url" content="https://twocanis.github.io/2023/03/18/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91%E8%AF%AD%E9%9F%B3%E8%BD%AC%E6%96%87%E5%AD%97%E6%B7%BB%E5%8A%A0%E5%AD%97%E5%B9%95/index.html">
+<meta property="og:title" content="关于双持苹果安卓手机设备的验证码短信转发tips.md">
+<meta property="og:url" content="https://twocanis.github.io/2023/08/10/%E5%85%B3%E4%BA%8E%E5%8F%8C%E6%8C%81%E6%89%8B%E6%9C%BA%E8%AE%BE%E5%A4%87%E7%9A%84%E7%9F%AD%E4%BF%A1%E8%BD%AC%E5%8F%91tips/index.html">
 <meta property="og:site_name" content="twocanis&#39;s blog">
-<meta property="og:description" content="适用场景​        这里介绍的是如何利用软件直接识别视频中的语音，转换成文字后生成srt字幕文件（前提是比较标准的普通话），避免了逐帧手动添加字幕的繁琐，很大程度上提升视频剪辑制作的效率  日常vlog剪辑  短片制作  其他所有需要加字幕的场景">
+<meta property="og:description" content="写在前面我的情况是现在手持两台设备，一台安卓（双卡），一台苹果（单卡），其中安卓机上的一个手机号开通保号套餐用于注册绑定账号以及接收短信，另外两张主要是流量卡功能。现在出于某些需要我有时只带苹果机出门，现在有个需求是需要用安卓机接收短信，然后安卓机不在身边的时候也可以及时转发到苹果机上。 短信转发器这里就可以用到一个APP：SmsForwarder-短信转发器  短信转发器的使用 亲测免费，可包设">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230318154017071.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230318155420311.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230318155840875.png">
-<meta property="article:published_time" content="2023-03-18T06:54:13.000Z">
-<meta property="article:modified_time" content="2023-03-19T07:09:55.090Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/twocanis/blog-img/main/working_principle.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230810200246280.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230810201010497.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230810195730282.png">
+<meta property="article:published_time" content="2023-08-10T11:31:55.000Z">
+<meta property="article:modified_time" content="2023-08-10T12:21:19.206Z">
 <meta property="article:author" content="twocanis">
 <meta property="article:tag" content="生产力">
 <meta property="article:tag" content="技巧">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230318154017071.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/twocanis/blog-img/main/working_principle.png">
   
     <link rel="alternative" href="/atom.xml" title="twocanis&#39;s blog" type="application/atom+xml">
   
@@ -168,20 +169,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-视频剪辑语音转文字添加字幕" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-关于双持手机设备的短信转发tips" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      视频剪辑语音转文字添加字幕
+      关于双持苹果安卓手机设备的验证码短信转发tips.md
     </h1>
   
 
         
-        <a href="/2023/03/18/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91%E8%AF%AD%E9%9F%B3%E8%BD%AC%E6%96%87%E5%AD%97%E6%B7%BB%E5%8A%A0%E5%AD%97%E5%B9%95/" class="archive-article-date">
-  	<time datetime="2023-03-18T06:54:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-18</time>
+        <a href="/2023/08/10/%E5%85%B3%E4%BA%8E%E5%8F%8C%E6%8C%81%E6%89%8B%E6%9C%BA%E8%AE%BE%E5%A4%87%E7%9A%84%E7%9F%AD%E4%BF%A1%E8%BD%AC%E5%8F%91tips/" class="archive-article-date">
+  	<time datetime="2023-08-10T11:31:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-10</time>
 </a>
         
     
@@ -195,44 +196,30 @@
 
       </header>
 	  <div align="center" class="post-count">
-    字数：284字 | 预计阅读时长：1分钟
+    字数：342字 | 预计阅读时长：1分钟
 </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h4><p>​        这里介绍的是如何利用软件直接识别视频中的语音，转换成文字后生成srt字幕文件（前提是比较标准的普通话），避免了逐帧手动添加字幕的繁琐，很大程度上提升视频剪辑制作的效率</p>
-<ul>
-<li><p>日常vlog剪辑</p>
-</li>
-<li><p>短片制作</p>
-</li>
-<li><p>其他所有需要加字幕的场景</p>
-</li>
+        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>我的情况是现在手持两台设备，一台安卓（双卡），一台苹果（单卡），其中安卓机上的一个手机号开通保号套餐用于注册绑定账号以及接收短信，另外两张主要是流量卡功能。现在出于某些需要我有时只带苹果机出门，现在有个需求是<strong>需要用安卓机接收短信，然后安卓机不在身边的时候也可以及时转发到苹果机上。</strong></p>
+<h1 id="短信转发器"><a href="#短信转发器" class="headerlink" title="短信转发器"></a>短信转发器</h1><p>这里就可以用到一个APP：<a target="_blank" rel="noopener" href="https://gitee.com/pp/SmsForwarder">SmsForwarder-短信转发器</a></p>
+<p><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/working_principle.png" alt="工作流程"></p>
+<h1 id="短信转发器的使用"><a href="#短信转发器的使用" class="headerlink" title="短信转发器的使用"></a>短信转发器的使用</h1><ul>
+<li>亲测免费，可包设置含短信、通话和应用等方面的转发内容，具体的设置可以参考作者在前面提到的软件发布页中的详解，比较简单，设置好转发通道和关键词即可，具体可参考这篇<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/468238811">巧用开源方案，零成本实现验证码短信转发 - 知乎 (zhihu.com)</a>。这里一定要注意给两台手机都打开<strong>读取权限</strong>，不然无法实现实时同步转发。</li>
 </ul>
-<span id="more"></span>
+<img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230810200246280.png" alt="image-20230810200246280" style="zoom:33%;" />
 
-<h4 id="需要准备软件"><a href="#需要准备软件" class="headerlink" title="需要准备软件"></a>需要准备软件</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://www.capcut.cn/">剪映</a></li>
-<li>Adobe Pr（或者其他常用剪辑软件）</li>
-</ul>
-<h4 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h4><ul>
-<li>下载<a target="_blank" rel="noopener" href="https://www.capcut.cn/">剪映</a>电脑版后，导入需要添加字幕的视频，<strong>将导入的视频素材拖入轨道</strong></li>
-<li>选择界面左上角的<code>文本</code>-<code>智能字幕</code>-<code>开始识别</code>（如下图）</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230318154017071.png" alt="image-20230318154017071"></p>
 <ul>
-<li>识别完成后，选择导出字幕文件（这里强调只导出字幕不导出视频的原因是为避免压缩画质）</li>
+<li>安卓端（转发端，MIUI14）下载该APP设置后的效果图</li>
 </ul>
-<h4 id="字幕人人工核对"><a href="#字幕人人工核对" class="headerlink" title="字幕人人工核对"></a>字幕人人工核对</h4><ul>
-<li><p>将字幕导入Pr（或者任何习惯的剪辑软件），</p>
-</li>
-<li><p>以Pr为例（<code>文件</code>-<code>导入</code>-<code>文件名.srt</code>），将导入字幕文件拖入轨道，如下图检查核对手动修改</p>
-<p><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230318155420311.png" alt="image-20230318155420311"></p>
-</li>
-<li><p>保存，导出（<code>字幕</code>选项如下图）</p>
-</li>
+<img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230810201010497.png" alt="image-20230810201010497" style="zoom:33%;" />
+
+<ul>
+<li>苹果端（ios 16）这边下载的是Bark这个APP（手机号接收也可）作为转发通道用于接收，效果图如下</li>
 </ul>
-<img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230318155840875.png" alt="image-20230318155840875" style="zoom: 50%;" />
+<img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230810195730282.png" alt="image-20230810195730282" style="zoom:33%;" />
+
+
       
 
 
@@ -244,7 +231,7 @@
     
     <br>
     <strong>本文链接：</strong>
-    https://twocanis.github.io/2023/03/18/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91%E8%AF%AD%E9%9F%B3%E8%BD%AC%E6%96%87%E5%AD%97%E6%B7%BB%E5%8A%A0%E5%AD%97%E5%B9%95/
+    https://twocanis.github.io/2023/08/10/%E5%85%B3%E4%BA%8E%E5%8F%8C%E6%8C%81%E6%89%8B%E6%9C%BA%E8%AE%BE%E5%A4%87%E7%9A%84%E7%9F%AD%E4%BF%A1%E8%BD%AC%E5%8F%91tips/
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -358,7 +345,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://twocanis.github.io/2023/03/18/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91%E8%AF%AD%E9%9F%B3%E8%BD%AC%E6%96%87%E5%AD%97%E6%B7%BB%E5%8A%A0%E5%AD%97%E5%B9%95/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://twocanis.github.io/2023/08/10/%E5%85%B3%E4%BA%8E%E5%8F%8C%E6%8C%81%E6%89%8B%E6%9C%BA%E8%AE%BE%E5%A4%87%E7%9A%84%E7%9F%AD%E4%BF%A1%E8%BD%AC%E5%8F%91tips/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -372,18 +359,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/03/26/%E4%BB%A3%E8%B0%A2%E7%BB%84%E5%AD%A6%E7%BB%93%E6%9E%9C%E5%9C%A8%E7%BA%BF%E5%88%86%E6%9E%90%EF%BC%9A%E4%B8%8D%E5%90%8C%E7%BB%84%E5%B7%AE%E5%BC%82%E4%BB%A3%E8%B0%A2%E7%89%A9%E9%AB%98%E7%BA%A7%E9%9F%A6%E6%81%A9%E5%9B%BEVenn%E7%9A%84%E7%BB%98%E5%88%B6%E2%80%94%E2%80%94UpSet%E5%9B%BE/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          代谢组学结果在线分析：不同组差异代谢物高级韦恩图Venn的绘制——UpSet图
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/02/27/%E9%AA%91%E8%A1%8C%E6%97%A5%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">骑行日记（一）</div>
+    <a href="/2023/07/20/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%9A%84%E8%BF%9B%E5%8C%96%E6%A0%91ClusterTree%E5%88%86%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于R做宏基因组的进化树ClusterTree分析</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -410,7 +388,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">适用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E5%87%86%E5%A4%87%E8%BD%AF%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">需要准备软件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.</span> <span class="toc-text">操作步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E5%B9%95%E4%BA%BA%E4%BA%BA%E5%B7%A5%E6%A0%B8%E5%AF%B9"><span class="toc-number">4.</span> <span class="toc-text">字幕人人工核对</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9F%AD%E4%BF%A1%E8%BD%AC%E5%8F%91%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">短信转发器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9F%AD%E4%BF%A1%E8%BD%AC%E5%8F%91%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">短信转发器的使用</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -426,7 +404,7 @@
   
 
   
-  <div id="SOHUCS" sid="视频剪辑语音转文字添加字幕" ></div> 
+  <div id="SOHUCS" sid="关于双持手机设备的短信转发tips" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
