@@ -64,10 +64,10 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 36
+    总文章数 38
 </nav>
 <nav>
-    总字数 <span class="post-count">45.2k</span>
+    总字数 <span class="post-count">46.5k</span>
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -162,6 +162,232 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-基于R做组间差异Anosim分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/09/17/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E7%BB%84%E9%97%B4%E5%B7%AE%E5%BC%82Anosim%E5%88%86%E6%9E%90/">宏基因组做组间差异Anosim分析与结果解读</a>
+    </h1>
+  
+
+        
+        <a href="/2023/09/17/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E7%BB%84%E9%97%B4%E5%B7%AE%E5%BC%82Anosim%E5%88%86%E6%9E%90/" class="archive-article-date">
+  	<time datetime="2023-09-17T07:29:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-17</time>
+</a>
+        
+    
+    
+        
+
+
+      </header>
+	  <div align="center" class="post-count">
+    字数：320字 | 预计阅读时长：1分钟
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>需求是返回的结果每组样本数量比较多，但组间差异不明显，挑出来重分析。详情请参考 [组间差异分析：Anosim]([<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/111985434">组间差异分析：Anosim - 知乎 (zhihu.com)</a>)， 当然亲测更简便的方法可以借助<a target="_blank" rel="noopener" href="https://www.omicshare.com/tools/Home/Soft/anosim">云平台工具</a>：</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="表格准备"><a href="#表格准备" class="headerlink" title="表格准备"></a>表格准备</h3><ul>
+<li>不同样本属水平的丰度表</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230917153833474.png" alt="image-20230917153833474"></p>
+<ul>
+<li>分组信息表</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230917153907711.png" alt="image-20230917153907711"></p>
+<h3 id="云平台分析"><a href="#云平台分析" class="headerlink" title="云平台分析"></a>云平台分析</h3><ul>
+<li>上传云平台</li>
+</ul>
+<img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230917154056286.png" alt="image-20230917154056286" style="zoom:50%;" />
+
+<ul>
+<li>结果分析与下载，这个很快</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230917154146743.png" alt="image-20230917154146743"></p>
+<ul>
+<li>调整：pdf格式拖进AI里改色</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230917155057426.png" alt="image-20230917155057426"></p>
+<h3 id="结果解读"><a href="#结果解读" class="headerlink" title="结果解读"></a>结果解读</h3><p><img src="F:%5CPicture%5CTypora%5C20210226171019_38657.png" alt="img"></p>
+<p><strong>图形解读：</strong>盒型图纵轴表示距离排名，横轴between表示组间距离，其他表示对应分组组内距离。R值表示组间与组内的差异程度。R的范围为[-1,1]。R&lt;0组间差异小于组内差异；R&gt;0组间差异大于组内差异；R=0组间差异等于组内差异。</p>
+<p>盒型图参数解释：</p>
+<p>N：样本数；</p>
+<p>Median：中位数</p>
+<p>Q3：上四分位数</p>
+<p>Q1：下四分位数</p>
+<p>IOR：四分位距，interquartile range，即Q3-Q1</p>
+<p>max：Q3+1.5IQR范围内的最大值</p>
+<p>min：Q1-1.5IOR范围内的最小值</p>
+<p>outlier：异常值/离群值，即小于Q1-1.5IOR或Q3+1.5IQR的值</p>
+<p>notch：中位数95%置信区间（confidence intervals）的范围</p>
+
+      
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">绘图</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">组学</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/09/17/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E7%BB%84%E9%97%B4%E5%B7%AE%E5%BC%82Anosim%E5%88%86%E6%9E%90/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基于R做宏基因组进化树-丰度柱状图TreeBar" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/08/11/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84%E8%BF%9B%E5%8C%96%E6%A0%91-%E4%B8%B0%E5%BA%A6%E6%9F%B1%E7%8A%B6%E5%9B%BETreeBar/">基于R做宏基因组进化树+丰度柱状图TreeBar带聚类树的堆叠柱形图</a>
+    </h1>
+  
+
+        
+        <a href="/2023/08/11/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84%E8%BF%9B%E5%8C%96%E6%A0%91-%E4%B8%B0%E5%BA%A6%E6%9F%B1%E7%8A%B6%E5%9B%BETreeBar/" class="archive-article-date">
+  	<time datetime="2023-08-11T01:39:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-11</time>
+</a>
+        
+    
+    
+        
+
+
+      </header>
+	  <div align="center" class="post-count">
+    字数：954字 | 预计阅读时长：5分钟
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>同之前一样，重分析需要所以自己找了各路代码借鉴学习，详情请参考 <a href="%5BR%E8%AF%AD%E8%A8%80%E7%BB%98%E5%88%B6%E5%B8%A6%E8%81%9A%E7%B1%BB%E6%A0%91%E7%9A%84%E5%A0%86%E5%8F%A0%E6%9F%B1%E5%BD%A2%E5%9B%BE_%E5%88%98%E6%B0%B8%E9%91%ABAdam%E7%9A%84%E5%8D%9A%E5%AE%A2-CSDN%E5%8D%9A%E5%AE%A2%5D(https://blog.csdn.net/woodcorpse/article/details/106554538)">R语言绘制带聚类树的堆叠柱形图</a> ， 实操效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230917151814185.png" alt="image-20230917151814185"></p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="表格预处理"><a href="#表格预处理" class="headerlink" title="表格预处理"></a>表格预处理</h3><ul>
+<li>选取不同样本属水平的物种丰度图（绝对和相对水平都可以，相对画出来是齐的，绝对的bar是不齐的）。Top10丰度外的类群合并为Others。这里注意，用本篇代码时，<strong>表格选择csv/txt等格式文件一定要是制表符分隔的，不然会报错重复名或者没有多出的行</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230917152142907.png" alt="image-20230917152142907"></p>
+<ul>
+<li>分组信息</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230917152559876.png" alt="image-20230917152559876"></p>
+<h3 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 装包</span></span><br><span class="line">install.packages(<span class="string">&quot;vegan&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#层次聚类</span></span><br><span class="line"><span class="comment">#读取 OTU 丰度表，csv/txt等文件一定要是制表符分隔的，不然会报错重复名或者没有多出的行</span></span><br><span class="line">dat &lt;- read.delim(<span class="string">&#x27;Unigenes.absolute.g.txt&#x27;</span>, row.names = <span class="number">1</span>, sep = <span class="string">&#x27;\t&#x27;</span>, head = <span class="literal">TRUE</span>, check.names = <span class="literal">FALSE</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#计算样本间距离，以群落分析中常用的 Bray-curtis 距离为例</span></span><br><span class="line">dis_bray &lt;- vegan::vegdist(t(dat), method = <span class="string">&#x27;bray&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#层次聚类，以 UPGMA 为例</span></span><br><span class="line">tree &lt;- hclust(dis_bray, method = <span class="string">&#x27;average&#x27;</span>)</span><br><span class="line">tree</span><br><span class="line"></span><br><span class="line">plot(tree)</span><br><span class="line"></span><br><span class="line"><span class="comment">##聚类树绘制</span></span><br><span class="line"><span class="comment">#样本分组颜色、名称等</span></span><br><span class="line">group &lt;- read.delim(<span class="string">&#x27;group.txt&#x27;</span>, row.names = <span class="number">1</span>, sep = <span class="string">&#x27;\t&#x27;</span>, head = <span class="literal">TRUE</span>, check.names = <span class="literal">FALSE</span>, stringsAsFactors = <span class="literal">FALSE</span>)</span><br><span class="line">grp &lt;- group[<span class="number">2</span>]</span><br><span class="line">group_col &lt;- <span class="built_in">c</span>(<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line"><span class="built_in">names</span>(group_col) &lt;- <span class="built_in">c</span>(<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>)</span><br><span class="line">group_name &lt;- <span class="built_in">c</span>(<span class="string">&#x27;RA&#x27;</span>, <span class="string">&#x27;CON&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#样本分组标签</span></span><br><span class="line">layout(t(<span class="built_in">c</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>)))</span><br><span class="line">par(mar = <span class="built_in">c</span>(<span class="number">5</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">plot(<span class="number">0</span>, type = <span class="string">&#x27;n&#x27;</span>, xaxt = <span class="string">&#x27;n&#x27;</span>, yaxt = <span class="string">&#x27;n&#x27;</span>, frame.plot = <span class="literal">FALSE</span>, xlab = <span class="string">&#x27;&#x27;</span>, ylab = <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">     xlim = <span class="built_in">c</span>(-<span class="built_in">max</span>(tree$height), <span class="number">0</span>), ylim = <span class="built_in">c</span>(<span class="number">0</span>, <span class="built_in">length</span>(tree$order)))</span><br><span class="line">legend(<span class="string">&#x27;topleft&#x27;</span>, legend = group_name, pch = <span class="number">15</span>, col = group_col, bty = <span class="string">&#x27;n&#x27;</span>, cex = <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#聚类树绘制，按分组给分支上色</span></span><br><span class="line">treeline &lt;- <span class="keyword">function</span>(pos1, pos2, height, col1, col2) &#123;</span><br><span class="line">  meanpos = (pos1[<span class="number">1</span>] + pos2[<span class="number">1</span>]) / <span class="number">2</span></span><br><span class="line">  segments(y0 = pos1[<span class="number">1</span>] - <span class="number">0.4</span>, x0 = -pos1[<span class="number">2</span>], y1 = pos1[<span class="number">1</span>] - <span class="number">0.4</span>, x1 = -height,  col = col1,lwd = <span class="number">2</span>)</span><br><span class="line">  segments(y0 = pos1[<span class="number">1</span>] - <span class="number">0.4</span>, x0 = -height,  y1 = meanpos - <span class="number">0.4</span>, x1 = -height,  col = col1,lwd = <span class="number">2</span>)</span><br><span class="line">  segments(y0 = meanpos - <span class="number">0.4</span>, x0 = -height,  y1 = pos2[<span class="number">1</span>] - <span class="number">0.4</span>, x1 = -height,  col = col2,lwd = <span class="number">2</span>)</span><br><span class="line">  segments(y0 = pos2[<span class="number">1</span>] - <span class="number">0.4</span>, x0 = -height,  y1 = pos2[<span class="number">1</span>] - <span class="number">0.4</span>, x1 = -pos2[<span class="number">2</span>], col = col2,lwd = <span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">meanpos = matrix(<span class="built_in">rep</span>(<span class="number">0</span>, <span class="number">2</span> * <span class="built_in">length</span>(tree$order)), ncol = <span class="number">2</span>)</span><br><span class="line">meancol = <span class="built_in">rep</span>(<span class="number">0</span>, <span class="built_in">length</span>(tree$order))</span><br><span class="line"><span class="keyword">for</span> (step <span class="keyword">in</span> <span class="number">1</span>:nrow(tree$merge)) &#123;</span><br><span class="line">  <span class="keyword">if</span>(tree$merge[step, <span class="number">1</span>] &lt; <span class="number">0</span>)&#123;</span><br><span class="line">    pos1 &lt;- <span class="built_in">c</span>(which(tree$order == -tree$merge[step, <span class="number">1</span>]), <span class="number">0</span>)</span><br><span class="line">    col1 &lt;- group_col[<span class="built_in">as.character</span>(grp[tree$labels[-tree$merge[step, <span class="number">1</span>]],<span class="number">1</span>])]</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    pos1 &lt;- meanpos[tree$merge[step, <span class="number">1</span>], ]</span><br><span class="line">    col1 &lt;- meancol[tree$merge[step, <span class="number">1</span>]]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (tree$merge[step, <span class="number">2</span>] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    pos2 &lt;- <span class="built_in">c</span>(which(tree$order == -tree$merge[step, <span class="number">2</span>]), <span class="number">0</span>)</span><br><span class="line">    col2 &lt;- group_col[<span class="built_in">as.character</span>(grp[tree$labels[-tree$merge[step, <span class="number">2</span>]],<span class="number">1</span>])]</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    pos2 &lt;- meanpos[tree$merge[step, <span class="number">2</span>], ]</span><br><span class="line">    col2 &lt;- meancol[tree$merge[step, <span class="number">2</span>]]</span><br><span class="line">  &#125;</span><br><span class="line">  height &lt;- tree$height[step]</span><br><span class="line">  treeline(pos1, pos2, height, col1, col2)</span><br><span class="line">  meanpos[step, ] &lt;- <span class="built_in">c</span>((pos1[<span class="number">1</span>] + pos2[<span class="number">1</span>]) / <span class="number">2</span>, height)</span><br><span class="line">  <span class="keyword">if</span> (col1 == col2) meancol[step] &lt;- col1 <span class="keyword">else</span> meancol[step] &lt;- <span class="string">&#x27;grey&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">##堆叠柱形图</span></span><br><span class="line"><span class="comment">#样本顺序调整为和聚类树中的顺序一致</span></span><br><span class="line">dat &lt;- dat[ ,tree$order]</span><br><span class="line"></span><br><span class="line"><span class="comment">#物种颜色设置</span></span><br><span class="line">genus_color &lt;- <span class="built_in">c</span>(<span class="string">&#x27;#8DD3C7&#x27;</span>, <span class="string">&#x27;#FFFFB3&#x27;</span>, <span class="string">&#x27;#00CDCD&#x27;</span>, <span class="string">&#x27;#FB8072&#x27;</span>, <span class="string">&#x27;#80B1D3&#x27;</span>, <span class="string">&#x27;#FDB462&#x27;</span>, <span class="string">&#x27;#B3DE69&#x27;</span>, <span class="string">&#x27;#FCCDE5&#x27;</span>, <span class="string">&#x27;#BC80BD&#x27;</span>, <span class="string">&#x27;#CCEBC5&#x27;</span>, <span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line"><span class="built_in">names</span>(genus_color) &lt;- rownames(dat)</span><br><span class="line"></span><br><span class="line"><span class="comment">#堆叠柱形图</span></span><br><span class="line"><span class="comment">#数字向量，格式为c(bottom, left, top, right)，给出各个方向绘图区边缘空白的大小</span></span><br><span class="line">par(mar = <span class="built_in">c</span>(<span class="number">5</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">relative &lt;- read.delim(<span class="string">&#x27;new_Unigenes.relative.g.txt&#x27;</span>, row.names = <span class="number">1</span>, sep = <span class="string">&#x27;\t&#x27;</span>, head = <span class="literal">TRUE</span>, check.names = <span class="literal">FALSE</span>)</span><br><span class="line"></span><br><span class="line">bar &lt;- barplot(as.matrix(relative), col = genus_color, space = <span class="number">0.4</span>, width = <span class="number">0.7</span>, cex.axis = <span class="number">1</span>, horiz = <span class="literal">TRUE</span>, cex.lab = <span class="number">1.2</span>,</span><br><span class="line">               xlab = <span class="string">&#x27;Relative Abundance&#x27;</span>, yaxt = <span class="string">&#x27;n&#x27;</span>, las = <span class="number">1</span>, ylim = <span class="built_in">c</span>(<span class="number">0</span>, ncol(dat)), family = <span class="string">&#x27;mono&#x27;</span>)</span><br><span class="line"></span><br><span class="line">mtext(<span class="string">&#x27;Top 10 genus&#x27;</span>, side = <span class="number">3</span>, line = <span class="number">1</span>, cex = <span class="number">1</span>)</span><br><span class="line">text(x = -<span class="number">0.05</span>, y = bar, labels = colnames(dat), col = group_col[group[tree$order, <span class="number">2</span>]], xpd = <span class="literal">TRUE</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#柱形图图例</span></span><br><span class="line">par(mar = <span class="built_in">c</span>(<span class="number">5</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">0</span>))</span><br><span class="line">plot(<span class="number">0</span>, type = <span class="string">&#x27;n&#x27;</span>, xaxt = <span class="string">&#x27;n&#x27;</span>, yaxt = <span class="string">&#x27;n&#x27;</span>, bty = <span class="string">&#x27;n&#x27;</span>, xlab = <span class="string">&#x27;&#x27;</span>, ylab = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">legend(<span class="string">&#x27;left&#x27;</span>, pch = <span class="number">15</span>, col = genus_color, legend = <span class="built_in">names</span>(genus_color), bty = <span class="string">&#x27;n&#x27;</span>, cex = <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">绘图</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">组学</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/08/11/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84%E8%BF%9B%E5%8C%96%E6%A0%91-%E4%B8%B0%E5%BA%A6%E6%9F%B1%E7%8A%B6%E5%9B%BETreeBar/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-关于双持手机设备的短信转发tips" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -194,7 +420,7 @@
 <h1 id="短信转发器"><a href="#短信转发器" class="headerlink" title="短信转发器"></a>短信转发器</h1><p>这里就可以用到一个APP：<a target="_blank" rel="noopener" href="https://gitee.com/pp/SmsForwarder">SmsForwarder-短信转发器</a></p>
 <p><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/working_principle.png" alt="工作流程"></p>
 <h1 id="短信转发器的使用"><a href="#短信转发器的使用" class="headerlink" title="短信转发器的使用"></a>短信转发器的使用</h1><ul>
-<li>亲测免费，可包设置含短信、通话和应用等方面的转发内容，具体的设置可以参考作者在前面提到的软件发布页中的详解，比较简单，设置好转发通道和关键词即可，具体可参考这篇<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/468238811">巧用开源方案，零成本实现验证码短信转发 - 知乎 (zhihu.com)</a>。这里一定要注意给两台手机都打开<strong>读取权限</strong>，不然无法实现实时同步转发。</li>
+<li>亲测免费，可包设置含短信、通话和应用等方面的转发内容，具体的设置可以参考作者在前面提到的软件发布页中的详解，比较简单，设置好<strong>转发通道</strong>和<strong>关键词</strong>即可，具体可参考这篇<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/468238811">巧用开源方案，零成本实现验证码短信转发 - 知乎 (zhihu.com)</a>。这里一定要注意给两台手机都打开<strong>读取权限</strong>，不然无法实现实时同步转发。</li>
 </ul>
 <img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230810200246280.png" alt="image-20230810200246280" style="zoom:33%;" />
 
@@ -393,7 +619,7 @@
 
       </header>
 	  <div align="center" class="post-count">
-    字数：522字 | 预计阅读时长：2分钟
+    字数：536字 | 预计阅读时长：2分钟
 </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -405,7 +631,7 @@
 <img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230720091328563.png" alt="image-20230720091328563" style="zoom: 25%;" />
 
 <ul>
-<li>整理成逗号分隔的csv文件<br><img src="F:%5CPicture%5CTypora%5Cimage-20230720091449998.png" alt="image-20230720091449998"></li>
+<li>选取不同样本属水平的丰度数据，整理成逗号分隔的csv文件<br><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230720091449998.png" alt="image-20230720091449998"></li>
 </ul>
 <h3 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">library(vegan) <span class="comment"># 计算bray距离</span></span><br><span class="line">library(ggplot2)</span><br><span class="line">library(tidyverse)</span><br><span class="line">library(ape) <span class="comment"># pcoa分析</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 如果没装先install.packages(&quot;vegan&quot;)等</span></span><br><span class="line"></span><br><span class="line">genus_num &lt;- read.table(<span class="string">&#x27;F:/Analysis/RA_Sanhe cow/Microgenome/PCA/Demo_PCA.csv&#x27;</span>,row.names = <span class="number">1</span>,header = <span class="built_in">T</span>, sep = <span class="string">&#x27;,&#x27;</span>) <span class="comment">#地址注意反斜线，或者使用‘\\’反义</span></span><br><span class="line">bray.dist = vegdist(t(genus_num), method=<span class="string">&quot;bray&quot;</span>)</span><br><span class="line"></span><br><span class="line">jay.h.pc &lt;- pcoa(bray.dist)</span><br><span class="line"><span class="comment">#str(spe.h.pc)#记录一二轴解释率“Eigenvalues”</span></span><br><span class="line">jay.h.pcoa &lt;- jay.h.pc$vectors</span><br><span class="line"></span><br><span class="line">jay.pcoa &lt;- data.frame(jay.h.pcoa[,<span class="number">1</span>:<span class="number">2</span>]) %&gt;%</span><br><span class="line">  mutate(Treatments = <span class="built_in">rep</span>(<span class="built_in">c</span>(<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>), each = <span class="number">8</span>)) <span class="comment">#根据列数分组，此处意思是前八列为A组，后八列为B组</span></span><br><span class="line"><span class="comment"># PERMANOVA置换多元方差分析</span></span><br><span class="line">jay &lt;- bray.dist</span><br><span class="line">env &lt;- select(jay.pcoa, Treatments)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#获取单因素的数据（方式一）</span></span><br><span class="line">permanova &lt;- adonis(jay ~ Treatments, data = env, permutations = <span class="number">999</span>,method=<span class="string">&quot;bray&quot;</span>)</span><br><span class="line">fcnames &lt;- row.names(permanova$aov.tab)</span><br><span class="line">lab &lt;- paste(<span class="string">&#x27;PERMANOVA\n&#x27;</span>,fcnames[<span class="number">1</span>],<span class="string">&#x27;:R^2=&#x27;</span>,<span class="built_in">round</span>(permanova$aov.tab[<span class="number">1</span>,<span class="number">5</span>],<span class="number">4</span>),<span class="string">&#x27; p=&#x27;</span>, </span><br><span class="line">             <span class="built_in">round</span>(permanova$aov.tab[<span class="number">1</span>,<span class="number">6</span>],<span class="number">4</span>), sep = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="comment">#获取单因素的数据（方式二）</span></span><br><span class="line">permanova2 &lt;- adonis2(jay ~ Treatments, data = env, permutations = <span class="number">999</span>,method=<span class="string">&quot;bray&quot;</span>)</span><br><span class="line">fcnames2 &lt;- row.names(permanova2)</span><br><span class="line">lab2 &lt;- paste(<span class="string">&#x27;PERMANOVA2\n&#x27;</span>,fcnames2[<span class="number">1</span>],<span class="string">&#x27;:R^2=&#x27;</span>,<span class="built_in">round</span>(permanova2[<span class="number">1</span>,<span class="number">3</span>],<span class="number">4</span>),<span class="string">&#x27; p=&#x27;</span>, </span><br><span class="line">              <span class="built_in">round</span>(permanova2[<span class="number">1</span>,<span class="number">5</span>],<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ggplot(jay.pcoa, aes(x=Axis.1, y=Axis.2, colour=Treatments)) + </span><br><span class="line">  geom_point(size=<span class="number">5</span>) +  stat_ellipse(level = <span class="number">0.9</span>) +</span><br><span class="line">  theme_bw()+theme(panel.grid.major=element_line(colour=<span class="literal">NA</span>), panel.background = element_rect(fill = <span class="string">&quot;transparent&quot;</span>,colour = <span class="literal">NA</span>), plot.background = element_rect(fill = <span class="string">&quot;transparent&quot;</span>,colour = <span class="literal">NA</span>), panel.grid.minor = element_blank())+</span><br><span class="line">  <span class="comment"># 把两个轴的贡献度写出来</span></span><br><span class="line">  xlab(paste(<span class="string">&#x27;Axis.1: &#x27;</span>, <span class="built_in">round</span>(jay.h.pc$values$Relative_eig[<span class="number">1</span>],<span class="number">3</span>)*<span class="number">100</span>, <span class="string">&#x27;%&#x27;</span>, sep = <span class="string">&#x27;&#x27;</span>)) +</span><br><span class="line">  ylab(paste(<span class="string">&#x27;Axis.2: &#x27;</span>, <span class="built_in">round</span>(jay.h.pc$values$Relative_eig[<span class="number">2</span>],<span class="number">3</span>)*<span class="number">100</span>, <span class="string">&#x27;%&#x27;</span>, sep = <span class="string">&#x27;&#x27;</span>)) +</span><br><span class="line">  theme(panel.background = element_rect(fill = <span class="string">&quot;transparent&quot;</span>,colour = <span class="literal">NA</span>),</span><br><span class="line">        aspect.ratio = <span class="number">1</span>) +</span><br><span class="line">  <span class="comment"># 用annotate把双因素结果写在左上角</span></span><br><span class="line">  annotate(geom = <span class="string">&#x27;text&#x27;</span>,label = lab, size =<span class="number">4</span>,</span><br><span class="line">           x = <span class="built_in">min</span>(jay.pcoa$Axis.1), y = <span class="built_in">max</span>(jay.pcoa$Axis.2),</span><br><span class="line">           hjust = <span class="number">0</span>,</span><br><span class="line">           vjust =<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
@@ -896,189 +1122,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/12/25/%E7%A0%94%E4%BC%9A%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-摸鱼技能学习-持续更新" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/21/%E6%91%B8%E9%B1%BC%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">摸鱼技能学习-持续更新</a>
-    </h1>
-  
-
-        
-        <a href="/2022/10/21/%E6%91%B8%E9%B1%BC%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" class="archive-article-date">
-  	<time datetime="2022-10-21T08:38:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-21</time>
-</a>
-        
-    
-    
-        
-
-
-      </header>
-	  <div align="center" class="post-count">
-    字数：1.9k字 | 预计阅读时长：6分钟
-</div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>记录工作学习中摸到的有意思的鱼并分享一些能提高生产力的小技巧</p>
-<h3 id="双拼输入法"><a href="#双拼输入法" class="headerlink" title="双拼输入法"></a>双拼输入法</h3><blockquote>
-<p>双拼（也称双打）是一种建立在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E6%B3%95/3523635">拼音输入法</a>基础上的输入方法，可视为<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%85%A8%E6%8B%BC/1048295">全拼</a>的一种改进，它通过将<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B1%89%E8%AF%AD%E6%8B%BC%E9%9F%B3/454">汉语拼音</a>中每个含多个字母的声母或韵母各自映射到某个按键上，使得每个音都可以用两个按键打出，极大地提高了拼音输入法的输入速度。这种声母或韵母到按键的对应表通常称之为双拼方案，这种方案不是固定的，流行的大多数拼音输入法都支持双拼，并且有各自不同的方案，还允许用户自定义方案。——百度百科</p>
-</blockquote>
-<pre><code>可能是花“巨款”买了机械键盘的缘故，不打游戏的我总觉得不好好利用感受会因为没有物尽其用而有点浪费的意思。突然刷到 **双拼** 这个技能后，**两个键即可打出一个字的优势**， 让中二病一犯的我觉得“诶，与众不同，酷，我要学”。能不能真正提升打字速度和生产力先放一边，现在有空就多折腾会儿。
-</code></pre>
-        
-      
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">生产力</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技巧</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/10/21/%E6%91%B8%E9%B1%BC%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-介于假期与开学2022-08-28" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/29/%E4%BB%8B%E4%BA%8E%E5%81%87%E6%9C%9F%E4%B8%8E%E5%BC%80%E5%AD%A62022-08-28/">介于假期与开学2022.08.28</a>
-    </h1>
-  
-
-        
-        <a href="/2022/08/29/%E4%BB%8B%E4%BA%8E%E5%81%87%E6%9C%9F%E4%B8%8E%E5%BC%80%E5%AD%A62022-08-28/" class="archive-article-date">
-  	<time datetime="2022-08-29T14:17:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-29</time>
-</a>
-        
-    
-    
-        
-
-
-      </header>
-	  <div align="center" class="post-count">
-    字数：3.8k字 | 预计阅读时长：12分钟
-</div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="介于假期与开学2022-08-28"><a href="#介于假期与开学2022-08-28" class="headerlink" title="介于假期与开学2022.08.28"></a>介于假期与开学2022.08.28</h1><h2 id="假期"><a href="#假期" class="headerlink" title="假期"></a>假期</h2><h3 id="在湘潭"><a href="#在湘潭" class="headerlink" title="在湘潭"></a>在湘潭</h3><h4 id="关于方言"><a href="#关于方言" class="headerlink" title="关于方言"></a><strong>关于方言</strong></h4><p>​    跟施总在一起这么久，他身为哈尔滨人，我都很少跟他讲湘潭话，一直是用普通话沟通，但他本人却又对湖南方言还是蛮感兴趣的。这次回湘潭见了很多本地朋友，施总评价：一顿饭下来学的词比你这么多年教的都多，可以说是魔鬼训练营了。因为有91和五块钱这两个湘潭老口子在，甚至蹦出了许多我都没怎么听过的“土词汇”，诸如“芭粘的”（形容液体或流体的糊糊状浓稠质感，当时的场景是烧烤摊上那几瓶在室温放置的豆奶）；“diang巴的”（也是形容黏糊糊，但多用于形容皮肤与物体表面接触后那种粘腻的状态，场景是那瓶豆奶沾到了瓶身）；“劲韩的”（咸我们读作“han2”，即表示非常咸，场景是当时那个烧烤确实挺咸的）等等，每当在这个时刻，还是对地区文化挺自豪的，加密语言让一群人有归属感，在本地不觉得，漂泊在外的时候乡音、乡味和乡俗等都是能让人一秒红了眼眶酸了鼻梁的事情。</p>
-        
-      
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/29/%E4%BB%8B%E4%BA%8E%E5%81%87%E6%9C%9F%E4%B8%8E%E5%BC%80%E5%AD%A62022-08-28/">展开全文 >></a>
         </p>
       
 

@@ -6,27 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://twocanis.github.io">
-  <title>微信PC端更新至3.7.0版文件保存至MsgAttach文件夹乱码问题解决 | twocanis&#39;s blog</title>
+  <title>基于R做宏基因组进化树+丰度柱状图TreeBar带聚类树的堆叠柱形图 | twocanis&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题描述因为PC端微信升级到3.7.0，发现了一个文件接收到本地储存地址乱码的bug，具体如下：    使用过程中面临一个问题是，在PC端接收到新文件不能像以前一样按月份排布在一个文件夹内，而是像下面这样，每出现一个新文件都会自动在MsgAttach下生成一个随机乱码文件夹">
+  <meta name="description" content="写在前面同之前一样，重分析需要所以自己找了各路代码借鉴学习，详情请参考 R语言绘制带聚类树的堆叠柱形图 ， 实操效果如下：  步骤表格预处理 选取不同样本属水平的物种丰度图（绝对和相对水平都可以，相对画出来是齐的，绝对的bar是不齐的）。Top10丰度外的类群合并为Others。这里注意，用本篇代码时，表格选择csv&#x2F;txt等格式文件一定要是制表符分隔的，不然会报错重复名或者没有多出的行    分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微信PC端更新至3.7.0版文件保存至MsgAttach文件夹乱码问题解决">
-<meta property="og:url" content="https://twocanis.github.io/2022/06/14/%E5%BE%AE%E4%BF%A1%E6%9B%B4%E6%96%B0%E8%87%B33-7-0%E7%89%88%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E8%87%B3MsgAttach%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/index.html">
+<meta property="og:title" content="基于R做宏基因组进化树+丰度柱状图TreeBar带聚类树的堆叠柱形图">
+<meta property="og:url" content="https://twocanis.github.io/2023/08/11/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84%E8%BF%9B%E5%8C%96%E6%A0%91-%E4%B8%B0%E5%BA%A6%E6%9F%B1%E7%8A%B6%E5%9B%BETreeBar/index.html">
 <meta property="og:site_name" content="twocanis&#39;s blog">
-<meta property="og:description" content="问题描述因为PC端微信升级到3.7.0，发现了一个文件接收到本地储存地址乱码的bug，具体如下：    使用过程中面临一个问题是，在PC端接收到新文件不能像以前一样按月份排布在一个文件夹内，而是像下面这样，每出现一个新文件都会自动在MsgAttach下生成一个随机乱码文件夹">
+<meta property="og:description" content="写在前面同之前一样，重分析需要所以自己找了各路代码借鉴学习，详情请参考 R语言绘制带聚类树的堆叠柱形图 ， 实操效果如下：  步骤表格预处理 选取不同样本属水平的物种丰度图（绝对和相对水平都可以，相对画出来是齐的，绝对的bar是不齐的）。Top10丰度外的类群合并为Others。这里注意，用本篇代码时，表格选择csv&#x2F;txt等格式文件一定要是制表符分隔的，不然会报错重复名或者没有多出的行    分">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/06/14/apc1rSUq5zldYZ4.png">
-<meta property="og:image" content="https://s2.loli.net/2022/06/14/dCs1kAX9UYZETym.png">
-<meta property="og:image" content="https://s2.loli.net/2022/06/14/2hrJCZzvpwOKYB8.png">
-<meta property="og:image" content="https://s2.loli.net/2022/06/14/w6fct9TR72QvU3V.png">
-<meta property="og:image" content="https://s2.loli.net/2022/06/14/2xDFmQnN3EtA8zB.png">
-<meta property="og:image" content="https://s2.loli.net/2022/06/14/Jrxcf6WoRniClmA.png">
-<meta property="article:published_time" content="2022-06-14T01:12:58.000Z">
-<meta property="article:modified_time" content="2022-06-14T02:02:14.105Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230917151814185.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230917152142907.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230917152559876.png">
+<meta property="article:published_time" content="2023-08-11T01:39:36.000Z">
+<meta property="article:modified_time" content="2023-09-17T07:26:58.148Z">
 <meta property="article:author" content="twocanis">
-<meta property="article:tag" content="技巧">
+<meta property="article:tag" content="绘图">
+<meta property="article:tag" content="组学">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/06/14/apc1rSUq5zldYZ4.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230917151814185.png">
   
     <link rel="alternative" href="/atom.xml" title="twocanis&#39;s blog" type="application/atom+xml">
   
@@ -170,20 +168,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-微信更新至3-7-0版文件保存至MsgAttach文件夹乱码问题解决" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-基于R做宏基因组进化树-丰度柱状图TreeBar" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      微信PC端更新至3.7.0版文件保存至MsgAttach文件夹乱码问题解决
+      基于R做宏基因组进化树+丰度柱状图TreeBar带聚类树的堆叠柱形图
     </h1>
   
 
         
-        <a href="/2022/06/14/%E5%BE%AE%E4%BF%A1%E6%9B%B4%E6%96%B0%E8%87%B33-7-0%E7%89%88%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E8%87%B3MsgAttach%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="archive-article-date">
-  	<time datetime="2022-06-14T01:12:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-14</time>
+        <a href="/2023/08/11/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84%E8%BF%9B%E5%8C%96%E6%A0%91-%E4%B8%B0%E5%BA%A6%E6%9F%B1%E7%8A%B6%E5%9B%BETreeBar/" class="archive-article-date">
+  	<time datetime="2023-08-11T01:39:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-11</time>
 </a>
         
     
@@ -197,38 +195,23 @@
 
       </header>
 	  <div align="center" class="post-count">
-    字数：421字 | 预计阅读时长：1分钟
+    字数：954字 | 预计阅读时长：5分钟
 </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>因为PC端微信升级到3.7.0，发现了一个文件接收到本地储存地址乱码的bug，具体如下：</p>
-<img src="https://s2.loli.net/2022/06/14/apc1rSUq5zldYZ4.png" alt="img" style="zoom:50%;" />
+        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>同之前一样，重分析需要所以自己找了各路代码借鉴学习，详情请参考 <a href="%5BR%E8%AF%AD%E8%A8%80%E7%BB%98%E5%88%B6%E5%B8%A6%E8%81%9A%E7%B1%BB%E6%A0%91%E7%9A%84%E5%A0%86%E5%8F%A0%E6%9F%B1%E5%BD%A2%E5%9B%BE_%E5%88%98%E6%B0%B8%E9%91%ABAdam%E7%9A%84%E5%8D%9A%E5%AE%A2-CSDN%E5%8D%9A%E5%AE%A2%5D(https://blog.csdn.net/woodcorpse/article/details/106554538)">R语言绘制带聚类树的堆叠柱形图</a> ， 实操效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230917151814185.png" alt="image-20230917151814185"></p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="表格预处理"><a href="#表格预处理" class="headerlink" title="表格预处理"></a>表格预处理</h3><ul>
+<li>选取不同样本属水平的物种丰度图（绝对和相对水平都可以，相对画出来是齐的，绝对的bar是不齐的）。Top10丰度外的类群合并为Others。这里注意，用本篇代码时，<strong>表格选择csv/txt等格式文件一定要是制表符分隔的，不然会报错重复名或者没有多出的行</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230917152142907.png" alt="image-20230917152142907"></p>
+<ul>
+<li>分组信息</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/twocanis/blog-img/main/image-20230917152559876.png" alt="image-20230917152559876"></p>
+<h3 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 装包</span></span><br><span class="line">install.packages(<span class="string">&quot;vegan&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#层次聚类</span></span><br><span class="line"><span class="comment">#读取 OTU 丰度表，csv/txt等文件一定要是制表符分隔的，不然会报错重复名或者没有多出的行</span></span><br><span class="line">dat &lt;- read.delim(<span class="string">&#x27;Unigenes.absolute.g.txt&#x27;</span>, row.names = <span class="number">1</span>, sep = <span class="string">&#x27;\t&#x27;</span>, head = <span class="literal">TRUE</span>, check.names = <span class="literal">FALSE</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#计算样本间距离，以群落分析中常用的 Bray-curtis 距离为例</span></span><br><span class="line">dis_bray &lt;- vegan::vegdist(t(dat), method = <span class="string">&#x27;bray&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#层次聚类，以 UPGMA 为例</span></span><br><span class="line">tree &lt;- hclust(dis_bray, method = <span class="string">&#x27;average&#x27;</span>)</span><br><span class="line">tree</span><br><span class="line"></span><br><span class="line">plot(tree)</span><br><span class="line"></span><br><span class="line"><span class="comment">##聚类树绘制</span></span><br><span class="line"><span class="comment">#样本分组颜色、名称等</span></span><br><span class="line">group &lt;- read.delim(<span class="string">&#x27;group.txt&#x27;</span>, row.names = <span class="number">1</span>, sep = <span class="string">&#x27;\t&#x27;</span>, head = <span class="literal">TRUE</span>, check.names = <span class="literal">FALSE</span>, stringsAsFactors = <span class="literal">FALSE</span>)</span><br><span class="line">grp &lt;- group[<span class="number">2</span>]</span><br><span class="line">group_col &lt;- <span class="built_in">c</span>(<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line"><span class="built_in">names</span>(group_col) &lt;- <span class="built_in">c</span>(<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>)</span><br><span class="line">group_name &lt;- <span class="built_in">c</span>(<span class="string">&#x27;RA&#x27;</span>, <span class="string">&#x27;CON&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#样本分组标签</span></span><br><span class="line">layout(t(<span class="built_in">c</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>)))</span><br><span class="line">par(mar = <span class="built_in">c</span>(<span class="number">5</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">plot(<span class="number">0</span>, type = <span class="string">&#x27;n&#x27;</span>, xaxt = <span class="string">&#x27;n&#x27;</span>, yaxt = <span class="string">&#x27;n&#x27;</span>, frame.plot = <span class="literal">FALSE</span>, xlab = <span class="string">&#x27;&#x27;</span>, ylab = <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">     xlim = <span class="built_in">c</span>(-<span class="built_in">max</span>(tree$height), <span class="number">0</span>), ylim = <span class="built_in">c</span>(<span class="number">0</span>, <span class="built_in">length</span>(tree$order)))</span><br><span class="line">legend(<span class="string">&#x27;topleft&#x27;</span>, legend = group_name, pch = <span class="number">15</span>, col = group_col, bty = <span class="string">&#x27;n&#x27;</span>, cex = <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#聚类树绘制，按分组给分支上色</span></span><br><span class="line">treeline &lt;- <span class="keyword">function</span>(pos1, pos2, height, col1, col2) &#123;</span><br><span class="line">  meanpos = (pos1[<span class="number">1</span>] + pos2[<span class="number">1</span>]) / <span class="number">2</span></span><br><span class="line">  segments(y0 = pos1[<span class="number">1</span>] - <span class="number">0.4</span>, x0 = -pos1[<span class="number">2</span>], y1 = pos1[<span class="number">1</span>] - <span class="number">0.4</span>, x1 = -height,  col = col1,lwd = <span class="number">2</span>)</span><br><span class="line">  segments(y0 = pos1[<span class="number">1</span>] - <span class="number">0.4</span>, x0 = -height,  y1 = meanpos - <span class="number">0.4</span>, x1 = -height,  col = col1,lwd = <span class="number">2</span>)</span><br><span class="line">  segments(y0 = meanpos - <span class="number">0.4</span>, x0 = -height,  y1 = pos2[<span class="number">1</span>] - <span class="number">0.4</span>, x1 = -height,  col = col2,lwd = <span class="number">2</span>)</span><br><span class="line">  segments(y0 = pos2[<span class="number">1</span>] - <span class="number">0.4</span>, x0 = -height,  y1 = pos2[<span class="number">1</span>] - <span class="number">0.4</span>, x1 = -pos2[<span class="number">2</span>], col = col2,lwd = <span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">meanpos = matrix(<span class="built_in">rep</span>(<span class="number">0</span>, <span class="number">2</span> * <span class="built_in">length</span>(tree$order)), ncol = <span class="number">2</span>)</span><br><span class="line">meancol = <span class="built_in">rep</span>(<span class="number">0</span>, <span class="built_in">length</span>(tree$order))</span><br><span class="line"><span class="keyword">for</span> (step <span class="keyword">in</span> <span class="number">1</span>:nrow(tree$merge)) &#123;</span><br><span class="line">  <span class="keyword">if</span>(tree$merge[step, <span class="number">1</span>] &lt; <span class="number">0</span>)&#123;</span><br><span class="line">    pos1 &lt;- <span class="built_in">c</span>(which(tree$order == -tree$merge[step, <span class="number">1</span>]), <span class="number">0</span>)</span><br><span class="line">    col1 &lt;- group_col[<span class="built_in">as.character</span>(grp[tree$labels[-tree$merge[step, <span class="number">1</span>]],<span class="number">1</span>])]</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    pos1 &lt;- meanpos[tree$merge[step, <span class="number">1</span>], ]</span><br><span class="line">    col1 &lt;- meancol[tree$merge[step, <span class="number">1</span>]]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (tree$merge[step, <span class="number">2</span>] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    pos2 &lt;- <span class="built_in">c</span>(which(tree$order == -tree$merge[step, <span class="number">2</span>]), <span class="number">0</span>)</span><br><span class="line">    col2 &lt;- group_col[<span class="built_in">as.character</span>(grp[tree$labels[-tree$merge[step, <span class="number">2</span>]],<span class="number">1</span>])]</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    pos2 &lt;- meanpos[tree$merge[step, <span class="number">2</span>], ]</span><br><span class="line">    col2 &lt;- meancol[tree$merge[step, <span class="number">2</span>]]</span><br><span class="line">  &#125;</span><br><span class="line">  height &lt;- tree$height[step]</span><br><span class="line">  treeline(pos1, pos2, height, col1, col2)</span><br><span class="line">  meanpos[step, ] &lt;- <span class="built_in">c</span>((pos1[<span class="number">1</span>] + pos2[<span class="number">1</span>]) / <span class="number">2</span>, height)</span><br><span class="line">  <span class="keyword">if</span> (col1 == col2) meancol[step] &lt;- col1 <span class="keyword">else</span> meancol[step] &lt;- <span class="string">&#x27;grey&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">##堆叠柱形图</span></span><br><span class="line"><span class="comment">#样本顺序调整为和聚类树中的顺序一致</span></span><br><span class="line">dat &lt;- dat[ ,tree$order]</span><br><span class="line"></span><br><span class="line"><span class="comment">#物种颜色设置</span></span><br><span class="line">genus_color &lt;- <span class="built_in">c</span>(<span class="string">&#x27;#8DD3C7&#x27;</span>, <span class="string">&#x27;#FFFFB3&#x27;</span>, <span class="string">&#x27;#00CDCD&#x27;</span>, <span class="string">&#x27;#FB8072&#x27;</span>, <span class="string">&#x27;#80B1D3&#x27;</span>, <span class="string">&#x27;#FDB462&#x27;</span>, <span class="string">&#x27;#B3DE69&#x27;</span>, <span class="string">&#x27;#FCCDE5&#x27;</span>, <span class="string">&#x27;#BC80BD&#x27;</span>, <span class="string">&#x27;#CCEBC5&#x27;</span>, <span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line"><span class="built_in">names</span>(genus_color) &lt;- rownames(dat)</span><br><span class="line"></span><br><span class="line"><span class="comment">#堆叠柱形图</span></span><br><span class="line"><span class="comment">#数字向量，格式为c(bottom, left, top, right)，给出各个方向绘图区边缘空白的大小</span></span><br><span class="line">par(mar = <span class="built_in">c</span>(<span class="number">5</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">relative &lt;- read.delim(<span class="string">&#x27;new_Unigenes.relative.g.txt&#x27;</span>, row.names = <span class="number">1</span>, sep = <span class="string">&#x27;\t&#x27;</span>, head = <span class="literal">TRUE</span>, check.names = <span class="literal">FALSE</span>)</span><br><span class="line"></span><br><span class="line">bar &lt;- barplot(as.matrix(relative), col = genus_color, space = <span class="number">0.4</span>, width = <span class="number">0.7</span>, cex.axis = <span class="number">1</span>, horiz = <span class="literal">TRUE</span>, cex.lab = <span class="number">1.2</span>,</span><br><span class="line">               xlab = <span class="string">&#x27;Relative Abundance&#x27;</span>, yaxt = <span class="string">&#x27;n&#x27;</span>, las = <span class="number">1</span>, ylim = <span class="built_in">c</span>(<span class="number">0</span>, ncol(dat)), family = <span class="string">&#x27;mono&#x27;</span>)</span><br><span class="line"></span><br><span class="line">mtext(<span class="string">&#x27;Top 10 genus&#x27;</span>, side = <span class="number">3</span>, line = <span class="number">1</span>, cex = <span class="number">1</span>)</span><br><span class="line">text(x = -<span class="number">0.05</span>, y = bar, labels = colnames(dat), col = group_col[group[tree$order, <span class="number">2</span>]], xpd = <span class="literal">TRUE</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#柱形图图例</span></span><br><span class="line">par(mar = <span class="built_in">c</span>(<span class="number">5</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">0</span>))</span><br><span class="line">plot(<span class="number">0</span>, type = <span class="string">&#x27;n&#x27;</span>, xaxt = <span class="string">&#x27;n&#x27;</span>, yaxt = <span class="string">&#x27;n&#x27;</span>, bty = <span class="string">&#x27;n&#x27;</span>, xlab = <span class="string">&#x27;&#x27;</span>, ylab = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">legend(<span class="string">&#x27;left&#x27;</span>, pch = <span class="number">15</span>, col = genus_color, legend = <span class="built_in">names</span>(genus_color), bty = <span class="string">&#x27;n&#x27;</span>, cex = <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>使用过程中面临一个问题是，在PC端接收到新文件不能像以前一样按月份排布在一个文件夹内，而是像下面这样，每出现一个新文件都会自动在<code>MsgAttach</code>下生成一个随机乱码文件夹</li>
-</ul>
-<span id="more"></span>
-
-<p><img src="https://s2.loli.net/2022/06/14/dCs1kAX9UYZETym.png" alt="image-20220614092645332"></p>
-<ul>
-<li>从这个乱码文件夹中继续点进去才有那个时间点接收的文件，也就是说直接在文件夹内几乎是无法直接寻找辨认，只能通过微信窗口的聊天记录定位到本地文件夹，那无论是对于查找/调用/删除/移动/备份都很麻烦</li>
-</ul>
-<p><img src="https://s2.loli.net/2022/06/14/2hrJCZzvpwOKYB8.png" alt="image-20220614092609670"></p>
-<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><h3 id="方法一：退回旧版本"><a href="#方法一：退回旧版本" class="headerlink" title="方法一：退回旧版本"></a>方法一：退回旧版本</h3><ul>
-<li>参考知乎 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/535718608">请问微信文件存储位置突然由file按月存储改为MsgAttach按聊天存储，如何改回？?</a> 下方ID为 <em>金刚莫港</em> 答主的回答，将微信版本退回到 <a target="_blank" rel="noopener" href="https://www.jianguoyun.com/p/DVAL6-AQu7TTCBjIxcMEIAA">WeChat3.6.0.18</a>，到原目录覆盖安装后如下</li>
-</ul>
-<p><img src="https://s2.loli.net/2022/06/14/w6fct9TR72QvU3V.png" alt="image-20220614093648682"></p>
-<ul>
-<li>覆盖安装后原有记录没有消失，完整保留</li>
-</ul>
-<p><img src="https://s2.loli.net/2022/06/14/2xDFmQnN3EtA8zB.png" alt="image-20220614093834753"></p>
-<ul>
-<li>新发一个文件测试后ok，像原先一样按月份归类文件夹</li>
-</ul>
-<p><img src="https://s2.loli.net/2022/06/14/Jrxcf6WoRniClmA.png" alt="image-20220614093552810"></p>
-<h3 id="方法二：脚本自动转移"><a href="#方法二：脚本自动转移" class="headerlink" title="方法二：脚本自动转移"></a>方法二：脚本自动转移</h3><p>详情可参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/Run_with_wind/article/details/125107553">【Python】解决最新电脑版微信[22-06]聊天文件统一按用户归类到MsgAttach文件夹的问题</a></p>
-<h3 id="方法三：官方修复"><a href="#方法三：官方修复" class="headerlink" title="方法三：官方修复"></a><del>方法三：官方修复</del></h3><p>这个就看运气了，相关社区论坛因为这个bug都炸毛了各种反馈，看下个版本微信更新会不会<del>大发慈悲</del>迅速修复了</p>
 
       
 
@@ -241,7 +224,7 @@
     
     <br>
     <strong>本文链接：</strong>
-    https://twocanis.github.io/2022/06/14/%E5%BE%AE%E4%BF%A1%E6%9B%B4%E6%96%B0%E8%87%B33-7-0%E7%89%88%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E8%87%B3MsgAttach%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/
+    https://twocanis.github.io/2023/08/11/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84%E8%BF%9B%E5%8C%96%E6%A0%91-%E4%B8%B0%E5%BA%A6%E6%9F%B1%E7%8A%B6%E5%9B%BETreeBar/
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -295,7 +278,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技巧</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">绘图</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">组学</a>
         		</li>
       		
 		</ul>
@@ -351,7 +338,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://twocanis.github.io/2022/06/14/%E5%BE%AE%E4%BF%A1%E6%9B%B4%E6%96%B0%E8%87%B33-7-0%E7%89%88%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E8%87%B3MsgAttach%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://twocanis.github.io/2023/08/11/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84%E8%BF%9B%E5%8C%96%E6%A0%91-%E4%B8%B0%E5%BA%A6%E6%9F%B1%E7%8A%B6%E5%9B%BETreeBar/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -365,18 +352,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/07/12/2022%E5%86%85%E8%92%99-%E9%95%BF%E6%98%A5%E5%87%BA%E5%B7%AE%E6%97%85%E7%A8%8B%E6%84%9F%E6%83%B3/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/09/17/%E5%9F%BA%E4%BA%8ER%E5%81%9A%E7%BB%84%E9%97%B4%E5%B7%AE%E5%BC%82Anosim%E5%88%86%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          2022内蒙-长春出差旅程感想
+          宏基因组做组间差异Anosim分析与结果解读
         
       </div>
     </a>
   
   
-    <a href="/2022/06/07/SPSS%E5%8D%95%E5%9B%A0%E7%B4%A0%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E6%95%99%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SPSS单因素方差分析教程</div>
+    <a href="/2023/08/10/%E5%85%B3%E4%BA%8E%E5%8F%8C%E6%8C%81%E6%89%8B%E6%9C%BA%E8%AE%BE%E5%A4%87%E7%9A%84%E7%9F%AD%E4%BF%A1%E8%BD%AC%E5%8F%91tips/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于双持苹果安卓手机设备的验证码短信转发tips.md</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -403,7 +390,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="toc-number">2.</span> <span class="toc-text">问题解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E9%80%80%E5%9B%9E%E6%97%A7%E7%89%88%E6%9C%AC"><span class="toc-number">2.1.</span> <span class="toc-text">方法一：退回旧版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E8%BD%AC%E7%A7%BB"><span class="toc-number">2.2.</span> <span class="toc-text">方法二：脚本自动转移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89%EF%BC%9A%E5%AE%98%E6%96%B9%E4%BF%AE%E5%A4%8D"><span class="toc-number">2.3.</span> <span class="toc-text">方法三：官方修复</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.1.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">表格预处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA"><span class="toc-number">1.1.2.</span> <span class="toc-text">代码演示</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -419,7 +406,7 @@
   
 
   
-  <div id="SOHUCS" sid="微信更新至3-7-0版文件保存至MsgAttach文件夹乱码问题解决" ></div> 
+  <div id="SOHUCS" sid="基于R做宏基因组进化树-丰度柱状图TreeBar" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
